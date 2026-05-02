@@ -1,155 +1,188 @@
 <script lang="ts">
-	import { invoke } from "@tauri-apps/api/core";
+	let isDragging = $state(false);
+	let fileInput: HTMLInputElement;
 
-	let name = $state("");
-	let greetMsg = $state("");
+	function handleDragEnter(e: DragEvent) {
+		e.preventDefault();
+		isDragging = true;
+	}
 
-	async function greet(event: Event) {
-		event.preventDefault();
-		// Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-		greetMsg = await invoke("greet", { name });
+	function handleDragOver(e: DragEvent) {
+		e.preventDefault();
+		isDragging = true;
+	}
+
+	function handleDragLeave(e: DragEvent) {
+		e.preventDefault();
+		isDragging = false;
+	}
+
+	function handleDrop(e: DragEvent) {
+		e.preventDefault();
+		isDragging = false;
+		// Stubbed: no-op for now per plan
+	}
+
+	function handleFileChange(e: Event) {
+		const target = e.target as HTMLInputElement;
+		if (target.files && target.files.length > 0) {
+			// Stubbed: no-op for now per plan
+		}
+	}
+
+	function handleCardClick() {
+		fileInput?.click();
 	}
 </script>
 
-<main class="container">
-	<h1>Welcome to Tauri + Svelte</h1>
+<div class="page">
+	<div
+		class="dropzone-card"
+		class:dragging={isDragging}
+		role="button"
+		tabindex="0"
+		onclick={handleCardClick}
+		onkeydown={(e) => e.key === "Enter" && handleCardClick()}
+		ondragenter={handleDragEnter}
+		ondragover={handleDragOver}
+		ondragleave={handleDragLeave}
+		ondrop={handleDrop}
+	>
+		<div class="dropzone-inner">
+			<svg
+				class="upload-icon"
+				width="48"
+				height="48"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="1.5"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				aria-hidden="true"
+			>
+				<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+				<polyline points="17 8 12 3 7 8" />
+				<line x1="12" y1="3" x2="12" y2="15" />
+			</svg>
 
-	<div class="row">
-		<a href="https://vite.dev" target="_blank">
-			<img src="/vite.svg" class="logo vite" alt="Vite Logo" />
-		</a>
-		<a href="https://tauri.app" target="_blank">
-			<img src="/tauri.svg" class="logo tauri" alt="Tauri Logo" />
-		</a>
-		<a href="https://svelte.dev" target="_blank">
-			<img src="/svelte.svg" class="logo svelte-kit" alt="SvelteKit Logo" />
-		</a>
+			<h1 class="title">Import Squad Export</h1>
+
+			<p class="subtitle">Drop your FM CSV here, or click to browse</p>
+
+			<span class="file-hint">CSV files only</span>
+		</div>
+
+		<input
+			type="file"
+			accept=".csv"
+			bind:this={fileInput}
+			onchange={handleFileChange}
+			class="hidden-input"
+			aria-hidden="true"
+		/>
 	</div>
-	<p>Click on the Tauri, Vite, and SvelteKit logos to learn more.</p>
-
-	<form class="row" onsubmit={greet}>
-		<input id="greet-input" placeholder="Enter a name..." bind:value={name} />
-		<button type="submit">Greet</button>
-	</form>
-	<p>{greetMsg}</p>
-</main>
+</div>
 
 <style>
-	.logo.vite:hover {
-		filter: drop-shadow(0 0 2em #747bff);
+	.page {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 100vh;
+		padding: 1rem;
 	}
 
-	.logo.svelte-kit:hover {
-		filter: drop-shadow(0 0 2em #ff3e00);
+	.dropzone-card {
+		background: rgba(13, 33, 17, 0.7);
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border: 1px solid rgba(181, 205, 180, 0.2);
+		border-radius: 20px;
+		padding: 2rem 2.5rem;
+		cursor: pointer;
+		transition:
+			border-color 0.2s ease,
+			box-shadow 0.2s ease,
+			background 0.2s ease;
 	}
 
-	:root {
-		font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-		font-size: 16px;
-		line-height: 24px;
-		font-weight: 400;
-
-		color: #0f0f0f;
-		background-color: #f6f6f6;
-
-		font-synthesis: none;
-		text-rendering: optimizeLegibility;
-		-webkit-font-smoothing: antialiased;
-		-moz-osx-font-smoothing: grayscale;
-		-webkit-text-size-adjust: 100%;
+	.dropzone-card:hover {
+		border-color: #e9c349;
+		box-shadow:
+			0 0 20px rgba(233, 195, 73, 0.15),
+			0 0 40px rgba(233, 195, 73, 0.08);
 	}
 
-	.container {
-		margin: 0;
-		padding-top: 10vh;
+	.dropzone-card:focus {
+		outline: 2px solid #e9c349;
+		outline-offset: 2px;
+	}
+
+	.dropzone-card.dragging {
+		border-color: #e9c349;
+		background: rgba(13, 33, 17, 0.85);
+		box-shadow:
+			0 0 20px rgba(233, 195, 73, 0.2),
+			0 0 40px rgba(233, 195, 73, 0.1);
+	}
+
+	.dropzone-inner {
+		border: 2px dashed #434842;
+		border-radius: 8px;
+		padding: 3rem 4rem;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		align-items: center;
+		gap: 0.75rem;
+		transition: border-color 0.2s ease;
+	}
+
+	.dropzone-card:hover .dropzone-inner {
+		border-color: rgba(233, 195, 73, 0.6);
+	}
+
+	.dropzone-card.dragging .dropzone-inner {
+		border-color: #e9c349;
+	}
+
+	.upload-icon {
+		color: #e9c349;
+		margin-bottom: 0.5rem;
+		transition: opacity 0.2s ease;
+	}
+
+	.dropzone-card:hover .upload-icon,
+	.dropzone-card.dragging .upload-icon {
+		opacity: 0.9;
+	}
+
+	.title {
+		font-size: 24px;
+		font-weight: 600;
+		color: #e9c349;
+		margin: 0;
 		text-align: center;
 	}
 
-	.logo {
-		height: 6em;
-		padding: 1.5em;
-		will-change: filter;
-		transition: 0.75s;
-	}
-
-	.logo.tauri:hover {
-		filter: drop-shadow(0 0 2em #24c8db);
-	}
-
-	.row {
-		display: flex;
-		justify-content: center;
-	}
-
-	a {
-		font-weight: 500;
-		color: #646cff;
-		text-decoration: inherit;
-	}
-
-	a:hover {
-		color: #535bf2;
-	}
-
-	h1 {
+	.subtitle {
+		font-size: 16px;
+		font-weight: 400;
+		color: #c3c8c0;
+		margin: 0;
 		text-align: center;
 	}
 
-	input,
-	button {
-		border-radius: 8px;
-		border: 1px solid transparent;
-		padding: 0.6em 1.2em;
-		font-size: 1em;
-		font-weight: 500;
-		font-family: inherit;
-		color: #0f0f0f;
-		background-color: #ffffff;
-		transition: border-color 0.25s;
-		box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+	.file-hint {
+		font-size: 12px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: #c3c8c0;
+		margin-top: 0.25rem;
 	}
 
-	button {
-		cursor: pointer;
-	}
-
-	button:hover {
-		border-color: #396cd8;
-	}
-	button:active {
-		border-color: #396cd8;
-		background-color: #e8e8e8;
-	}
-
-	input,
-	button {
-		outline: none;
-	}
-
-	#greet-input {
-		margin-right: 5px;
-	}
-
-	@media (prefers-color-scheme: dark) {
-		:root {
-			color: #f6f6f6;
-			background-color: #2f2f2f;
-		}
-
-		a:hover {
-			color: #24c8db;
-		}
-
-		input,
-		button {
-			color: #ffffff;
-			background-color: #0f0f0f98;
-		}
-		button:active {
-			background-color: #0f0f0f69;
-		}
+	.hidden-input {
+		display: none;
 	}
 </style>
