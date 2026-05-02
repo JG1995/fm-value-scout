@@ -53,7 +53,6 @@ Proceed once the execution path, constraints, and regression surface are clear e
    - Single-track or dependent steps: stay in the main agent.
    - Small reads or searches: use parallel tool calls in the main agent.
    - 2+ independent tracks: launch all subagents in the same response.
-   - Use 2+ subagents or none. NEVER launch exactly 1 subagent.
 4. Synthesize findings and re-read target files if context is stale.
 5. Implement the smallest correct change.
 6. Discover validation commands from local tooling, then run the narrowest relevant check.
@@ -61,21 +60,6 @@ Proceed once the execution path, constraints, and regression surface are clear e
 Workflow compression applies only to coupled, single-track work where the next step depends on the current finding.
 
 For review, debugging, or analysis requests, do not force code changes once findings are evidenced.
-
-## Subagents
-
-Use 2+ subagents or none. NEVER launch exactly 1 subagent.
-
-The main agent is a builder, not a dispatcher. Work first, delegate second. Use subagents proactively, but only after scoping has split the work into tracks ready for parallel execution.
-
-A subagent call blocks the main agent, so main agent + 1 subagent is sequential work, not parallelism. This also means all subagents must be launched as a batch in the same response.
-
-- Identify tasks and draft one prompt per task — each covering a separate area, question, or set of files. Keep scoping in the main agent until you have 2+ prompts ready.
-- Each track must complete without the results of the others. If a track depends on another's findings, handle it in the main agent.
-- Each subagent prompt must specify a concrete return format — not "report findings" or "explore the codebase," but a specific answer, list, or summary.
-- Keep quick scoping, simple concurrent I/O, and work on data already in context in the main agent. Use parallel tool calls when helpful.
-- Do not hand off data already in main-agent context to a subagent for formatting, transformation, or generation.
-- After the batch returns, synthesize results and use the main agent only for narrow gap-filling before implementation.
 
 ## Testing
 
@@ -104,7 +88,7 @@ A subagent call blocks the main agent, so main agent + 1 subagent is sequential 
 ## Git & PRs
 
 - Commit only when explicitly requested.
-- Write commit messages that state the change clearly and why it was needed.
+- Write commit messages that state the change clearly and why it was needed - follow "Conventional Commit" practices as described @.omp/skills/commit/conventional-commits.md.
 - Keep PRs small and scoped to one concern.
 - Do not force-push to main/master.
 - Do not use `--no-verify` or `--no-gpg-sign`.
