@@ -1,26 +1,10 @@
-# OS files
 .DS_Store
-Thumbs.db
-*:Zone.Identifier
-
-# Environment / secrets
+node_modules
+/build
+/.svelte-kit
+/package
 .env
 .env.*
-*.secret
-*.key
-*.pem
-
-# Dependencies
-node_modules/
-
-# Build output
-dist/
-build/
-out/
-
-# IDE
-.vscode/settings.json
-.idea/
-
-# OMP local state
-.omp/local/
+!.env.example
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
