@@ -89,8 +89,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		min-height: 100vh;
-		padding: var(--space-4);
+		height: 100%;
+		box-sizing: border-box;
 	}
 
 	.dropzone-card {

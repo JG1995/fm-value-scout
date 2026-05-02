@@ -1,14 +1,28 @@
 <script lang="ts">
 	import "../styles/tokens.css";
+	import Sidebar from "$lib/components/Sidebar.svelte";
+
 	const { children } = $props();
 </script>
 
-<div class="layout">
-	{@render children()}
+<div class="app">
+	<Sidebar />
+	<div class="content">
+		{@render children()}
+	</div>
 </div>
 
 <style>
-	.layout {
-		min-height: 100vh;
+	.app {
+		display: flex;
+		height: 100dvh;
+		width: 100%;
+	}
+
+	.content {
+		flex: 1;
+		margin-left: 72px; /* sidebar width: 48px icon + 24px padding */
+		height: 100%;
+		overflow: hidden;
 	}
 </style>
