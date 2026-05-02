@@ -7,6 +7,7 @@ alwaysApply: true
 # Tauri MCP Usage Rule
 
 ## When to Use
+
 - Debugging a Tauri app (frontend or backend)
 - Interacting with Tauri app UI elements
 - Inspecting DOM, taking screenshots, or verifying UI state
@@ -15,6 +16,7 @@ alwaysApply: true
 - Managing Tauri windows
 
 ## Required Workflow
+
 1. Start a `driver_session` before any UI automation or inspection.
 2. Use `mcp__tauri_webview_dom_snapshot` for DOM inspection instead of generic browser tools.
 3. Use `mcp__tauri_webview_screenshot` for visual verification.
@@ -24,9 +26,11 @@ alwaysApply: true
 7. Use `mcp__tauri_manage_window` for window operations.
 
 ## Forbidden Alternatives
+
 - **NEVER** use `puppeteer` for Tauri app interaction when Tauri MCP is available.
 - **NEVER** use manual shell commands to interact with Tauri processes when MCP tools exist.
 - **NEVER** inspect backend state via manual log parsing when `ipc_get_backend_state` is available.
 
 ## Fallback Policy
+
 If no Tauri app session is running and a driver_session cannot be established, fall back and explicitly state why the Tauri MCP tools were not used.

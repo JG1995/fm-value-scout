@@ -259,6 +259,7 @@ Create the design document at:
 ## Assumptions and Constraints
 
 [Every assumption made during design — about existing code, data shapes, user behavior, deployment]
+
 - [Assumption 1]: [why we believe this, what happens if wrong]
 - [Assumption 2]: [why we believe this, what happens if wrong]
 
@@ -270,6 +271,7 @@ Create the design document at:
 ## Anti-Requirements
 
 [What this must explicitly NOT do — boundaries that prevent scope creep]
+
 - [Anti-requirement 1]: [why excluded]
 - [Anti-requirement 2]: [why excluded]
 
@@ -317,12 +319,14 @@ Create the design document at:
 ## Edge Cases and Boundary Conditions
 
 [All edge cases identified during inquiry, with resolution for each]
+
 - [Edge case 1]: [resolution]
 - [Edge case 2]: [resolution]
 
 ## Failure Modes and Degradation
 
 [How the feature behaves when things go wrong, consistent with existing patterns]
+
 - [Failure mode 1]: [detection, response, recovery]
 - [Failure mode 2]: [detection, response, recovery]
 
@@ -343,6 +347,7 @@ Create the design document at:
 ## Invariants
 
 [System properties that must always hold, regardless of state]
+
 - [Invariant 1]
 - [Invariant 2]
 
@@ -369,10 +374,10 @@ Create the design document at:
 
 [Record of key decisions made during design, with reasoning]
 
-| Decision | Options Considered | Chosen | Rationale |
-|----------|-------------------|--------|-----------|
-| [Decision 1] | [A, B, C] | [A] | [why] |
-| [Decision 2] | [X, Y] | [Y] | [why] |
+| Decision     | Options Considered | Chosen | Rationale |
+| ------------ | ------------------ | ------ | --------- |
+| [Decision 1] | [A, B, C]          | [A]    | [why]     |
+| [Decision 2] | [X, Y]             | [Y]    | [why]     |
 ```
 
 ### Phase 8: User Approval
@@ -417,20 +422,20 @@ Do NOT invoke implementation skills directly—let the user decide when to proce
 
 ## Quick Reference
 
-| Question Type         | Purpose                 | Example                                               |
-| --------------------- | ----------------------- | ----------------------------------------------------- |
-| Context gathering     | Understand project      | "How is authentication handled currently?"            |
-| Problem extraction    | Identify the pain point | "What's frustrating about the current workflow?"      |
-| Integration discovery | Find connection points  | "Where should this feature appear in the UI?"         |
-| Pattern matching      | Ensure consistency      | "Should this follow the existing X pattern?"          |
-| Impact assessment     | Understand changes      | "Does this affect existing users?"                    |
-| Success criteria      | Define "done"           | "What makes this successful vs failure?"              |
-| Edge case probing     | Find hidden assumptions | "What happens when existing data is in state X?"      |
-| Failure mode mapping  | Ensure graceful handling| "What does the user see when this service is down?"   |
-| Adversarial thinking  | Find security/misuse    | "What's the worst input someone could provide here?"  |
-| Invariant checking    | Ensure system integrity | "What must always be true in the data model?"         |
-| Assumption surfacing  | Make implicit explicit  | "What are you assuming about the existing codebase?"  |
-| Regression checking   | Prevent breaking changes| "Which existing tests might this feature affect?"     |
+| Question Type         | Purpose                  | Example                                              |
+| --------------------- | ------------------------ | ---------------------------------------------------- |
+| Context gathering     | Understand project       | "How is authentication handled currently?"           |
+| Problem extraction    | Identify the pain point  | "What's frustrating about the current workflow?"     |
+| Integration discovery | Find connection points   | "Where should this feature appear in the UI?"        |
+| Pattern matching      | Ensure consistency       | "Should this follow the existing X pattern?"         |
+| Impact assessment     | Understand changes       | "Does this affect existing users?"                   |
+| Success criteria      | Define "done"            | "What makes this successful vs failure?"             |
+| Edge case probing     | Find hidden assumptions  | "What happens when existing data is in state X?"     |
+| Failure mode mapping  | Ensure graceful handling | "What does the user see when this service is down?"  |
+| Adversarial thinking  | Find security/misuse     | "What's the worst input someone could provide here?" |
+| Invariant checking    | Ensure system integrity  | "What must always be true in the data model?"        |
+| Assumption surfacing  | Make implicit explicit   | "What are you assuming about the existing codebase?" |
+| Regression checking   | Prevent breaking changes | "Which existing tests might this feature affect?"    |
 
 ## Key Principles
 
@@ -450,22 +455,22 @@ Do NOT invoke implementation skills directly—let the user decide when to proce
 
 ## Common Mistakes
 
-| Mistake                                   | Fix                                                        |
-| ----------------------------------------- | ---------------------------------------------------------- |
-| Skipping project exploration              | Always understand existing code first                       |
-| Asking multiple questions at once         | One question per message                                   |
-| Asking without providing a recommendation | Always show your reasoning and recommendation              |
-| Assuming requirements prematurely         | Ask, don't guess                                           |
-| Ignoring existing patterns                | New features should follow established patterns             |
-| Including non-MVP features "just in case"  | YAGNI ruthlessly                                          |
-| Missing integration points                | Explicitly identify what existing code is affected          |
-| Forgetting testing strategy               | Define how to verify the feature works                     |
-| Writing vague requirements                | Make each testable: "user can X in Y seconds"              |
-| Overriding user's scope definition        | User has final say—challenge, then accept                  |
-| Proceeding without user approval          | Always get explicit approval before implementation          |
-| Skipping edge case resolution             | Walk every branch of the decision tree                     |
-| Accepting "handle gracefully" as a plan   | Specify exactly what happens on failure                    |
-| Leaving assumptions implicit              | Record every assumption with justification and risk         |
+| Mistake                                   | Fix                                                 |
+| ----------------------------------------- | --------------------------------------------------- |
+| Skipping project exploration              | Always understand existing code first               |
+| Asking multiple questions at once         | One question per message                            |
+| Asking without providing a recommendation | Always show your reasoning and recommendation       |
+| Assuming requirements prematurely         | Ask, don't guess                                    |
+| Ignoring existing patterns                | New features should follow established patterns     |
+| Including non-MVP features "just in case" | YAGNI ruthlessly                                    |
+| Missing integration points                | Explicitly identify what existing code is affected  |
+| Forgetting testing strategy               | Define how to verify the feature works              |
+| Writing vague requirements                | Make each testable: "user can X in Y seconds"       |
+| Overriding user's scope definition        | User has final say—challenge, then accept           |
+| Proceeding without user approval          | Always get explicit approval before implementation  |
+| Skipping edge case resolution             | Walk every branch of the decision tree              |
+| Accepting "handle gracefully" as a plan   | Specify exactly what happens on failure             |
+| Leaving assumptions implicit              | Record every assumption with justification and risk |
 
 ## Red Flags
 

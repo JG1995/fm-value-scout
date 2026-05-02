@@ -270,6 +270,7 @@ Create the design document at `docs/specs/design/mvp/YYYY-MM-DD-<topic>-mvp-desi
 ## Assumptions and Constraints
 
 [Every assumption made during design — about users, data, performance, dependencies, deployment, regulations]
+
 - [Assumption 1]: [why we believe this, what happens if wrong]
 - [Assumption 2]: [why we believe this, what happens if wrong]
 
@@ -281,6 +282,7 @@ Create the design document at `docs/specs/design/mvp/YYYY-MM-DD-<topic>-mvp-desi
 ## Anti-Requirements
 
 [What this must explicitly NOT do — boundaries that prevent scope creep]
+
 - [Anti-requirement 1]: [why excluded]
 - [Anti-requirement 2]: [why excluded]
 
@@ -310,12 +312,14 @@ Create the design document at `docs/specs/design/mvp/YYYY-MM-DD-<topic>-mvp-desi
 ## Edge Cases and Boundary Conditions
 
 [All edge cases identified during inquiry, with resolution for each]
+
 - [Edge case 1]: [resolution]
 - [Edge case 2]: [resolution]
 
 ## Failure Modes and Degradation
 
 [How the system behaves when things go wrong]
+
 - [Failure mode 1]: [detection, response, recovery]
 - [Failure mode 2]: [detection, response, recovery]
 
@@ -324,10 +328,12 @@ Create the design document at `docs/specs/design/mvp/YYYY-MM-DD-<topic>-mvp-desi
 **Choice:** [Stack components]
 
 **Justification:**
+
 - [Reason 1: fits use case X]
 - [Reason 2: aligns with constraint Y]
 
 **Tradeoffs acknowledged:**
+
 - [What we're giving up and why it's acceptable]
 
 **Migration path:** [How to change this decision later if needed]
@@ -339,6 +345,7 @@ Create the design document at `docs/specs/design/mvp/YYYY-MM-DD-<topic>-mvp-desi
 ## Invariants
 
 [System properties that must always hold, regardless of state]
+
 - [Invariant 1]
 - [Invariant 2]
 
@@ -351,10 +358,10 @@ Create the design document at `docs/specs/design/mvp/YYYY-MM-DD-<topic>-mvp-desi
 
 [Record of key decisions made during design, with reasoning]
 
-| Decision | Options Considered | Chosen | Rationale |
-|----------|-------------------|--------|-----------|
-| [Decision 1] | [A, B, C] | [A] | [why] |
-| [Decision 2] | [X, Y] | [Y] | [why] |
+| Decision     | Options Considered | Chosen | Rationale |
+| ------------ | ------------------ | ------ | --------- |
+| [Decision 1] | [A, B, C]          | [A]    | [why]     |
+| [Decision 2] | [X, Y]             | [Y]    | [why]     |
 ```
 
 ### Phase 8: User Approval
@@ -398,18 +405,18 @@ Do NOT invoke implementation skills directly—let the user decide when to proce
 
 ## Quick Reference
 
-| Question Type        | Purpose                  | Example                                              |
-| -------------------- | ------------------------ | ---------------------------------------------------- |
-| Problem extraction   | Identify the pain point  | "What's frustrating about current solutions?"        |
-| Use case discovery   | Find essential scenarios | "Walk me through how you'd use this"                 |
-| Constraint gathering | Understand boundaries    | "Offline-first? Real-time collaboration? Both?"      |
-| Success criteria     | Define "done"            | "What makes this successful vs failure?"             |
-| Tradeoff exploration | Reveal priorities        | "Prefer simplicity or power-user features?"          |
-| Edge case probing    | Find hidden assumptions  | "What happens when the network drops mid-operation?" |
-| Failure mode mapping | Ensure graceful handling | "What does the user see when this service is down?"  |
-| Adversarial thinking | Find security/misuse     | "What's the worst input someone could provide?"      |
-| Invariant checking   | Ensure system integrity  | "What must always be true, no matter what?"          |
-| Assumption surfacing | Make implicit explicit   | "What are you assuming about the user's environment?"|
+| Question Type        | Purpose                  | Example                                               |
+| -------------------- | ------------------------ | ----------------------------------------------------- |
+| Problem extraction   | Identify the pain point  | "What's frustrating about current solutions?"         |
+| Use case discovery   | Find essential scenarios | "Walk me through how you'd use this"                  |
+| Constraint gathering | Understand boundaries    | "Offline-first? Real-time collaboration? Both?"       |
+| Success criteria     | Define "done"            | "What makes this successful vs failure?"              |
+| Tradeoff exploration | Reveal priorities        | "Prefer simplicity or power-user features?"           |
+| Edge case probing    | Find hidden assumptions  | "What happens when the network drops mid-operation?"  |
+| Failure mode mapping | Ensure graceful handling | "What does the user see when this service is down?"   |
+| Adversarial thinking | Find security/misuse     | "What's the worst input someone could provide?"       |
+| Invariant checking   | Ensure system integrity  | "What must always be true, no matter what?"           |
+| Assumption surfacing | Make implicit explicit   | "What are you assuming about the user's environment?" |
 
 ## Key Principles
 
@@ -427,18 +434,18 @@ Do NOT invoke implementation skills directly—let the user decide when to proce
 
 ## Common Mistakes
 
-| Mistake                                              | Fix                                                        |
-| ---------------------------------------------------- | ---------------------------------------------------------- |
-| Asking multiple questions at once                    | One question per message                                   |
-| Asking without providing a recommendation            | Always show your reasoning and recommendation              |
-| Assuming requirements prematurely                    | Ask, don't guess                                           |
-| Skipping edge case resolution                        | Walk every branch of the decision tree                     |
-| Including non-MVP features "just in case"            | YAGNI ruthlessly                                           |
-| Recommending tech stack before understanding problem | Tech stack follows requirements                            |
-| Writing vague requirements                           | Make each testable: "user can X in Y seconds"              |
-| Overriding user's MVP definition                     | User has final say—challenge, then accept                  |
-| Accepting "handle gracefully" as a failure mode plan | Specify exactly what happens on failure                    |
-| Leaving assumptions implicit                         | Record every assumption with justification and risk        |
+| Mistake                                              | Fix                                                 |
+| ---------------------------------------------------- | --------------------------------------------------- |
+| Asking multiple questions at once                    | One question per message                            |
+| Asking without providing a recommendation            | Always show your reasoning and recommendation       |
+| Assuming requirements prematurely                    | Ask, don't guess                                    |
+| Skipping edge case resolution                        | Walk every branch of the decision tree              |
+| Including non-MVP features "just in case"            | YAGNI ruthlessly                                    |
+| Recommending tech stack before understanding problem | Tech stack follows requirements                     |
+| Writing vague requirements                           | Make each testable: "user can X in Y seconds"       |
+| Overriding user's MVP definition                     | User has final say—challenge, then accept           |
+| Accepting "handle gracefully" as a failure mode plan | Specify exactly what happens on failure             |
+| Leaving assumptions implicit                         | Record every assumption with justification and risk |
 
 ## Red Flags
 

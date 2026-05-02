@@ -1,24 +1,24 @@
 {
-    "name": "Oh-My-Pi Project Container",
-    "dockerComposeFile": "docker-compose.yml",
-    "service": "omp-sandbox",
-    "workspaceFolder": "/workspace",
-    "remoteUser": "root",
-    "postCreateCommand": "bash scripts/CONTAINER_INIT.sh",
-    "postStartCommand": "bash scripts/PROJECT_SETUP.sh",
-    "customizations": {
-        "vscode": {
-            "settings": {},
-            "extensions": [
-                "esbenp.prettier-vscode",
-                "editorconfig.editorconfig",
-                "eamodio.gitlens",
-                "redhat.vscode-yaml",
-                "tamasfe.even-better-toml",
-                "rust-lang.rust-analyzer",
-                "svelte.svelte-vscode",
-                "bradlc.vscode-tailwindcss"
-            ]
-        }
-    }
+	"name": "Oh-My-Pi Project Container",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "omp-sandbox",
+	"workspaceFolder": "/workspace",
+	"remoteUser": "root",
+	"postCreateCommand": "bash scripts/CONTAINER_INIT.sh",
+	"postStartCommand": "bash scripts/PROJECT_SETUP.sh",
+	"customizations": {
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"editorconfig.editorconfig",
+				"eamodio.gitlens",
+				"redhat.vscode-yaml",
+				"tamasfe.even-better-toml",
+				"rust-lang.rust-analyzer",
+				"svelte.svelte-vscode",
+				"bradlc.vscode-tailwindcss"
+			]
+		}
+	}
 }

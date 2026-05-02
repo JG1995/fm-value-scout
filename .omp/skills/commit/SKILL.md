@@ -30,14 +30,12 @@ This skill follows a three-phase workflow to analyze changes, propose a commit p
 5. **Present a structured plan to the user** showing:
 
    **If proposing a single commit:**
-
    - Type, scope, and description
    - Files to be staged
    - Proposed commit message
    - Rationale for keeping as one commit
 
    **If proposing multiple commits:**
-
    - Number of commits
    - For each commit (in order):
      - Commit number (1, 2, 3, ...)
@@ -47,7 +45,6 @@ This skill follows a three-phase workflow to analyze changes, propose a commit p
    - Rationale for splitting
 
 6. **Wait for user approval.** The user may:
-
    - Accept the plan as proposed
    - Request modifications to commit grouping, messages, or ordering
    - Request to merge commits into one
@@ -66,7 +63,6 @@ This skill follows a three-phase workflow to analyze changes, propose a commit p
    If hooks report fixes (exit code 1), the files have been auto-corrected in the working tree. Proceed to stage the now-clean files. This prevents the common pattern of a commit failing due to trailing whitespace, end-of-file, or prettier fixes, requiring a second `git add && git commit`.
 
 8. **For each approved commit** (in the agreed order):
-
    - Stage the relevant files: `git add <file1> <file2> ...`
    - Execute the commit: `git commit -m "type(scope): description"`
    - Confirm the commit was created successfully

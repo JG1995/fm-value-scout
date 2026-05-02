@@ -7,6 +7,7 @@ alwaysApply: true
 # jCodemunch MCP Usage Rule
 
 ## When to Use
+
 - Finding symbols, functions, classes, or methods
 - Searching for references or call sites
 - Understanding architecture, dependencies, or call hierarchies
@@ -15,6 +16,7 @@ alwaysApply: true
 - Planning refactors or assessing blast radius
 
 ## Required Workflow
+
 1. Before any manual file search or grep, check if a jCodemunch tool exists for the task.
 2. Prefer `mcp__jcodemunch_search_symbols` over regex search for symbols.
 3. Prefer `mcp__jcodemunch_find_references` over manual grep or `lsp references` for usages.
@@ -23,6 +25,7 @@ alwaysApply: true
 6. Use `mcp__jcodemunch_get_dependency_graph` instead of manual import tracing.
 
 ## Forbidden Alternatives
+
 - **NEVER** use `search` (regex) for symbol discovery when `search_symbols` is available.
 - **NEVER** use `bash` with `grep`/`rg` for finding references.
 - **NEVER** use `lsp references` when `mcp__jcodemunch_find_references` is available.
@@ -30,4 +33,5 @@ alwaysApply: true
 - **NEVER** use `find` for file listing when `get_file_tree` exists.
 
 ## Fallback Policy
+
 Only fall back to manual search when jCodemunch returns no results or the repository is not indexed. State the fallback reason explicitly.
