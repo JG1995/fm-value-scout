@@ -1,5 +1,6 @@
 <script lang="ts">
 	import "../styles/tokens.css";
+	import { sidebar } from "$lib/design-tokens";
 	import Sidebar from "$lib/components/Sidebar.svelte";
 
 	const { children } = $props();
@@ -7,7 +8,7 @@
 
 <div class="app">
 	<Sidebar />
-	<div class="content">
+	<div class="content" style:margin-left={sidebar.width}>
 		{@render children()}
 	</div>
 </div>
@@ -21,7 +22,6 @@
 
 	.content {
 		flex: 1;
-		margin-left: 72px; /* sidebar width: 48px icon + 24px padding */
 		height: 100%;
 		overflow: hidden;
 	}

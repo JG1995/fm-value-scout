@@ -156,6 +156,12 @@ export const typography = {
 	},
 } as const;
 
+export const sidebar = {
+	width: "72px",
+	navLinkSize: "48px",
+	iconSize: "24px",
+} as const;
+
 export const blur = {
 	panel: "20px",
 	glow: "12px",
