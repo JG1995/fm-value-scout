@@ -7,7 +7,6 @@
 //! - `csv_result::CsvResult` — result of parsing a CSV file
 
 pub mod csv_result;
-pub mod parsing;
 pub mod player;
 pub mod types;
 
@@ -15,6 +14,3 @@ pub mod types;
 pub use csv_result::CsvResult;
 pub use player::Player;
 pub use types::{Appearances, FootRating, TransferValue, Wage, WageUnit};
-
-// Re-export parsing functions
-pub use parsing::{parse_appearances, parse_date, parse_height, parse_transfer_range, parse_wage};

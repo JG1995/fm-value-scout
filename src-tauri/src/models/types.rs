@@ -37,6 +37,12 @@ impl std::fmt::Display for FootRating {
     }
 }
 
+impl Default for FootRating {
+    fn default() -> Self {
+        Self::Weak
+    }
+}
+
 /// Wage payment frequency, used for display purposes.
 /// Internally, all wages are normalized to weekly values.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
@@ -57,6 +63,12 @@ impl WageUnit {
     }
 }
 
+impl Default for WageUnit {
+    fn default() -> Self {
+        Self::PerWeek
+    }
+}
+
 /// Appearances in a season, split into total and substitute appearances.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub struct Appearances {
@@ -73,6 +85,15 @@ impl Appearances {
     }
 }
 
+impl Default for Appearances {
+    fn default() -> Self {
+        Self {
+            total: 0,
+            as_sub: 0,
+        }
+    }
+}
+
 /// Transfer value range from CSV, parsed into numeric values.
 /// Currency is stored at season level, not per-player.
 /// Example: "€62M - €94M" → TransferValue { min: 62_000_000, max: 94_000_000 }
@@ -86,6 +107,12 @@ impl TransferValue {
     /// Midpoint value for sorting/filtering.
     pub fn midpoint(&self) -> f64 {
         (self.min as f64 + self.max as f64) / 2.0
+    }
+}
+
+impl Default for TransferValue {
+    fn default() -> Self {
+        Self { min: 0, max: 0 }
     }
 }
 
@@ -110,5 +137,14 @@ impl Wage {
     /// Note: Currency symbol should come from season metadata.
     pub fn annual_estimate(&self) -> f64 {
         self.weekly_amount * 52.0
+    }
+}
+
+impl Default for Wage {
+    fn default() -> Self {
+        Self {
+            weekly_amount: 0.0,
+            unit: WageUnit::default(),
+        }
     }
 }

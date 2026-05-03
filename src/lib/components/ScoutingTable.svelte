@@ -1,34 +1,8 @@
 <script lang="ts">
-	interface PlayerRow {
-		name: string;
-		nation: string;
-		club: string;
-		position: string;
-		age: number;
-		height_cm: number;
-		transfer_value: { min: number; max: number };
-		weekly_wage: { weekly_amount: number; unit: string };
-	}
+	import type { Player } from "$lib/types/player";
+	import { formatValue, formatWage } from "$lib/utils/format";
 
-	let { players, currency }: { players: PlayerRow[]; currency: string } = $props();
-
-	function formatAmount(n: number): string {
-		if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace(".", ",")}M`;
-		if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K`;
-		return String(n);
-	}
-
-	function formatValue(tv: PlayerRow["transfer_value"]): string {
-		return `${currency}${formatAmount(tv.min)} - ${currency}${formatAmount(tv.max)}`;
-	}
-
-	function formatFullNumber(n: number): string {
-		return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-	}
-
-	function formatWage(w: PlayerRow["weekly_wage"]): string {
-		return `${currency}${formatFullNumber(w.weekly_amount)} p/w`;
-	}
+	let { players, currency }: { players: Player[]; currency: string } = $props();
 </script>
 
 <div class="table-wrapper">
@@ -59,8 +33,8 @@
 						<td class="text-body-md">{player.position}</td>
 						<td class="text-body-md">{player.age}</td>
 						<td class="text-body-md">{player.height_cm} cm</td>
-						<td class="text-body-md">{formatValue(player.transfer_value)}</td>
-						<td class="text-body-md">{formatWage(player.weekly_wage)}</td>
+						<td class="text-body-md">{formatValue(player.transfer_value, currency)}</td>
+						<td class="text-body-md">{formatWage(player.weekly_wage, currency)}</td>
 					</tr>
 				{/each}
 			{/if}

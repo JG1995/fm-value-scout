@@ -1,19 +1,9 @@
 <script lang="ts">
 	import { playerState } from "$lib/stores/players.svelte";
+	import type { Player } from "$lib/types/player";
 	import { ScoutingTable } from "$lib/components";
 
-	const players = $derived(
-		(playerState.data?.players ?? []) as Array<{
-			name: string;
-			nation: string;
-			club: string;
-			position: string;
-			age: number;
-			height_cm: number;
-			transfer_value: { min: number; max: number };
-			weekly_wage: { weekly_amount: number; unit: string };
-		}>
-	);
+	const players = $derived((playerState.data?.players ?? []) as Player[]);
 
 	const currency = $derived(playerState.data?.currency ?? "\u00A3");
 </script>

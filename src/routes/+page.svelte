@@ -2,7 +2,7 @@
 	import { open } from "@tauri-apps/plugin-dialog";
 	import { invoke } from "@tauri-apps/api/core";
 	import { playerState } from "$lib/stores/players.svelte";
-
+	import type { Player } from "$lib/types/player";
 	let status = $state<"idle" | "loading" | "success" | "error">("idle");
 	let playerCount = $state(0);
 	let errorMessage = $state("");
@@ -22,7 +22,7 @@
 		}
 
 		try {
-			const result = await invoke<{ players: unknown[]; currency: string }>("parse_csv", {
+			const result = await invoke<{ players: Player[]; currency: string }>("parse_csv", {
 				path: filePath,
 			});
 			playerCount = result.players.length;
