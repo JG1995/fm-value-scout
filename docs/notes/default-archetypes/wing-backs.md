@@ -5,7 +5,7 @@
 ### Wing-Back
 
 tags: gets further forward, stays wide
-lk|The Wing-Back combines the responsibilities of a Full-Back and a Winger, providing width to the team throughout the attack.
+The Wing-Back combines the responsibilities of a Full-Back and a Winger, providing width to the team throughout the attack.
 
 | METRIC_NAME               | WEIGHT | INVERTED? |
 | ------------------------- | ------ | --------- |
@@ -18,7 +18,7 @@ lk|The Wing-Back combines the responsibilities of a Full-Back and a Winger, prov
 ### Advanced Wing-Back
 
 tags: gets further forward, stays wide
-mu|With more aggressive positioning than a traditional Wing-Back, the Advanced Wing-Back looks to play high and wide as much as possible.
+With more aggressive positioning than a traditional Wing-Back, the Advanced Wing-Back looks to play high and wide as much as possible.
 
 | METRIC_NAME                   | WEIGHT | INVERTED? |
 | ----------------------------- | ------ | --------- |
@@ -31,7 +31,7 @@ mu|With more aggressive positioning than a traditional Wing-Back, the Advanced W
 ### Inside Wing-Back
 
 tags: holds position, moves to DM
-wd|Looking to move into central reas of the pitch as their team progresses with the ball, the Inside Wing-Back supports central passing networks, as well as providing vital protection against central counter-attacks when the ball is turned over.
+Looking to move into central reas of the pitch as their team progresses with the ball, the Inside Wing-Back supports central passing networks, as well as providing vital protection against central counter-attacks when the ball is turned over.
 
 | METRIC_NAME               | WEIGHT | INVERTED? |
 | ------------------------- | ------ | --------- |
@@ -44,7 +44,7 @@ wd|Looking to move into central reas of the pitch as their team progresses with 
 ### Playmaking Wing-Back
 
 tags: moves to DM, expressive
-gy|Similarly to the Inverted Wing-Back, the Playmaking Wing-Back will try to move into central areas of the pitch to support central passing networks and act as a playmaking outlet, whilst offering vital protection against central counter-attacks.
+Similarly to the Inverted Wing-Back, the Playmaking Wing-Back will try to move into central areas of the pitch to support central passing networks and act as a playmaking outlet, whilst offering vital protection against central counter-attacks.
 
 | METRIC_NAME               | WEIGHT | INVERTED? |
 | ------------------------- | ------ | --------- |
@@ -59,7 +59,7 @@ gy|Similarly to the Inverted Wing-Back, the Playmaking Wing-Back will try to mov
 ### Wing-Back
 
 tags: none
-ch|The Wing-Back is expected to defend the wide areas for their team.
+The Wing-Back is expected to defend the wide areas for their team.
 
 | METRIC_NAME           | WEIGHT | INVERTED? |
 | --------------------- | ------ | --------- |
@@ -72,7 +72,7 @@ ch|The Wing-Back is expected to defend the wide areas for their team.
 ### Pressing Wing-Back
 
 tags: steps out, aggressive
-hm|As a Presser, the Wing-Back is asked to aggressively engage opposition wide players high up the pitch to support the team's press.
+As a Presser, the Wing-Back is asked to aggressively engage opposition wide players high up the pitch to support the team's press.
 
 | METRIC_NAME                   | WEIGHT | INVERTED? |
 | ----------------------------- | ------ | --------- |
@@ -85,7 +85,7 @@ hm|As a Presser, the Wing-Back is asked to aggressively engage opposition wide p
 ### Holding Wing-Back
 
 tags: holds position, careful
-yt|As a Holder, the Wing-Back is asked to hold a deeper position while their team is defending higher up the pitch, in order to provide additional protection against direct attacks.
+As a Holder, the Wing-Back is asked to hold a deeper position while their team is defending higher up the pitch, in order to provide additional protection against direct attacks.
 
 | METRIC_NAME           | WEIGHT | INVERTED? |
 | --------------------- | ------ | --------- |
