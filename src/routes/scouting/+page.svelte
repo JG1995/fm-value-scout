@@ -6,10 +6,16 @@
 		(playerState.data?.players ?? []) as Array<{
 			name: string;
 			nation: string;
-			age: number;
 			club: string;
+			position: string;
+			age: number;
+			height_cm: number;
+			transfer_value: { min: number; max: number };
+			weekly_wage: { weekly_amount: number; unit: string };
 		}>
 	);
+
+	const currency = $derived(playerState.data?.currency ?? "\u00A3");
 </script>
 
 <div class="page">
@@ -24,7 +30,7 @@
 	{:else}
 		<div class="data-container">
 			<h1 class="title">Scouting</h1>
-			<ScoutingTable {players} />
+			<ScoutingTable {players} {currency} />
 		</div>
 	{/if}
 </div>

@@ -2,11 +2,33 @@
 	interface PlayerRow {
 		name: string;
 		nation: string;
-		age: number;
 		club: string;
+		position: string;
+		age: number;
+		height_cm: number;
+		transfer_value: { min: number; max: number };
+		weekly_wage: { weekly_amount: number; unit: string };
 	}
 
-	let { players }: { players: PlayerRow[] } = $props();
+	let { players, currency }: { players: PlayerRow[]; currency: string } = $props();
+
+	function formatAmount(n: number): string {
+		if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1).replace(".", ",")}M`;
+		if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K`;
+		return String(n);
+	}
+
+	function formatValue(tv: PlayerRow["transfer_value"]): string {
+		return `${currency}${formatAmount(tv.min)} - ${currency}${formatAmount(tv.max)}`;
+	}
+
+	function formatFullNumber(n: number): string {
+		return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+	}
+
+	function formatWage(w: PlayerRow["weekly_wage"]): string {
+		return `${currency}${formatFullNumber(w.weekly_amount)} p/w`;
+	}
 </script>
 
 <div class="table-wrapper">
@@ -14,23 +36,31 @@
 		<thead>
 			<tr>
 				<th class="text-label-caps">Name</th>
-				<th class="text-label-caps">Nationality</th>
-				<th class="text-label-caps">Age</th>
+				<th class="text-label-caps">Nation</th>
 				<th class="text-label-caps">Club</th>
+				<th class="text-label-caps">Positions</th>
+				<th class="text-label-caps">Age</th>
+				<th class="text-label-caps">Height</th>
+				<th class="text-label-caps">Transfer Value</th>
+				<th class="text-label-caps">Wage</th>
 			</tr>
 		</thead>
 		<tbody>
 			{#if players.length === 0}
 				<tr>
-					<td colspan="4" class="empty-msg text-body-md">No players loaded</td>
+					<td colspan="8" class="empty-msg text-body-md">No players loaded</td>
 				</tr>
 			{:else}
 				{#each players as player}
 					<tr>
 						<td class="text-body-md">{player.name}</td>
 						<td class="text-body-md">{player.nation}</td>
-						<td class="text-body-md">{player.age}</td>
 						<td class="text-body-md">{player.club}</td>
+						<td class="text-body-md">{player.position}</td>
+						<td class="text-body-md">{player.age}</td>
+						<td class="text-body-md">{player.height_cm} cm</td>
+						<td class="text-body-md">{formatValue(player.transfer_value)}</td>
+						<td class="text-body-md">{formatWage(player.weekly_wage)}</td>
 					</tr>
 				{/each}
 			{/if}
