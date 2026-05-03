@@ -203,6 +203,7 @@ mod tests {
             second_nation: None,
             club: "Test FC".to_string(),
             position: "ST".to_string(),
+            positions: vec!["ST".to_string()],
             // Physical
             age: 25,
             height_cm: 180,

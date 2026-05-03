@@ -10,6 +10,8 @@ pub struct Player {
     pub second_nation: Option<String>,
     pub club: String,
     pub position: String,
+    /// Parsed granular position codes (e.g. ["DL", "DC", "WBL"])
+    pub positions: Vec<String>,
 
     // === Physical fields ===
     pub age: u8,
