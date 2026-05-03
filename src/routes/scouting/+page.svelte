@@ -1,12 +1,19 @@
 <script lang="ts">
 	import { playerState } from "$lib/stores/players.svelte";
-	import { GlassPanel } from "$lib/components";
+	import { ScoutingTable } from "$lib/components";
 
-	const firstPlayer = $derived(playerState.data?.players[0] ?? null);
+	const players = $derived(
+		(playerState.data?.players ?? []) as Array<{
+			name: string;
+			nation: string;
+			age: number;
+			club: string;
+		}>
+	);
 </script>
 
 <div class="page">
-	{#if !firstPlayer}
+	{#if players.length === 0}
 		<div class="empty-state">
 			<div class="empty-card">
 				<h1 class="title">No Squad Data</h1>
@@ -16,14 +23,8 @@
 		</div>
 	{:else}
 		<div class="data-container">
-			<h1 class="title">First Player Data</h1>
-			<GlassPanel>
-				{#snippet children()}
-					<div class="json-scroll">
-						<pre class="json-output">{JSON.stringify(firstPlayer, null, 2)}</pre>
-					</div>
-				{/snippet}
-			</GlassPanel>
+			<h1 class="title">Scouting</h1>
+			<ScoutingTable {players} />
 		</div>
 	{/if}
 </div>
@@ -89,22 +90,5 @@
 		box-sizing: border-box;
 		padding: var(--space-6);
 		gap: var(--space-stack-md);
-	}
-
-	.json-scroll {
-		overflow: auto;
-		max-height: calc(100vh - 200px);
-		padding: var(--space-4);
-	}
-
-	.json-output {
-		font-size: var(--font-size-code-data);
-		font-weight: var(--font-weight-code-data);
-		line-height: var(--font-line-height-code-data);
-		letter-spacing: var(--font-letter-spacing-code-data);
-		color: var(--color-on-surface);
-		margin: 0;
-		white-space: pre-wrap;
-		word-break: break-word;
 	}
 </style>
