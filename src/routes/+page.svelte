@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { open } from "@tauri-apps/plugin-dialog";
 	import { invoke } from "@tauri-apps/api/core";
+	import { playerState } from "$lib/stores/players.svelte";
 
 	let status = $state<"idle" | "loading" | "success" | "error">("idle");
 	let playerCount = $state(0);
@@ -25,6 +26,7 @@
 				path: filePath,
 			});
 			playerCount = result.players.length;
+			playerState.data = { players: result.players, currency: result.currency };
 			status = "success";
 		} catch (err) {
 			errorMessage = typeof err === "string" ? err : "Failed to parse CSV file";
