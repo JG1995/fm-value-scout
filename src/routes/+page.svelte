@@ -1,54 +1,50 @@
 <script lang="ts">
-	let isDragging = $state(false);
-	let fileInput: HTMLInputElement;
+	import { open } from "@tauri-apps/plugin-dialog";
+	import { invoke } from "@tauri-apps/api/core";
 
-	function handleDragEnter(e: DragEvent) {
-		e.preventDefault();
-		isDragging = true;
-	}
+	let status = $state<"idle" | "loading" | "success" | "error">("idle");
+	let playerCount = $state(0);
+	let errorMessage = $state("");
 
-	function handleDragOver(e: DragEvent) {
-		e.preventDefault();
-		isDragging = true;
-	}
+	async function handleClick() {
+		status = "loading";
+		errorMessage = "";
 
-	function handleDragLeave(e: DragEvent) {
-		e.preventDefault();
-		isDragging = false;
-	}
+		const filePath = await open({
+			multiple: false,
+			filters: [{ name: "CSV", extensions: ["csv"] }],
+		});
 
-	function handleDrop(e: DragEvent) {
-		e.preventDefault();
-		isDragging = false;
-		// Stubbed: no-op for now per plan
-	}
-
-	function handleFileChange(e: Event) {
-		const target = e.target as HTMLInputElement;
-		if (target.files && target.files.length > 0) {
-			// Stubbed: no-op for now per plan
+		if (!filePath) {
+			status = "idle";
+			return;
 		}
-	}
 
-	function handleCardClick() {
-		fileInput?.click();
+		try {
+			const result = await invoke<{ players: unknown[]; currency: string }>("parse_csv", {
+				path: filePath,
+			});
+			playerCount = result.players.length;
+			status = "success";
+		} catch (err) {
+			errorMessage = typeof err === "string" ? err : "Failed to parse CSV file";
+			status = "error";
+		}
 	}
 </script>
 
 <div class="page">
 	<div
-		class="dropzone-card"
-		class:dragging={isDragging}
+		class="upload-card"
+		class:loading={status === "loading"}
+		class:success={status === "success"}
+		class:error={status === "error"}
 		role="button"
 		tabindex="0"
-		onclick={handleCardClick}
-		onkeydown={(e) => e.key === "Enter" && handleCardClick()}
-		ondragenter={handleDragEnter}
-		ondragover={handleDragOver}
-		ondragleave={handleDragLeave}
-		ondrop={handleDrop}
+		onclick={handleClick}
+		onkeydown={(e) => e.key === "Enter" && handleClick()}
 	>
-		<div class="dropzone-inner">
+		<div class="upload-inner">
 			<svg
 				class="upload-icon"
 				width="48"
@@ -68,19 +64,18 @@
 
 			<h1 class="title">Import Squad Export</h1>
 
-			<p class="subtitle">Drop your FM CSV here, or click to browse</p>
+			{#if status === "idle"}
+				<p class="subtitle">Click to select your FM CSV export</p>
+			{:else if status === "loading"}
+				<p class="subtitle">Parsing file...</p>
+			{:else if status === "success"}
+				<p class="subtitle success-text">{playerCount} players imported</p>
+			{:else if status === "error"}
+				<p class="subtitle error-text">{errorMessage}</p>
+			{/if}
 
 			<span class="file-hint">CSV files only</span>
 		</div>
-
-		<input
-			type="file"
-			accept=".csv"
-			bind:this={fileInput}
-			onchange={handleFileChange}
-			class="hidden-input"
-			aria-hidden="true"
-		/>
 	</div>
 </div>
 
@@ -93,7 +88,7 @@
 		box-sizing: border-box;
 	}
 
-	.dropzone-card {
+	.upload-card {
 		background: var(--color-glass-bg);
 		backdrop-filter: blur(var(--blur-panel));
 		-webkit-backdrop-filter: blur(var(--blur-panel));
@@ -107,27 +102,50 @@
 			background 0.2s ease;
 	}
 
-	.dropzone-card:hover {
+	.upload-card:hover {
 		border-color: var(--color-gold);
 		box-shadow:
 			0 0 20px var(--color-gold-dim),
 			0 0 40px var(--color-gold-glow);
 	}
 
-	.dropzone-card:focus {
+	.upload-card:focus {
 		outline: 2px solid var(--color-gold);
 		outline-offset: 2px;
 	}
 
-	.dropzone-card.dragging {
+	.upload-card.loading {
+		cursor: wait;
 		border-color: var(--color-gold);
-		background: var(--color-glass-bg-hover);
-		box-shadow:
-			0 0 20px var(--color-gold-glow),
-			0 0 40px var(--color-gold-dim);
+		box-shadow: 0 0 20px var(--color-gold-dim);
+		animation: pulse 2s ease-in-out infinite;
 	}
 
-	.dropzone-inner {
+	.upload-card.success {
+		border-color: var(--color-primary);
+		box-shadow:
+			0 0 20px rgba(181, 205, 180, 0.15),
+			0 0 40px rgba(181, 205, 180, 0.2);
+	}
+
+	.upload-card.error {
+		border-color: var(--color-error);
+		box-shadow:
+			0 0 20px rgba(255, 180, 171, 0.15),
+			0 0 40px rgba(255, 180, 171, 0.2);
+	}
+
+	@keyframes pulse {
+		0%,
+		100% {
+			opacity: 1;
+		}
+		50% {
+			opacity: 0.7;
+		}
+	}
+
+	.upload-inner {
 		border: 2px dashed var(--color-outline-variant);
 		border-radius: var(--radius-md);
 		padding: var(--space-stack-lg) 4rem;
@@ -138,12 +156,16 @@
 		transition: border-color 0.2s ease;
 	}
 
-	.dropzone-card:hover .dropzone-inner {
+	.upload-card:hover .upload-inner {
 		border-color: rgba(233, 195, 73, 0.6);
 	}
 
-	.dropzone-card.dragging .dropzone-inner {
-		border-color: var(--color-gold);
+	.upload-card.success .upload-inner {
+		border-color: rgba(181, 205, 180, 0.6);
+	}
+
+	.upload-card.error .upload-inner {
+		border-color: rgba(255, 180, 171, 0.6);
 	}
 
 	.upload-icon {
@@ -152,9 +174,16 @@
 		transition: opacity 0.2s ease;
 	}
 
-	.dropzone-card:hover .upload-icon,
-	.dropzone-card.dragging .upload-icon {
+	.upload-card:hover .upload-icon {
 		opacity: 0.9;
+	}
+
+	.upload-card.success .upload-icon {
+		color: var(--color-primary);
+	}
+
+	.upload-card.error .upload-icon {
+		color: var(--color-error);
 	}
 
 	.title {
@@ -173,6 +202,14 @@
 		text-align: center;
 	}
 
+	.success-text {
+		color: var(--color-primary);
+	}
+
+	.error-text {
+		color: var(--color-error);
+	}
+
 	.file-hint {
 		font-size: var(--font-size-label-caps);
 		font-weight: var(--font-weight-label-caps);
@@ -180,9 +217,5 @@
 		letter-spacing: var(--font-letter-spacing-label-caps);
 		color: var(--color-on-surface-variant);
 		margin-top: var(--space-1);
-	}
-
-	.hidden-input {
-		display: none;
 	}
 </style>
