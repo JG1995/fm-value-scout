@@ -399,4 +399,252 @@ mod tests {
         // 15 / 30 = 0.5
         assert!((player.game_win_ratio.unwrap() - 0.5).abs() < 0.001);
     }
+
+    // === Helper ===
+    fn assert_approx(actual: Option<f64>, expected: f64, epsilon: f64) {
+        assert!(actual.is_some(), "expected {} but got None", expected);
+        assert!((actual.unwrap() - expected).abs() < epsilon);
+    }
+
+    // === Per-90: Attacking ===
+    #[test]
+    fn test_attacking_per_90s() {
+        let mut player = make_player();
+        enrich(&mut player);
+        assert_approx(player.goals_per_90, 0.6667, 0.001); // 20 * 90 / 2700
+        assert_approx(player.goals_outside_box_per_90, 0.1667, 0.001); // 5 * 90 / 2700
+        assert_approx(player.xg_per_90, 0.6, 0.001); // 18.0 * 90 / 2700
+        assert_approx(player.npxg_per_90, 0.5, 0.001); // 15.0 * 90 / 2700
+        assert_approx(player.xg_overperformance_per_90, 0.0667, 0.001); // 2.0 * 90 / 2700
+        assert_approx(player.shots_per_90, 5.0, 0.001); // 150 * 90 / 2700
+        assert_approx(player.shots_on_target_per_90, 2.0, 0.001); // 60 * 90 / 2700
+        assert_approx(player.pens_taken_per_90, 0.1667, 0.001); // 5 * 90 / 2700
+        assert_approx(player.pens_scored_per_90, 0.1333, 0.001); // 4 * 90 / 2700
+        assert_approx(player.free_kick_shots_per_90, 0.1, 0.001); // 3 * 90 / 2700
+    }
+
+    // === Per-90: Creativity ===
+    #[test]
+    fn test_creativity_per_90s() {
+        let mut player = make_player();
+        enrich(&mut player);
+        assert_approx(player.assists_per_90, 0.3333, 0.001); // 10 * 90 / 2700
+        assert_approx(player.xa_per_90, 0.2667, 0.001); // 8.0 * 90 / 2700
+        assert_approx(player.clear_cut_chances_per_90, 0.5, 0.001); // 15 * 90 / 2700
+        assert_approx(player.key_passes_per_90, 1.3333, 0.001); // 40 * 90 / 2700
+        assert_approx(player.crosses_attempted_per_90, 1.6667, 0.001); // 50 * 90 / 2700
+        assert_approx(player.crosses_completed_per_90, 0.6667, 0.001); // 20 * 90 / 2700
+        assert_approx(player.op_crosses_attempted_per_90, 1.0, 0.001); // 30 * 90 / 2700
+        assert_approx(player.op_crosses_completed_per_90, 0.3333, 0.001); // 10 * 90 / 2700
+    }
+
+    // === Per-90: Transition ===
+    #[test]
+    fn test_transition_per_90s() {
+        let mut player = make_player();
+        enrich(&mut player);
+        assert_approx(player.passes_attempted_per_90, 16.6667, 0.001); // 500 * 90 / 2700
+        assert_approx(player.passes_completed_per_90, 13.3333, 0.001); // 400 * 90 / 2700
+        assert_approx(player.progressive_passes_per_90, 3.3333, 0.001); // 100 * 90 / 2700
+        assert_approx(player.dribbles_per_90, 1.0, 0.001); // 30 * 90 / 2700
+        assert_approx(player.distance_covered_per_90, 10.8333, 0.001); // 325 * 90 / 2700
+    }
+
+    // === Per-90: Defensive ===
+    #[test]
+    fn test_defensive_per_90s() {
+        let mut player = make_player();
+        enrich(&mut player);
+        assert_approx(player.tackles_attempted_per_90, 1.3333, 0.001); // 40 * 90 / 2700
+        assert_approx(player.tackles_completed_per_90, 1.0, 0.001); // 30 * 90 / 2700
+        assert_approx(player.key_tackles_per_90, 0.1667, 0.001); // 5 * 90 / 2700
+        assert_approx(player.interceptions_per_90, 0.6667, 0.001); // 20 * 90 / 2700
+        assert_approx(player.pressures_attempted_per_90, 3.3333, 0.001); // 100 * 90 / 2700
+        assert_approx(player.pressures_completed_per_90, 2.0, 0.001); // 60 * 90 / 2700
+        assert_approx(player.blocks_per_90, 0.5, 0.001); // 15 * 90 / 2700
+        assert_approx(player.shots_blocked_per_90, 0.3333, 0.001); // 10 * 90 / 2700
+        assert_approx(player.clearances_per_90, 1.6667, 0.001); // 50 * 90 / 2700
+    }
+
+    // === Per-90: Aerial ===
+    #[test]
+    fn test_aerial_per_90s() {
+        let mut player = make_player();
+        enrich(&mut player);
+        assert_approx(player.headers_attempted_per_90, 1.0, 0.001); // 30 * 90 / 2700
+        assert_approx(player.headers_won_per_90, 0.5, 0.001); // 15 * 90 / 2700
+    }
+
+    // === Per-90: Goalkeeping ===
+    #[test]
+    fn test_goalkeeping_per_90s() {
+        let mut player = make_player();
+        enrich(&mut player);
+        assert_approx(player.clean_sheets_per_90, 0.1667, 0.001); // 5 * 90 / 2700
+        assert_approx(player.goals_conceded_per_90, 1.0, 0.001); // 30 * 90 / 2700
+        assert_approx(player.xgp_per_90, 0.8333, 0.001); // 25.0 * 90 / 2700
+        assert_approx(player.saves_held_per_90, 0.6667, 0.001); // 20 * 90 / 2700
+        assert_approx(player.saves_parried_per_90, 0.5, 0.001); // 15 * 90 / 2700
+        assert_approx(player.saves_tipped_per_90, 0.3333, 0.001); // 10 * 90 / 2700
+        assert_approx(player.pens_faced_per_90, 0.1, 0.001); // 3 * 90 / 2700
+        assert_approx(player.pens_saved_per_90, 0.0333, 0.001); // 1 * 90 / 2700
+    }
+
+    // === Per-90: Discipline ===
+    #[test]
+    fn test_discipline_per_90s() {
+        let mut player = make_player();
+        enrich(&mut player);
+        assert_approx(player.fouls_made_per_90, 0.8333, 0.001); // 25 * 90 / 2700
+        assert_approx(player.fouls_against_per_90, 1.0, 0.001); // 30 * 90 / 2700
+        assert_approx(player.yellow_cards_per_90, 0.1, 0.001); // 3 * 90 / 2700
+        assert_approx(player.red_cards_per_90, 0.0, 0.001); // 0 * 90 / 2700
+        assert_approx(player.offsides_per_90, 0.6667, 0.001); // 20 * 90 / 2700
+        assert_approx(player.mlg_per_90, 0.0, 0.001); // 0 * 90 / 2700
+    }
+
+    // === Reverse Calculations: totals from per-90 CSV fields ===
+    #[test]
+    fn test_reverse_calculations() {
+        let mut player = make_player();
+        enrich(&mut player);
+        // shots_outside_box_per_90 * minutes / 90 = 0.5 * 30 = 15
+        assert_approx(player.shots_outside_box.map(|v| v as f64), 15.0, 0.01);
+        // chances_created_per_90 * minutes / 90 = 2.0 * 30 = 60
+        assert_approx(player.chances_created.map(|v| v as f64), 60.0, 0.01);
+        // op_key_passes_per_90 * minutes / 90 = 1.0 * 30 = 30
+        assert_approx(player.op_key_passes.map(|v| v as f64), 30.0, 0.01);
+        // sprints_per_90 * minutes / 90 = 8.0 * 30 = 240
+        assert_approx(player.sprints.map(|v| v as f64), 240.0, 0.01);
+        // poss_lost_per_90 * minutes / 90 = 6.0 * 30 = 180
+        assert_approx(player.poss_lost.map(|v| v as f64), 180.0, 0.01);
+        // poss_won_per_90 * minutes / 90 = 4.0 * 30 = 120
+        assert_approx(player.poss_won.map(|v| v as f64), 120.0, 0.01);
+        // headers_lost_per_90 * minutes / 90 = 0.5 * 30 = 15
+        assert_approx(player.headers_lost.map(|v| v as f64), 15.0, 0.01);
+        // key_headers_per_90 * minutes / 90 = 0.2 * 30 = 6
+        assert_approx(player.key_headers.map(|v| v as f64), 6.0, 0.01);
+        // total_saves_per_90 * minutes / 90 = 3.0 * 30 = 90
+        assert_approx(player.total_saves.map(|v| v as f64), 90.0, 0.01);
+    }
+
+    // === Ratios: Attacking ===
+    #[test]
+    fn test_attacking_ratios() {
+        let mut player = make_player();
+        enrich(&mut player);
+        assert_approx(player.shots_on_target_ratio, 0.4, 0.001); // 60 / 150
+        assert_approx(player.conversion_ratio, 0.1333, 0.001); // 20 / 150
+        assert_approx(player.pens_scored_ratio, 0.8, 0.001); // 4 / 5
+    }
+
+    // === Ratios: Creativity ===
+    #[test]
+    fn test_creativity_ratios() {
+        let mut player = make_player();
+        enrich(&mut player);
+        assert_approx(player.cross_completion_ratio, 0.4, 0.001); // 20 / 50
+        assert_approx(player.op_cross_completion_ratio, 0.3333, 0.001); // 10 / 30
+    }
+
+    // === Ratios: Transition + Defensive ===
+    #[test]
+    fn test_transition_defensive_ratios() {
+        let mut player = make_player();
+        enrich(&mut player);
+        assert_approx(player.pass_completion_ratio, 0.8, 0.001); // 400 / 500
+        assert_approx(player.tackle_completion_ratio, 0.75, 0.001); // 30 / 40
+        assert_approx(player.pressure_success_ratio, 0.6, 0.001); // 60 / 100
+    }
+
+    // === Ratios: Aerial + Goalkeeping + Minutes ===
+    #[test]
+    fn test_aerial_goalkeeping_minutes_ratios() {
+        let mut player = make_player();
+        enrich(&mut player);
+        assert_approx(player.headers_won_ratio, 0.5, 0.001); // 15 / 30
+                                                             // save_ratio = total_saves / (goals_conceded + total_saves)
+                                                             // 45 / (30 + 45) = 45 / 75 = 0.6
+        assert_approx(player.save_ratio, 0.6, 0.001);
+        assert_approx(player.pens_saved_ratio, 0.3333, 0.001); // 1 / 3
+        assert_approx(player.minutes_per_goal, 135.0, 0.01); // 2700 / 20
+        assert_approx(player.minutes_per_goal_or_assist, 90.0, 0.01); // 2700 / 30
+        assert_approx(player.minutes_per_assist, 270.0, 0.01); // 2700 / 10
+    }
+
+    // === Edge Cases ===
+    #[test]
+    fn test_per_90_zero_minutes() {
+        let mut player = make_player();
+        player.minutes = 0;
+        enrich(&mut player);
+        // All per-90 fields should remain None when minutes == 0
+        assert!(player.goals_per_90.is_none());
+        assert!(player.shots_per_90.is_none());
+        assert!(player.assists_per_90.is_none());
+        assert!(player.tackles_attempted_per_90.is_none());
+        assert!(player.goals_conceded_per_90.is_none());
+        assert!(player.fouls_made_per_90.is_none());
+    }
+
+    #[test]
+    fn test_ratio_zero_denominator() {
+        // conversion_ratio: goals=0, shots=0 → None
+        let mut player = make_player();
+        player.goals = 0;
+        player.shots = 0;
+        enrich(&mut player);
+        assert!(player.conversion_ratio.is_none());
+
+        // minutes_per_goal: goals=0 → None
+        let mut player = make_player();
+        player.goals = 0;
+        enrich(&mut player);
+        assert!(player.minutes_per_goal.is_none());
+
+        // pass_completion_ratio: passes_attempted=0 → None
+        let mut player = make_player();
+        player.passes_attempted = 0;
+        enrich(&mut player);
+        assert!(player.pass_completion_ratio.is_none());
+
+        // pens_scored_ratio: pens_taken=0 → None
+        let mut player = make_player();
+        player.pens_taken = 0;
+        enrich(&mut player);
+        assert!(player.pens_scored_ratio.is_none());
+    }
+
+    #[test]
+    fn test_save_ratio_division_by_zero() {
+        // Both goals_conceded=0 and total_saves=0 → denominator=0 → None
+        let mut player = make_player();
+        player.goals_conceded = 0;
+        player.saves_held = 0;
+        player.saves_parried = 0;
+        player.saves_tipped = 0;
+        enrich(&mut player);
+        assert!(player.save_ratio.is_none());
+    }
+
+    #[test]
+    fn test_total_from_per_90_none_input() {
+        // When per_90 source field is None, total should stay None
+        let mut player = make_player();
+        player.chances_created_per_90 = None;
+        player.sprints_per_90 = None;
+        enrich(&mut player);
+        assert!(player.chances_created.is_none());
+        assert!(player.sprints.is_none());
+    }
+
+    #[test]
+    fn test_game_win_ratio_zero_games() {
+        let mut player = make_player();
+        player.games_won = 0;
+        player.games_drawn = 0;
+        player.games_lost = 0;
+        enrich(&mut player);
+        assert!(player.game_win_ratio.is_none());
+    }
 }
