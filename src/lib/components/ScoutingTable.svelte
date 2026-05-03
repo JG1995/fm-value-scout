@@ -40,7 +40,8 @@
 
 <style>
 	.table-wrapper {
-		overflow-x: auto;
+		overflow: auto;
+		max-height: calc(100vh - 200px);
 		background: var(--color-glass-bg);
 		backdrop-filter: blur(var(--blur-panel));
 		-webkit-backdrop-filter: blur(var(--blur-panel));
@@ -55,6 +56,11 @@
 	}
 
 	th {
+		position: sticky;
+		top: 0;
+		z-index: 1;
+		background: var(--color-glass-bg);
+		backdrop-filter: blur(var(--blur-panel));
 		color: var(--color-gold);
 		padding: var(--space-3) var(--space-4);
 		text-align: left;
