@@ -108,9 +108,11 @@ fn parse_row(
         shots: get("Shots").parse().unwrap_or(0),
         shots_per_90: None,
         shots_outside_box: None,
-        shots_outside_box_per_90: get("Shots From Outside The Box Per 90 minutes")
-            .parse()
-            .unwrap_or(0.0),
+        shots_outside_box_per_90: Some(
+            get("Shots From Outside The Box Per 90 minutes")
+                .parse()
+                .unwrap_or(0.0),
+        ),
         shots_on_target: get("ShT").parse().unwrap_or(0),
         shots_on_target_per_90: None,
         shots_on_target_ratio: None,
@@ -131,13 +133,13 @@ fn parse_row(
         xa: get("xA").parse().unwrap_or(0.0),
         xa_per_90: None,
         chances_created: None,
-        chances_created_per_90: get("Ch C/90").parse().unwrap_or(0.0),
+        chances_created_per_90: Some(get("Ch C/90").parse().unwrap_or(0.0)),
         clear_cut_chances: get("CCC").parse().unwrap_or(0),
         clear_cut_chances_per_90: None,
         key_passes: get("Key").parse().unwrap_or(0),
         key_passes_per_90: None,
         op_key_passes: None,
-        op_key_passes_per_90: get("OP-KP/90").parse().unwrap_or(0.0),
+        op_key_passes_per_90: Some(get("OP-KP/90").parse().unwrap_or(0.0)),
         crosses_attempted: get("Cr A").parse().unwrap_or(0),
         crosses_attempted_per_90: None,
         crosses_completed: get("Cr C").parse().unwrap_or(0),
@@ -160,12 +162,12 @@ fn parse_row(
         progressive_passes_per_90: None,
         dribbles: get("Drb").parse().unwrap_or(0),
         dribbles_per_90: None,
-        distance_covered: parse_distance(get("Distance")),
+        distance_covered: parsing::parse_distance(get("Distance")),
         distance_covered_per_90: None,
         sprints: None,
-        sprints_per_90: get("Sprints/90").parse().unwrap_or(0.0),
+        sprints_per_90: Some(get("Sprints/90").parse().unwrap_or(0.0)),
         poss_lost: None,
-        poss_lost_per_90: get("Poss Lost/90").parse().unwrap_or(0.0),
+        poss_lost_per_90: Some(get("Poss Lost/90").parse().unwrap_or(0.0)),
 
         // === Defensive metrics ===
         tackles_attempted: get("Tck A").parse().unwrap_or(0),
@@ -178,7 +180,7 @@ fn parse_row(
         interceptions: get("Itc").parse().unwrap_or(0),
         interceptions_per_90: None,
         poss_won: None,
-        poss_won_per_90: get("Poss Won/90").parse().unwrap_or(0.0),
+        poss_won_per_90: Some(get("Poss Won/90").parse().unwrap_or(0.0)),
         pressures_attempted: get("Pres A").parse().unwrap_or(0),
         pressures_attempted_per_90: None,
         pressures_completed: get("Pres C").parse().unwrap_or(0),
@@ -197,10 +199,10 @@ fn parse_row(
         headers_won: get("Hdrs").parse().unwrap_or(0),
         headers_won_per_90: None,
         headers_lost: None,
-        headers_lost_per_90: get("Hdrs L/90").parse().unwrap_or(0.0),
+        headers_lost_per_90: Some(get("Hdrs L/90").parse().unwrap_or(0.0)),
         headers_won_ratio: None,
         key_headers: None,
-        key_headers_per_90: get("K Hdrs/90").parse().unwrap_or(0.0),
+        key_headers_per_90: Some(get("K Hdrs/90").parse().unwrap_or(0.0)),
 
         // === Goalkeeping metrics ===
         clean_sheets: get("Clean Sheets").parse().unwrap_or(0),
@@ -208,7 +210,7 @@ fn parse_row(
         goals_conceded: get("Goals Conceded").parse().unwrap_or(0),
         goals_conceded_per_90: None,
         total_saves: None,
-        total_saves_per_90: get("Saves/90").parse().unwrap_or(0.0),
+        total_saves_per_90: Some(get("Saves/90").parse().unwrap_or(0.0)),
         save_ratio: None,
         xsv_percent: get("xSv %").parse().unwrap_or(0.0),
         xgp: get("xGP").parse().unwrap_or(0.0),
@@ -250,32 +252,9 @@ fn parse_row(
     })
 }
 
-/// Parse distance string into u32 (strips "km", truncates decimal).
-///
-/// Examples:
-/// - "312.7km" → 312
-/// - "250km" → 250
-fn parse_distance(s: &str) -> u32 {
-    let s = s.trim().to_lowercase();
-    let num_str = s.trim_end_matches("km").trim();
-    num_str
-        .split_whitespace()
-        .next()
-        .and_then(|n| n.parse::<f64>().ok())
-        .map(|n| n as u32)
-        .unwrap_or(0)
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
-
-    #[test]
-    fn test_parse_distance() {
-        assert_eq!(parse_distance("312.7km"), 312);
-        assert_eq!(parse_distance("250km"), 250);
-        assert_eq!(parse_distance(""), 0);
-    }
 
     #[test]
     fn test_parse_csv_integration() {

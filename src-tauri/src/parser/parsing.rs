@@ -177,6 +177,22 @@ pub fn parse_date(s: &str) -> Option<NaiveDate> {
     }
 }
 
+/// Parse distance string into u32 (strips "km", truncates decimal).
+///
+/// Examples:
+/// - "312.7km" → 312
+/// - "250km" → 250
+pub fn parse_distance(s: &str) -> u32 {
+    let s = s.trim().to_lowercase();
+    let num_str = s.trim_end_matches("km").trim();
+    num_str
+        .split_whitespace()
+        .next()
+        .and_then(|n| n.parse::<f64>().ok())
+        .map(|n| n as u32)
+        .unwrap_or(0)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -294,5 +310,12 @@ mod tests {
         assert!(Strong > FairlyStrong);
         assert!(FairlyStrong > Reasonable);
         assert!(Reasonable > Weak);
+    }
+
+    #[test]
+    fn test_parse_distance() {
+        assert_eq!(parse_distance("312.7km"), 312);
+        assert_eq!(parse_distance("250km"), 250);
+        assert_eq!(parse_distance(""), 0);
     }
 }

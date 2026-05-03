@@ -5,9 +5,9 @@ fn per_90(total: f64, minutes: u32) -> Option<f64> {
     (minutes > 0).then(|| total * 90.0 / minutes as f64)
 }
 
-/// Convert per-90 to total. Returns None if minutes == 0.
-fn total_from_per_90(per_90: f64, minutes: u32) -> Option<f64> {
-    (minutes > 0).then(|| per_90 * minutes as f64 / 90.0)
+/// Convert per-90 to total. Returns None if per_90 is None or minutes == 0.
+fn total_from_per_90(per_90: Option<f64>, minutes: u32) -> Option<f64> {
+    per_90.and_then(|v| (minutes > 0).then(|| v * minutes as f64 / 90.0))
 }
 
 /// Compute a / b. Returns None if b == 0.
@@ -31,7 +31,7 @@ pub fn enrich(player: &mut Player) {
 
     // Per-90 from CSV per-90 → total
     if let Some(v) = total_from_per_90(player.shots_outside_box_per_90, player.minutes) {
-        player.shots_outside_box = Some(v);
+        player.shots_outside_box = Some(v as u16);
     }
 
     // === Attacking ratios ===
@@ -51,14 +51,14 @@ pub fn enrich(player: &mut Player) {
     player.assists_per_90 = per_90(player.assists as f64, player.minutes);
     player.xa_per_90 = per_90(player.xa, player.minutes);
     if let Some(v) = total_from_per_90(player.chances_created_per_90, player.minutes) {
-        player.chances_created = Some(v);
+        player.chances_created = Some(v as u16);
     }
     player.clear_cut_chances_per_90 = per_90(player.clear_cut_chances as f64, player.minutes);
     player.key_passes_per_90 = per_90(player.key_passes as f64, player.minutes);
 
     // OP key passes: per-90 from CSV → total
     if let Some(v) = total_from_per_90(player.op_key_passes_per_90, player.minutes) {
-        player.op_key_passes = Some(v);
+        player.op_key_passes = Some(v as u16);
     }
 
     player.crosses_attempted_per_90 = per_90(player.crosses_attempted as f64, player.minutes);
@@ -89,12 +89,12 @@ pub fn enrich(player: &mut Player) {
 
     // Sprints: per-90 from CSV → total
     if let Some(v) = total_from_per_90(player.sprints_per_90, player.minutes) {
-        player.sprints = Some(v);
+        player.sprints = Some(v as u16);
     }
 
     // Poss lost: per-90 from CSV → total
     if let Some(v) = total_from_per_90(player.poss_lost_per_90, player.minutes) {
-        player.poss_lost = Some(v);
+        player.poss_lost = Some(v as u16);
     }
 
     // === Defensive per-90s ===
@@ -110,7 +110,7 @@ pub fn enrich(player: &mut Player) {
 
     // Poss won: per-90 from CSV → total
     if let Some(v) = total_from_per_90(player.poss_won_per_90, player.minutes) {
-        player.poss_won = Some(v);
+        player.poss_won = Some(v as u16);
     }
 
     // === Defensive ratios ===
@@ -128,7 +128,7 @@ pub fn enrich(player: &mut Player) {
     player.headers_won_per_90 = per_90(player.headers_won as f64, player.minutes);
     // Headers lost: per-90 from CSV → total
     if let Some(v) = total_from_per_90(player.headers_lost_per_90, player.minutes) {
-        player.headers_lost = Some(v);
+        player.headers_lost = Some(v as u16);
     }
 
     // === Aerial ratios ===
@@ -136,7 +136,7 @@ pub fn enrich(player: &mut Player) {
 
     // Key headers: per-90 from CSV → total
     if let Some(v) = total_from_per_90(player.key_headers_per_90, player.minutes) {
-        player.key_headers = Some(v);
+        player.key_headers = Some(v as u16);
     }
 
     // === Goalkeeping per-90s ===
@@ -151,7 +151,7 @@ pub fn enrich(player: &mut Player) {
 
     // Total saves: per-90 from CSV → total
     if let Some(v) = total_from_per_90(player.total_saves_per_90, player.minutes) {
-        player.total_saves = Some(v);
+        player.total_saves = Some(v as u16);
     }
 
     // === Goalkeeping ratios ===
@@ -227,7 +227,7 @@ mod tests {
             shots: 150,
             shots_per_90: None,
             shots_outside_box: None,
-            shots_outside_box_per_90: 0.5,
+            shots_outside_box_per_90: Some(0.5),
             shots_on_target: 60,
             shots_on_target_per_90: None,
             shots_on_target_ratio: None,
@@ -247,13 +247,13 @@ mod tests {
             xa: 8.0,
             xa_per_90: None,
             chances_created: None,
-            chances_created_per_90: 2.0,
+            chances_created_per_90: Some(2.0),
             clear_cut_chances: 15,
             clear_cut_chances_per_90: None,
             key_passes: 40,
             key_passes_per_90: None,
             op_key_passes: None,
-            op_key_passes_per_90: 1.0,
+            op_key_passes_per_90: Some(1.0),
             crosses_attempted: 50,
             crosses_attempted_per_90: None,
             crosses_completed: 20,
@@ -278,9 +278,9 @@ mod tests {
             distance_covered: 325,
             distance_covered_per_90: None,
             sprints: None,
-            sprints_per_90: 8.0,
+            sprints_per_90: Some(8.0),
             poss_lost: None,
-            poss_lost_per_90: 6.0,
+            poss_lost_per_90: Some(6.0),
             // Defensive
             tackles_attempted: 40,
             tackles_attempted_per_90: None,
@@ -292,7 +292,7 @@ mod tests {
             interceptions: 20,
             interceptions_per_90: None,
             poss_won: None,
-            poss_won_per_90: 4.0,
+            poss_won_per_90: Some(4.0),
             pressures_attempted: 100,
             pressures_attempted_per_90: None,
             pressures_completed: 60,
@@ -310,17 +310,17 @@ mod tests {
             headers_won: 15,
             headers_won_per_90: None,
             headers_lost: None,
-            headers_lost_per_90: 0.5,
+            headers_lost_per_90: Some(0.5),
             headers_won_ratio: None,
             key_headers: None,
-            key_headers_per_90: 0.2,
+            key_headers_per_90: Some(0.2),
             // Goalkeeping
             clean_sheets: 5,
             clean_sheets_per_90: None,
             goals_conceded: 30,
             goals_conceded_per_90: None,
             total_saves: None,
-            total_saves_per_90: 3.0,
+            total_saves_per_90: Some(3.0),
             save_ratio: None,
             xsv_percent: 0.7,
             xgp: 25.0,
@@ -373,7 +373,7 @@ mod tests {
         let mut player = make_player();
         enrich(&mut player);
         // 0.5 per 90 * 30 games = 15 total
-        assert!((player.shots_outside_box.unwrap() - 15.0).abs() < 0.01);
+        assert!((player.shots_outside_box.unwrap() as f64 - 15.0).abs() < 0.01);
     }
 
     #[test]
