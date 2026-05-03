@@ -193,6 +193,47 @@ pub fn parse_distance(s: &str) -> u32 {
         .unwrap_or(0)
 }
 
+/// Parse an FM position string into granular position codes.
+///
+/// Handles multi-segment strings like `"D (LC), WB (L)"`,
+/// position groups separated by `/`, and deduplication.
+///
+/// # Examples
+///
+/// ```ignore
+/// // "AM (RC), ST (C)" → ["AMR", "AMC", "STC"]
+/// // "D (LC), WB (L)" → ["DL", "DC", "WBL"]
+/// // "GK" → ["GK"]
+/// ```
+pub fn parse_positions(raw: &str) -> Vec<String> {
+    if raw.is_empty() {
+        return Vec::new();
+    }
+    let mut result = Vec::new();
+    for segment in raw.split(',') {
+        let segment = segment.trim();
+        if segment.is_empty() {
+            continue;
+        }
+        if let Some(paren_idx) = segment.find('(') {
+            let groups_part = segment[..paren_idx].trim();
+            let after_paren = &segment[paren_idx + 1..];
+            let qualifiers = after_paren.trim_end_matches(')').trim();
+            for group in groups_part.split('/') {
+                let group = group.trim();
+                for q in qualifiers.chars() {
+                    result.push(format!("{}{}", group, q));
+                }
+            }
+        } else {
+            result.push(segment.to_string());
+        }
+    }
+    // Deduplicate while preserving order
+    let mut seen = std::collections::HashSet::new();
+    result.retain(|p| seen.insert(p.clone()));
+    result
+}
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -318,4 +359,27 @@ mod tests {
         assert_eq!(parse_distance("250km"), 250);
         assert_eq!(parse_distance(""), 0);
     }
+}
+
+#[test]
+fn test_parse_positions() {
+    // From the format table
+    assert_eq!(parse_positions("AM (C), ST (C)"), vec!["AMC", "STC"]);
+    assert_eq!(
+        parse_positions("D (L), M/AM(C), ST (C)"),
+        vec!["DL", "MC", "AMC", "STC"]
+    );
+    assert_eq!(parse_positions("D (LC), WB (L)"), vec!["DL", "DC", "WBL"]);
+    assert_eq!(
+        parse_positions("AM (RC), ST (C)"),
+        vec!["AMR", "AMC", "STC"]
+    );
+    assert_eq!(parse_positions("AM (RLC)"), vec!["AMR", "AML", "AMC"]);
+    assert_eq!(parse_positions("GK"), vec!["GK"]);
+
+    // Edge cases
+    assert!(parse_positions("").is_empty());
+    assert_eq!(parse_positions("  GK  "), vec!["GK"]);
+    // Deduplication
+    assert_eq!(parse_positions("D (C), D (C)"), vec!["DC"]);
 }
