@@ -237,7 +237,7 @@ pub fn parse_positions(raw: &str) -> Vec<String> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::models::types::{FootRating, TransferValue, WageUnit};
+    use crate::models::types::{FootRating, WageUnit};
     use chrono::Datelike;
 
     #[test]

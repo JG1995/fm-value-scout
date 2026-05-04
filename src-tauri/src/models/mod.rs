@@ -9,8 +9,3 @@
 pub mod csv_result;
 pub mod player;
 pub mod types;
-
-// Re-export the main types for convenience
-pub use csv_result::CsvResult;
-pub use player::Player;
-pub use types::{Appearances, FootRating, TransferValue, Wage, WageUnit};

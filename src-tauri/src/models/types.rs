@@ -80,6 +80,7 @@ pub struct Appearances {
 
 impl Appearances {
     /// Calculate starts = total - as_sub.
+    #[allow(dead_code)]
     pub fn starts(&self) -> u16 {
         self.total.saturating_sub(self.as_sub)
     }
@@ -105,6 +106,7 @@ pub struct TransferValue {
 
 impl TransferValue {
     /// Midpoint value for sorting/filtering.
+    #[allow(dead_code)]
     pub fn midpoint(&self) -> f64 {
         (self.min as f64 + self.max as f64) / 2.0
     }
@@ -128,13 +130,9 @@ pub struct Wage {
 }
 
 impl Wage {
-    /// Weekly amount (same as weekly_amount field, for API compatibility).
-    pub fn weekly(&self) -> f64 {
-        self.weekly_amount
-    }
-
     /// Annual wage estimate (52 weeks, not accounting for contract length).
     /// Note: Currency symbol should come from season metadata.
+    #[allow(dead_code)]
     pub fn annual_estimate(&self) -> f64 {
         self.weekly_amount * 52.0
     }

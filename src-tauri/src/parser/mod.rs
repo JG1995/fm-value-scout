@@ -263,7 +263,7 @@ mod tests {
         let result = parse_file(path);
         match result {
             Ok(csv_result) => {
-                assert!(csv_result.len() > 0, "Expected at least one player");
+                assert!(csv_result.players.len() > 0, "Expected at least one player");
                 assert_eq!(csv_result.currency, '€');
                 // First player should have enrichment computed
                 let first = &csv_result.players[0];
