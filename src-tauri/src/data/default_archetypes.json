@@ -1,1 +1,1410 @@
-[]
+[
+	{
+		"id": "gk/in-possession/traditional-goalkeeper",
+		"position": "GK",
+		"phase": "in-possession",
+		"name": "Traditional Goalkeeper",
+		"tags": [],
+		"description": "The Goalkeeper can distribute the ball in different ways depending on the team's playing strategy.",
+		"metrics": [
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.25, "inverted": false },
+			{ "metric": "PASSES_ATTEMPTED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "gk/in-possession/ball-playing-goalkeeper",
+		"position": "GK",
+		"phase": "in-possession",
+		"name": "Ball-Playing Goalkeeper",
+		"tags": ["expressive", "roaming"],
+		"description": "The Ball-Playing Goalkeeper looks to play an active role in their team's build-up play, often moving out of their goal to be in a position to recieve the ball.",
+		"metrics": [
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.25, "inverted": false },
+			{ "metric": "PASSES_ATTEMPTED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "gk/in-possession/no-nonsense-goalkeeper",
+		"position": "GK",
+		"phase": "in-possession",
+		"name": "No-Nonsense Goalkeeper",
+		"tags": ["careful", "holds position"],
+		"description": "The No-Nonsense Goalkeeper adopts a cautious approach, preferring to stay nearer to their goal and taking as few risks as possible with the ball at their feet when put under pressure.",
+		"metrics": [
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.35, "inverted": false },
+			{ "metric": "PASSES_ATTEMPTED_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "POSS_LOST_PER90", "weight": 0.1, "inverted": true },
+			{ "metric": "FOULS_MADE_PER90", "weight": 0.1, "inverted": true }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "gk/out-of-possession/traditional-goalkeeper",
+		"position": "GK",
+		"phase": "out-of-possession",
+		"name": "Traditional Goalkeeper",
+		"tags": [],
+		"description": "The Goalkeeper role focuses on protecting their goal and making saves from shots and crosses. They are the last line of defence and are relied upon to help the team keep clean sheets.",
+		"metrics": [
+			{ "metric": "XGP_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "SAVE_RATIO", "weight": 0.25, "inverted": false },
+			{ "metric": "SAVES_HELD_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "CLEAN_SHEETS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "GOALS_CONCEDED_PER90", "weight": 0.15, "inverted": true }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "gk/out-of-possession/sweeper-keeper",
+		"position": "GK",
+		"phase": "out-of-possession",
+		"name": "Sweeper Keeper",
+		"tags": ["come off line"],
+		"description": "The Sweeper Keeper is a proactive goalkeeper, regularly looking to come off their line in an attempt to intercept opposition passes or to engage opposition strikers early.",
+		"metrics": [
+			{ "metric": "XGP_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "SPRINTS", "weight": 0.15, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.15, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "gk/out-of-possession/line-holding-keeper",
+		"position": "GK",
+		"phase": "out-of-possession",
+		"name": "Line-Holding Keeper",
+		"tags": ["stays on line"],
+		"description": "The Line-Holding Keeper is a goalkeeper who primarily looks to stay within the confines of their own box, leaving the job of defending higher up the pitch to their teammates.",
+		"metrics": [
+			{ "metric": "XGP_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "SAVE_RATIO", "weight": 0.25, "inverted": false },
+			{ "metric": "SAVES_HELD_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "HEADERS_ATTEMPTED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "CLEARANCES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dc/in-possession/centre-back",
+		"position": "DC",
+		"phase": "in-possession",
+		"name": "Centre-Back",
+		"tags": ["holds position"],
+		"description": "The main job of the Centre-Back is to provide protection to the team, being in a position where they can be ready to react to attacking threats when the ball is turned over.",
+		"metrics": [
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.3, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "CLEARANCES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dc/in-possession/advanced-centre-back",
+		"position": "DC",
+		"phase": "in-possession",
+		"name": "Advanced Centre-Back",
+		"tags": ["moves to DM", "expressive"],
+		"description": "The main job of the Centre-Back is to provide protection to the team, being in a position where they can be ready to react to attacking threats when the ball is turned over. It differs from Centre-Back in that the Advanced Centre-Back is generally positioning higher up the field, ready to be involved in build-up play.",
+		"metrics": [
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "PASSES_ATTEMPTED_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dc/in-possession/ball-playing-centre-back",
+		"position": "DC",
+		"phase": "in-possession",
+		"name": "Ball-Playing Centre-Back",
+		"tags": ["expressive", "holds position"],
+		"description": "The two principle tasks of the Ball-Playing Centre-Back are to provide protection to the team whilst also playing line-breaking passes and through balls from deep to progress the ball up the pitch.",
+		"metrics": [
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.4, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.25, "inverted": false },
+			{ "metric": "PASSES_ATTEMPTED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.1, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.05, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dc/in-possession/no-nonsense-centre-back",
+		"position": "DC",
+		"phase": "in-possession",
+		"name": "No-Nonsense Centre-Back",
+		"tags": ["holds position", "careful"],
+		"description": "The No-Nonsense Centre-Back is focused on being the last outfield protection a team has, being in a position to be ready to defend at any moment, while also looking to minimize the amount of risks they take with the ball at their feet.",
+		"metrics": [
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.35, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.2, "inverted": false },
+			{ "metric": "POSS_LOST_PER90", "weight": 0.2, "inverted": true },
+			{ "metric": "FOULS_MADE_PER90", "weight": 0.15, "inverted": true },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dc/in-possession/wide-centre-back",
+		"position": "DC",
+		"phase": "in-possession",
+		"name": "Wide Centre-Back",
+		"tags": ["holds position", "stays wide"],
+		"description": "Alongside providing defensive protection to the team, the Wide Centre-Back is encouraged to provide width in possession and support to their wide attacking teammates ahead of them, often offering a recycling passing option from deep.",
+		"metrics": [
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.3, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "OP_CROSSES_COMPLETED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "PASSES_ATTEMPTED_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dc/in-possession/overlapping-centre-back",
+		"position": "DC",
+		"phase": "in-possession",
+		"name": "Overlapping Centre-Back",
+		"tags": ["gets further forward", "stays wide"],
+		"description": "The Overlapping Centre-Back combines the responsibilities of a Centre-Back and a Winger, looking to provide protection to the team during early phases of attack, while also getting into crossing positions by making overlapping runs in the final third of the pitch.",
+		"metrics": [
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "CROSSES_COMPLETED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.15, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dc/out-of-possession/centre-back",
+		"position": "DC",
+		"phase": "out-of-possession",
+		"name": "Centre-Back",
+		"tags": [],
+		"description": "The main job of the Centre-Back is to stop the opposing attackers from playing and to clear the ball from danger when required.",
+		"metrics": [
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.3, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "CLEARANCES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dc/out-of-possession/stopping-centre-back",
+		"position": "DC",
+		"phase": "out-of-possession",
+		"name": "Stopping Centre-Back",
+		"tags": ["steps out", "aggressive"],
+		"description": "As a Stopper, the Centre-Back is asked to more willing to step out from their position in order to hassle and engage opposition attackers, in an attempt to cut out attacks at their source.",
+		"metrics": [
+			{ "metric": "PRESSURES_COMPLETED_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "SPRINTS_PER90", "weight": 0.05, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dc/out-of-possession/covering-centre-back",
+		"position": "DC",
+		"phase": "out-of-possession",
+		"name": "Covering Centre-Back",
+		"tags": ["holds position", "careful"],
+		"description": "As a Cover, the Centre-Back is asked to adopt a more cautious approach, holding their line and waiting to react to the opposition attacker's movements.",
+		"metrics": [
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "TACKLE_COMPLETION_RATIO", "weight": 0.25, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.2, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.05, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dc/out-of-possession/wide-centre-back",
+		"position": "DC",
+		"phase": "out-of-possession",
+		"name": "Wide Centre-Back",
+		"tags": [],
+		"description": "The main job of the Wide Centre-Back is to stop the opposing attackers from playing and to clear the ball from danger when required.",
+		"metrics": [
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.25, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "CLEARANCES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.15, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dc/out-of-possession/wide-stopping-centre-back",
+		"position": "DC",
+		"phase": "out-of-possession",
+		"name": "Wide Stopping Centre-Back",
+		"tags": ["steps out", "aggressive"],
+		"description": "As a Stopper, the Wide Centre-Back is asked to more willing to step out from their position in order to hassle and engage opposition attackers, in an attempt to cut out attacks at their source.",
+		"metrics": [
+			{ "metric": "SPRINTS_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "PRESSURES_COMPLETED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.1, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dc/out-of-possession/wide-covering-centre-back",
+		"position": "DC",
+		"phase": "out-of-possession",
+		"name": "Wide Covering Centre-Back",
+		"tags": ["holds position", "careful"],
+		"description": "As a Cover, the Wide Centre-Back is asked to adopt a more cautious approach, holding their line and waiting to react to the opposition attacker's movements.",
+		"metrics": [
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "CLEARANCES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dl/in-possession/full-back",
+		"position": "DL",
+		"phase": "in-possession",
+		"name": "Full-Back",
+		"tags": ["holds position", "stays wide"],
+		"description": "The Full-Back is a key player in modern football, having to supplement their traditional defensive duties with overlapping runs down the wing to support forward play and help attacks overload the final third.",
+		"metrics": [
+			{ "metric": "CROSSES_COMPLETED_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.2, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dl/in-possession/wing-back",
+		"position": "DL",
+		"phase": "in-possession",
+		"name": "Wing-Back",
+		"tags": ["gets further forward", "stays wide"],
+		"description": "The Wing-Back combines the responsibilities of a Full-Back and a Winger, providing width to the team throughout the attack.",
+		"metrics": [
+			{ "metric": "CROSSES_COMPLETED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dl/in-possession/inside-wing-back",
+		"position": "DL",
+		"phase": "in-possession",
+		"name": "Inside Wing-Back",
+		"tags": ["holds position", "moves to DM"],
+		"description": "Looking to move into central areas of the pitch as their team progresses with the ball, the Inside Wing-Back supports central passing networks, as well as providing vital protection against central counter-attacks when the ball is turned over.",
+		"metrics": [
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.15, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dl/in-possession/inside-full-back",
+		"position": "DL",
+		"phase": "in-possession",
+		"name": "Inside Full-Back",
+		"tags": ["holds position", "moves to DC"],
+		"description": "The Inside Full-Back is a player whose specialist role involves moving inside to become an extra central defender during the attack.",
+		"metrics": [
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.3, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.15, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dl/in-possession/playmaking-wing-back",
+		"position": "DL",
+		"phase": "in-possession",
+		"name": "Playmaking Wing-Back",
+		"tags": ["moves to DM", "expressive"],
+		"description": "Similarly to the Inverted Wing-Back, the Playmaking Wing-Back will try to move into central areas of the pitch to support central passing networks and act as a playmaking outlet, whilst offering vital protection against central counter-attacks.",
+		"metrics": [
+			{ "metric": "XA_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "PASSES_ATTEMPTED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dl/out-of-possession/full-back",
+		"position": "DL",
+		"phase": "out-of-possession",
+		"name": "Full-Back",
+		"tags": [],
+		"description": "The main job of a Full-Back is to defend the wide areas as part of the team's backline.",
+		"metrics": [
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "CLEARANCES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dl/out-of-possession/pressing-full-back",
+		"position": "DL",
+		"phase": "out-of-possession",
+		"name": "Pressing Full-Back",
+		"tags": ["steps out", "aggressive"],
+		"description": "As a Presser, the Full-Back is asked to actively engage opposition wide players high up the pitch to support the team's press.",
+		"metrics": [
+			{ "metric": "PRESSURES_COMPLETED_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "SPRINTS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.05, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dl/out-of-possession/holding-full-back",
+		"position": "DL",
+		"phase": "out-of-possession",
+		"name": "Holding Full-Back",
+		"tags": ["holds position", "careful"],
+		"description": "As a Holder, the Full-Back is asked to hold a deeper position while their team is defending higher up the pitch, in order to provide additional protection against direct attacks.",
+		"metrics": [
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "CLEARANCES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "wbl/in-possession/wing-back",
+		"position": "WBL",
+		"phase": "in-possession",
+		"name": "Wing-Back",
+		"tags": ["gets further forward", "stays wide"],
+		"description": "The Wing-Back combines the responsibilities of a Full-Back and a Winger, providing width to the team throughout the attack.",
+		"metrics": [
+			{ "metric": "CROSSES_COMPLETED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "wbl/in-possession/advanced-wing-back",
+		"position": "WBL",
+		"phase": "in-possession",
+		"name": "Advanced Wing-Back",
+		"tags": ["gets further forward", "stays wide"],
+		"description": "With more aggressive positioning than a traditional Wing-Back, the Advanced Wing-Back looks to play high and wide as much as possible.",
+		"metrics": [
+			{ "metric": "SPRINTS_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "CROSSES_COMPLETED_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "wbl/in-possession/inside-wing-back",
+		"position": "WBL",
+		"phase": "in-possession",
+		"name": "Inside Wing-Back",
+		"tags": ["holds position", "moves to DM"],
+		"description": "Looking to move into central areas of the pitch as their team progresses with the ball, the Inside Wing-Back supports central passing networks, as well as providing vital protection against central counter-attacks when the ball is turned over.",
+		"metrics": [
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.15, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.05, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "wbl/in-possession/playmaking-wing-back",
+		"position": "WBL",
+		"phase": "in-possession",
+		"name": "Playmaking Wing-Back",
+		"tags": ["moves to DM", "expressive"],
+		"description": "Similarly to the Inverted Wing-Back, the Playmaking Wing-Back will try to move into central areas of the pitch to support central passing networks and act as a playmaking outlet, whilst offering vital protection against central counter-attacks.",
+		"metrics": [
+			{ "metric": "XA_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "PASSES_ATTEMPTED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.05, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "wbl/out-of-possession/wing-back",
+		"position": "WBL",
+		"phase": "out-of-possession",
+		"name": "Wing-Back",
+		"tags": [],
+		"description": "The Wing-Back is expected to defend the wide areas for their team.",
+		"metrics": [
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "CLEARANCES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.15, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "wbl/out-of-possession/pressing-wing-back",
+		"position": "WBL",
+		"phase": "out-of-possession",
+		"name": "Pressing Wing-Back",
+		"tags": ["steps out", "aggressive"],
+		"description": "As a Presser, the Wing-Back is asked to aggressively engage opposition wide players high up the pitch to support the team's press.",
+		"metrics": [
+			{ "metric": "PRESSURES_COMPLETED_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "SPRINTS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.05, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "wbl/out-of-possession/holding-wing-back",
+		"position": "WBL",
+		"phase": "out-of-possession",
+		"name": "Holding Wing-Back",
+		"tags": ["holds position", "careful"],
+		"description": "As a Holder, the Wing-Back is asked to hold a deeper position while their team is defending higher up the pitch, in order to provide additional protection against direct attacks.",
+		"metrics": [
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "CLEARANCES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dm/in-possession/defensive-midfielder",
+		"position": "DM",
+		"phase": "in-possession",
+		"name": "Defensive Midfielder",
+		"tags": ["holds position", "careful"],
+		"description": "The Defensive Midfielder's main responsibility is to position themselves in front of the team's defence and help protect them from counter-attacking threats.",
+		"metrics": [
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.35, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PASSES_ATTEMPTED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "POSS_LOST_PER90", "weight": 0.1, "inverted": true },
+			{ "metric": "FOULS_MADE_PER90", "weight": 0.1, "inverted": true }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dm/in-possession/deep-lying-playmaker",
+		"position": "DM",
+		"phase": "in-possession",
+		"name": "Deep-Lying Playmaker",
+		"tags": ["holds position", "expressive"],
+		"description": "Operating in the space between the defence and the midfield, the Deep-Lying Playmaker aims to initiate attacking moves via pinpoint passes to players positioned higher up the pitch.",
+		"metrics": [
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.4, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.1, "inverted": false },
+			{ "metric": "PASSES_ATTEMPTED_PER90", "weight": 0.05, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dm/in-possession/box-to-box-midfielder",
+		"position": "DM",
+		"phase": "in-possession",
+		"name": "Box-to-Box Midfielder",
+		"tags": ["moves to AMC", "goal threat"],
+		"description": "The non-stop dynamism of the Box-to-Box Midfielder enables them to contribute greatly to both attacking play during the build-up and in the final third.",
+		"metrics": [
+			{ "metric": "XG_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "SHOTS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dm/in-possession/half-back",
+		"position": "DM",
+		"phase": "in-possession",
+		"name": "Half-Back",
+		"tags": ["moves to DC", "careful"],
+		"description": "A defensive midfielder who looks to drop into their team's defensive line as they progress the ball up the pitch, the Half-Back acts as an additional central defender.",
+		"metrics": [
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.25, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.2, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dm/in-possession/box-to-box-playmaker",
+		"position": "DM",
+		"phase": "in-possession",
+		"name": "Box-to-Box Playmaker",
+		"tags": ["moves to AMC", "creative threat"],
+		"description": "The Box-to-Box Playmaker is the heartbeat of their team, looking to be a creative outlet from both deep and advanced areas of the pitch.",
+		"metrics": [
+			{ "metric": "XA_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.15, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dm/out-of-possession/defensive-midfielder",
+		"position": "DM",
+		"phase": "out-of-possession",
+		"name": "Defensive Midfielder",
+		"tags": [],
+		"description": "The Defensive Midfielder's main responsibility out of possession is to position themselves in front of the team's defence and help protect them from attacking threats.",
+		"metrics": [
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "FOULS_MADE_PER90", "weight": 0.1, "inverted": true }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dm/out-of-possession/dropping-defensive-midfielder",
+		"position": "DM",
+		"phase": "out-of-possession",
+		"name": "Dropping Defensive Midfielder",
+		"tags": ["moves to DC"],
+		"description": "As a Dropper, the defensive midfielder will look to move back into the defensive line as their team are pinned back into their own defensive third, acting as an additional central defender.",
+		"metrics": [
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.3, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "CLEARANCES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dm/out-of-possession/pressing-defensive-midfielder",
+		"position": "DM",
+		"phase": "out-of-possession",
+		"name": "Pressing Defensive Midfielder",
+		"tags": ["steps out", "aggressive"],
+		"description": "As a Presser, the defensive midfielder is tasked with stepping forward from their position to support the team's press high up the pitch.",
+		"metrics": [
+			{ "metric": "PRESSURES_COMPLETED_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "SPRINTS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.05, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dm/out-of-possession/screening-defensive-midfielder",
+		"position": "DM",
+		"phase": "out-of-possession",
+		"name": "Screening Defensive Midfielder",
+		"tags": ["holds position", "careful"],
+		"description": "As a Screener, the defensive midfielder's main responsibility is to defend the space in front of their central defenders.",
+		"metrics": [
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "dm/out-of-possession/wide-covering-defensive-midfielder",
+		"position": "DM",
+		"phase": "out-of-possession",
+		"name": "Wide Covering Defensive Midfielder",
+		"tags": ["covers flanks"],
+		"description": "As a Wide Cover, the defensive midfielder is asked to provide defensive support in wide areas, moving across from their typical position to help their team defend against wide threats.",
+		"metrics": [
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "mc/in-possession/central-midfielder",
+		"position": "MC",
+		"phase": "in-possession",
+		"name": "Central Midfielder",
+		"tags": [],
+		"description": "Responsible for providing an industrious and versatile link between the defence and the attack, the Central Midfielder is expected to perform a variety of tasks across the centre of the pitch. The role requires the tactical awareness and technical ability to support both defensive and attacking play as needed.",
+		"metrics": [
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.15, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "mc/in-possession/attacking-midfielder",
+		"position": "MC",
+		"phase": "in-possession",
+		"name": "Attacking Midfielder",
+		"tags": ["finds space", "goal threat"],
+		"description": "An offensive role which looks to operate between the opposition defensive and midfield line, the Attacking Midfielder looks to recieve passes in pockets of space as much as possible.",
+		"metrics": [
+			{ "metric": "XG_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "NPXG_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "SHOTS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "mc/in-possession/advanced-playmaker",
+		"position": "MC",
+		"phase": "in-possession",
+		"name": "Advanced Playmaker",
+		"tags": ["finds space", "expressive"],
+		"description": "The Advanced Playmaker is a creative role which looks to operate high up the pitch between the opposition's midfield and defence, looking to recieve passes in pockets of space as much as possible.",
+		"metrics": [
+			{ "metric": "XA_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "mc/in-possession/wide-central-midfielder",
+		"position": "MC",
+		"phase": "in-possession",
+		"name": "Wide Central Midfielder",
+		"tags": ["drifts wide"],
+		"description": "Typically utilised at the side of a midfield duo or trio, the Wide Central Midfielder's responsibilities lie in providing an industrious and versatile link between the defence and the attack.",
+		"metrics": [
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.15, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "mc/in-possession/channel-midfielder",
+		"position": "MC",
+		"phase": "in-possession",
+		"name": "Channel Midfielder",
+		"tags": ["runs into channels", "creative threat"],
+		"description": "The Channel Midfielder looks to make supporting runs into wide areas, often linking up their team's wide attackers.",
+		"metrics": [
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "CROSSES_COMPLETED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "mc/in-possession/midfield-playmaker",
+		"position": "MC",
+		"phase": "in-possession",
+		"name": "Midfield Playmaker",
+		"tags": ["expressive", "creative threat"],
+		"description": "The Midfield Playmaker operates as a creative link between defence and attack, looking to play progressive passes and killer balls to attacking teammates to initiate attacks for their team.",
+		"metrics": [
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.1, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "mc/out-of-possession/central-midfielder",
+		"position": "MC",
+		"phase": "out-of-possession",
+		"name": "Central Midfielder",
+		"tags": [],
+		"description": "The Central Midfielder looks to provide protection in the middle of the pitch, often looking to provide a balance between supporting the press and screening passes through the middle.",
+		"metrics": [
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "PRESSURES_COMPLETED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "mc/out-of-possession/pressing-central-midfielder",
+		"position": "MC",
+		"phase": "out-of-possession",
+		"name": "Pressing Central Midfielder",
+		"tags": ["steps out", "aggressive"],
+		"description": "As a Presser, the central midfielder is tasked with stepping forward from their position to support the team's press high up the pitch.",
+		"metrics": [
+			{ "metric": "PRESSURES_COMPLETED_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "SPRINTS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.05, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "mc/out-of-possession/screening-central-midfielder",
+		"position": "MC",
+		"phase": "out-of-possession",
+		"name": "Screening Central Midfielder",
+		"tags": ["holds position", "careful"],
+		"description": "As a Screener, the central midfielder's main responsibility is to defend the space in front of their central defenders.",
+		"metrics": [
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "mc/out-of-possession/wide-covering-central-midfielder",
+		"position": "MC",
+		"phase": "out-of-possession",
+		"name": "Wide Covering Central Midfielder",
+		"tags": ["covers flanks"],
+		"description": "As a Wide Cover, the central midfielder is asked to provide defensive support in wide areas, moving across from their typical position to help their team defend against wide threats.",
+		"metrics": [
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "amc/in-possession/attacking-midfielder",
+		"position": "AMC",
+		"phase": "in-possession",
+		"name": "Attacking Midfielder",
+		"tags": ["finds space", "goal threat"],
+		"description": "An offensive role which looks to operate between the opposition defensive and midfield line, the Attacking Midfielder looks to recieve passes in pockets of space as much as possible.",
+		"metrics": [
+			{ "metric": "XG_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "NPXG_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "SHOTS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "amc/in-possession/advanced-playmaker",
+		"position": "AMC",
+		"phase": "in-possession",
+		"name": "Advanced Playmaker",
+		"tags": ["finds space", "expressive"],
+		"description": "The Advanced Playmaker is a creative role which looks to operate high up the pitch between the opposition's midfield and defence, looking to recieve passes in pockets of space as much as possible.",
+		"metrics": [
+			{ "metric": "XA_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "amc/in-possession/free-role",
+		"position": "AMC",
+		"phase": "in-possession",
+		"name": "Free Role",
+		"tags": ["expressive", "creative threat"],
+		"description": "A player with a Free Role is given full creative license, allowing them to roam from their position to create attacking opportunities for their team whilst also being encouraged to take more risks with the ball in an effort to both create and score goals.",
+		"metrics": [
+			{ "metric": "XA_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "POSS_LOST_PER90", "weight": 0.15, "inverted": true }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "amc/in-possession/second-striker",
+		"position": "AMC",
+		"phase": "in-possession",
+		"name": "Second Striker",
+		"tags": ["moves to ST", "goal threat"],
+		"description": "The Second Striker operates as one of the team's main goalscoring threats.",
+		"metrics": [
+			{ "metric": "XG_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "NPXG_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "SHOTS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.1, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "amc/in-possession/channel-midfielder",
+		"position": "AMC",
+		"phase": "in-possession",
+		"name": "Channel Midfielder",
+		"tags": ["runs into channels", "creative threat"],
+		"description": "The Channel Midfielder looks to make supporting runs into wide areas, often linking up their team's wide attackers.",
+		"metrics": [
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "CROSSES_COMPLETED_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "amc/out-of-possession/attacking-midfielder",
+		"position": "AMC",
+		"phase": "out-of-possession",
+		"name": "Attacking Midfielder",
+		"tags": [],
+		"description": "The Attacking Midfielder looks to defend central areas of the pitch, often being tasked with preventing access to the opposition's midfield pivots.",
+		"metrics": [
+			{ "metric": "PRESSURES_COMPLETED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "amc/out-of-possession/tracking-attacking-midfielder",
+		"position": "AMC",
+		"phase": "out-of-possession",
+		"name": "Tracking Attacking Midfielder",
+		"tags": ["tracks back", "supports defence"],
+		"description": "As a Tracker, the Attacking Midfielder is instructed to track back defensively as the opposition advance in order to support the defenders behind them, dropping back into a deeper defensive position.",
+		"metrics": [
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.1, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "amc/out-of-possession/central-outlet-attacking-midfielder",
+		"position": "AMC",
+		"phase": "out-of-possession",
+		"name": "Central Outlet Attacking Midfielder",
+		"tags": ["stays high", "counter-attacks"],
+		"description": "As a Central Outlet, the Attacking Midfielder is asked to avoid tracking back to help out defenders behind them as much, instead looking to hold their position more in order to be in a dangerous position for a counter-attack when the ball turns over.",
+		"metrics": [
+			{ "metric": "SPRINTS_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "NPXG_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.1, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "amc/out-of-possession/splitting-outlet-attacking-midfielder",
+		"position": "AMC",
+		"phase": "out-of-possession",
+		"name": "Splitting Outlet Attacking Midfielder",
+		"tags": ["stays high", "counter-attacks"],
+		"description": "As a Splitting Outlet, the Attacking Midfielder is asked to avoid tracking back to help out defenders behind them as much, instead looking to hold their position more in order to be in a dangerous position for a counter-attack when the ball turns over.",
+		"metrics": [
+			{ "metric": "SPRINTS_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "ml/in-possession/wide-midfielder",
+		"position": "ML",
+		"phase": "in-possession",
+		"name": "Wide Midfielder",
+		"tags": ["holds position", "stays wide"],
+		"description": "A wide player who tends to support the attack from deeper than a typical attacking wide player, the Wide Midfielder prefers to play dangerous passes and crosses from deep instead of trying to beat an opposition full-back, trusting their technical ability more than dribbling or pace.",
+		"metrics": [
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.2, "inverted": false },
+			{ "metric": "CROSSES_COMPLETED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "ml/in-possession/winger",
+		"position": "ML",
+		"phase": "in-possession",
+		"name": "Winger",
+		"tags": ["stays wide", "creative threat"],
+		"description": "Providing width throughout the attack, the Winger stretches the opposition defence by attacking from close to the sidelines. The role aims to provide support to their team's forwards, playing dangerous passes and crosses in the final third to create chances for their teammates.",
+		"metrics": [
+			{ "metric": "CROSSES_COMPLETED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "ml/in-possession/playmaking-winger",
+		"position": "ML",
+		"phase": "in-possession",
+		"name": "Playmaking Winger",
+		"tags": ["moves inside", "expressive"],
+		"description": "The Playmaking Winger will act as the team's primary source of creativity, starting from a wide position during their team's build-up phase before later drifting inside to find space from which to play killer balls and create chances.",
+		"metrics": [
+			{ "metric": "XA_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "ml/in-possession/inside-winger",
+		"position": "ML",
+		"phase": "in-possession",
+		"name": "Inside Winger",
+		"tags": ["moves inside", "creative threat"],
+		"description": "Frequently aiming to drift inside into the half-space as their team attacks, the Inside Winger looks to recieve the ball in more central areas of the pitch, while also creating space out wide for overlapping teammates. The role is usually combined with attacking full-back or wing-back that looks to hug the sideline so that both players have their own space to operate in.",
+		"metrics": [
+			{ "metric": "XA_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "OP_CROSSES_COMPLETED_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "ml/out-of-possession/wide-midfielder",
+		"position": "ML",
+		"phase": "out-of-possession",
+		"name": "Wide Midfielder",
+		"tags": [],
+		"description": "The Wide Midfielder provides a balance between defensive protection against wide attacking threats, and being in a position to spring a counter in case of a turnover.",
+		"metrics": [
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "BLOCKS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "CLEARANCES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "ml/out-of-possession/tracking-wide-midfielder",
+		"position": "ML",
+		"phase": "out-of-possession",
+		"name": "Tracking Wide Midfielder",
+		"tags": ["tracks back", "supports defence"],
+		"description": "As a Tracker, the Wide Midfielder is instructed to track back defensively as the opposition advance, in order to support the defenders behind them, at times even dropping into the backline as an additional defender.",
+		"metrics": [
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "ml/out-of-possession/wide-outlet-wide-midfielder",
+		"position": "ML",
+		"phase": "out-of-possession",
+		"name": "Wide Outlet Wide Midfielder",
+		"tags": ["stays high", "counter-attacks"],
+		"description": "As a Wide Outlet, the Wide Midfielder is asked to avoid tracking back to help out the Full-Back behind them as much, instead looking to hold their position more in order to be in a dangerous position for a counter-attack when the ball turns over.",
+		"metrics": [
+			{ "metric": "SPRINTS_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.1, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "aml/in-possession/winger",
+		"position": "AML",
+		"phase": "in-possession",
+		"name": "Winger",
+		"tags": ["stays wide", "creative threat"],
+		"description": "Providing width throughout the attack, the Winger stretches the opposition defence by attacking from close to the sidelines. The role aims to provide support to their team's forwards, playing dangerous passes and crosses in the final third to create chances for their teammates.",
+		"metrics": [
+			{ "metric": "CROSSES_COMPLETED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "aml/in-possession/inside-forward",
+		"position": "AML",
+		"phase": "in-possession",
+		"name": "Inside Forward",
+		"tags": ["moves inside", "goal threat"],
+		"description": "The Inside Forward is a wide role that aims to frequently drift inside into the half-spaces as their team attacks to help open up space for overlapping full-backs, as well as being in position to recieve the ball in more central areas of the pitch.",
+		"metrics": [
+			{ "metric": "XG_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "NPXG_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "SHOTS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.1, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "aml/in-possession/playmaking-winger",
+		"position": "AML",
+		"phase": "in-possession",
+		"name": "Playmaking Winger",
+		"tags": ["moves inside", "expressive"],
+		"description": "The Playmaking Winger will act as the team's primary source of creativity, starting from a wide position during their team's build-up phase before later drifting inside to find space from which to play killer balls and create chances.",
+		"metrics": [
+			{ "metric": "XA_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "aml/in-possession/wide-forward",
+		"position": "AML",
+		"phase": "in-possession",
+		"name": "Wide Forward",
+		"tags": ["stays wide", "goal threat"],
+		"description": "As with the Winger, the Wide Forward is expected to provide width throughout the attack so as to stretch out the opposition defence and attack from near the sidelines.",
+		"metrics": [
+			{ "metric": "CROSSES_COMPLETED_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "NPXG_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.15, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "aml/in-possession/inside-winger",
+		"position": "AML",
+		"phase": "in-possession",
+		"name": "Inside Winger",
+		"tags": ["moves inside", "creative threat"],
+		"description": "Frequently aiming to drift inside into the half-space as their team attacks, the Inside Winger looks to recieve the ball in more central areas of the pitch, while also creating space out wide for overlapping teammates. The role is usually combined with attacking full-back or wing-back that looks to hug the sideline so that both players have their own space to operate in.",
+		"metrics": [
+			{ "metric": "XA_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "OP_CROSSES_COMPLETED_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "aml/out-of-possession/winger",
+		"position": "AML",
+		"phase": "out-of-possession",
+		"name": "Winger",
+		"tags": [],
+		"description": "The Winger primarily looks to defend the wide areas of the pitch, looking to find a balance between supporting the press higher up the pitch, and tracking back when necessary to support the wide defender behind them.",
+		"metrics": [
+			{ "metric": "PRESSURES_COMPLETED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "aml/out-of-possession/tracking-winger",
+		"position": "AML",
+		"phase": "out-of-possession",
+		"name": "Tracking Winger",
+		"tags": ["tracks back", "supports defence"],
+		"description": "As a Tracker, the Winger is instructed to track back defensively as the opposition advance, in order to support the defenders behind them, at times even dropping into the backline as an additional defender.",
+		"metrics": [
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.1, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "aml/out-of-possession/inside-outlet-winger",
+		"position": "AML",
+		"phase": "out-of-possession",
+		"name": "Inside Outlet Winger",
+		"tags": ["stays high", "counter-attacks"],
+		"description": "As a Inside Outlet, the Winger is asked to avoid tracking back to help out the Full-Back behind them as much, instead looking to hold their position more in order to be in a dangerous position for a counter-attack when the ball turns over.",
+		"metrics": [
+			{ "metric": "SPRINTS_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "NPXG_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.1, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "aml/out-of-possession/wide-outlet-winger",
+		"position": "AML",
+		"phase": "out-of-possession",
+		"name": "Wide Outlet Winger",
+		"tags": ["stays high", "counter-attacks"],
+		"description": "As a Wide Outlet, the Winger is asked to avoid tracking back to help out the Full-Back behind them as much, instead looking to hold their position more in order to be in a dangerous position for a counter-attack when the ball turns over.",
+		"metrics": [
+			{ "metric": "SPRINTS_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "CROSSES_COMPLETED_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "stc/in-possession/deep-lying-forward",
+		"position": "STC",
+		"phase": "in-possession",
+		"name": "Deep-Lying Forward",
+		"tags": ["drops off", "links play"],
+		"description": "With the main function of the Deep-Lying Forward being to link the attack to the midfield, they seek to drop between the lines to recieve passes from deep before supplying linking passes of their own to teammates in a number of ways: moving the ball back to midfield support, spreading it wide to the flanks, or, if they have time to turn, playing in their strike partner.",
+		"metrics": [
+			{ "metric": "XA_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.15, "inverted": false },
+			{ "metric": "NPXG_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "stc/in-possession/centre-forward",
+		"position": "STC",
+		"phase": "in-possession",
+		"name": "Centre Forward",
+		"tags": ["goal threat"],
+		"description": "The Centre Forward, also typically known as the classic \"Number 9\", is expected to lead the line and look to spearhead attacking moves.",
+		"metrics": [
+			{ "metric": "XG_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "NPXG_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "SHOTS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "SHOTS_ON_TARGET_PER90", "weight": 0.1, "inverted": false },
+			{ "metric": "HEADERS_WON_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "stc/in-possession/target-forward",
+		"position": "STC",
+		"phase": "in-possession",
+		"name": "Target Forward",
+		"tags": ["plays on last line", "links play"],
+		"description": "Heavily utilizing their physicality and height to disrupt the opposition's defence and create goalscoring opportunities for their team, the Target Forward is typically the team's attacking outlet during the build-up phase, and are often the target for longer passes and clearances that they knock down, flick on or lay off to their surrounding teammates.",
+		"metrics": [
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.35, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "HEADERS_ATTEMPTED_PER90", "weight": 0.1, "inverted": false },
+			{ "metric": "NPXG_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "stc/in-possession/poacher",
+		"position": "STC",
+		"phase": "in-possession",
+		"name": "Poacher",
+		"tags": ["plays on last line", "goal threat"],
+		"description": "The Poacher sits on the shoulder of the last defender, looking to break the defensive line and run onto through balls from the midfield.",
+		"metrics": [
+			{ "metric": "XG_PER90", "weight": 0.4, "inverted": false },
+			{ "metric": "NPXG_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "SHOTS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "SHOTS_ON_TARGET_RATIO", "weight": 0.1, "inverted": false },
+			{ "metric": "MINUTES_PER_GOAL", "weight": 0.1, "inverted": true }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "stc/in-possession/channel-forward",
+		"position": "STC",
+		"phase": "in-possession",
+		"name": "Channel Forward",
+		"tags": ["runs into channels", "goal threat"],
+		"description": "A high-energy role, the Channel Forward looks to constantly be a thorn in opposition defender's sides, regularly making supporting runs into the channels for their team.",
+		"metrics": [
+			{ "metric": "XG_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "NPXG_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "SHOTS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "SPRINTS_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "DRIBBLES_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "stc/in-possession/false-nine",
+		"position": "STC",
+		"phase": "in-possession",
+		"name": "False Nine",
+		"tags": ["moves to AMC", "links play"],
+		"description": "An unconventional centre forward, the False Nine regularly drops between the lines of the opposition's defence and midfield, looking to act similarly to an Advanced Playmaker for their team.",
+		"metrics": [
+			{ "metric": "XA_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "KEY_PASSES_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "PASS_COMPLETION_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "stc/out-of-possession/centre-forward",
+		"position": "STC",
+		"phase": "out-of-possession",
+		"name": "Centre Forward",
+		"tags": [],
+		"description": "The Centre Forward sets the tone for their team's defensive strategy, often starting the press, or screening passes through the middle of the pitch.",
+		"metrics": [
+			{ "metric": "PRESSURES_COMPLETED_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.15, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "stc/out-of-possession/tracking-centre-forward",
+		"position": "STC",
+		"phase": "out-of-possession",
+		"name": "Tracking Centre Forward",
+		"tags": ["tracks back", "supports defence"],
+		"description": "As a Tracker, the Centre Forward is instructed to track back defensively as the opposition advance in order to support the defenders behind them, dropping back into a deeper defensive position.",
+		"metrics": [
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.25, "inverted": false },
+			{ "metric": "POSS_WON_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "TACKLES_COMPLETED_PER90", "weight": 0.1, "inverted": false },
+			{ "metric": "HEADERS_WON_RATIO", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "stc/out-of-possession/central-outlet-centre-forward",
+		"position": "STC",
+		"phase": "out-of-possession",
+		"name": "Central Outlet Centre Forward",
+		"tags": ["stays high", "counter-attacks"],
+		"description": "As a Central Outlet, the Centre Forward is asked to avoid tracking back to help out defenders behind them as much, instead looking to hold their position more in order to be in a dangerous position for a counter-attack when the ball turns over.",
+		"metrics": [
+			{ "metric": "SPRINTS_PER90", "weight": 0.35, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "NPXG_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "DISTANCE_COVERED_PER90", "weight": 0.1, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.05, "inverted": false }
+		],
+		"isUserCreated": false
+	},
+	{
+		"id": "stc/out-of-possession/splitting-outlet-centre-forward",
+		"position": "STC",
+		"phase": "out-of-possession",
+		"name": "Splitting Outlet Centre Forward",
+		"tags": ["stays high", "counter-attacks"],
+		"description": "As a Splitting Outlet, the Centre Forward is asked to avoid tracking back to help out defenders behind them as much, instead looking to hold their position more in order to be in a dangerous position for a counter-attack when the ball turns over.",
+		"metrics": [
+			{ "metric": "SPRINTS_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "PROGRESSIVE_PASSES_PER90", "weight": 0.3, "inverted": false },
+			{ "metric": "XA_PER90", "weight": 0.2, "inverted": false },
+			{ "metric": "XG_PER90", "weight": 0.1, "inverted": false },
+			{ "metric": "INTERCEPTIONS_PER90", "weight": 0.1, "inverted": false }
+		],
+		"isUserCreated": false
+	}
+]

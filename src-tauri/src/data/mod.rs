@@ -12,8 +12,11 @@ mod tests {
     use super::*;
 
     #[test]
-    fn load_defaults_returns_empty() {
+    fn load_defaults_has_entries() {
         let archetypes = load_default_archetypes();
-        assert!(archetypes.is_empty());
+        assert!(
+            !archetypes.is_empty(),
+            "expected at least one default archetype"
+        );
     }
 }
