@@ -92,7 +92,7 @@ The Centre Forward sets the tone for their team's defensive strategy, often star
 | Pressures Completed per 90 | 0.30   | false     |
 | Possession Won per 90      | 0.25   | false     |
 | Interceptions per 90       | 0.20   | false     |
-| Tackles per 90             | 0.15   | false     |
+| Tackles Completed per 90   | 0.15   | false     |
 | Distance Covered per 90    | 0.10   | false     |
 
 ### Tracking Centre Forward
@@ -100,13 +100,13 @@ The Centre Forward sets the tone for their team's defensive strategy, often star
 tags: tracks back, supports defence
 As a Tracker, the Centre Forward is instructed to track back defensively as the opposition advance in order to support the defenders behind them, dropping back into a deeper defensive position.
 
-| METRIC_NAME             | WEIGHT | INVERTED? |
-| ----------------------- | ------ | --------- |
-| Distance Covered per 90 | 0.35   | false     |
-| Interceptions per 90    | 0.25   | false     |
-| Possession Won per 90   | 0.20   | false     |
-| Tackles per 90          | 0.10   | false     |
-| Headers Won Ratio       | 0.10   | false     |
+| METRIC_NAME              | WEIGHT | INVERTED? |
+| ------------------------ | ------ | --------- |
+| Distance Covered per 90  | 0.35   | false     |
+| Interceptions per 90     | 0.25   | false     |
+| Possession Won per 90    | 0.20   | false     |
+| Tackles Completed per 90 | 0.10   | false     |
+| Headers Won Ratio        | 0.10   | false     |
 
 ### Central Outlet Centre Forward
 

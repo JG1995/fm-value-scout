@@ -74,13 +74,13 @@ The Box-to-Box Playmaker is the heartbeat of their team, looking to be a creativ
 tags: none
 The Defensive Midfielder's main responsibility out of possession is to position themselves in front of the team's defence and help protect them from attacking threats.
 
-| METRIC_NAME           | WEIGHT | INVERTED? |
-| --------------------- | ------ | --------- |
-| Tackles per 90        | 0.30   | false     |
-| Possession Won per 90 | 0.25   | false     |
-| Interceptions per 90  | 0.20   | false     |
-| Blocks per 90         | 0.15   | false     |
-| Fouls Made per 90     | 0.10   | true      |
+| METRIC_NAME              | WEIGHT | INVERTED? |
+| ------------------------ | ------ | --------- |
+| Tackles Completed per 90 | 0.30   | false     |
+| Possession Won per 90    | 0.25   | false     |
+| Interceptions per 90     | 0.20   | false     |
+| Blocks per 90            | 0.15   | false     |
+| Fouls Made per 90        | 0.10   | true      |
 
 ### Dropping Defensive Midfielder
 
@@ -105,7 +105,7 @@ As a Presser, the defensive midfielder is tasked with stepping forward from thei
 | Pressures Completed per 90    | 0.35   | false     |
 | High Intensity Sprints per 90 | 0.25   | false     |
 | Possession Won per 90         | 0.20   | false     |
-| Tackles per 90                | 0.15   | false     |
+| Tackles Completed per 90      | 0.15   | false     |
 | Interceptions per 90          | 0.05   | false     |
 
 ### Screening Defensive Midfielder
@@ -113,23 +113,23 @@ As a Presser, the defensive midfielder is tasked with stepping forward from thei
 tags: holds position, careful
 As a Screener, the defensive midfielder's main responsibility is to defend the space in front of their central defenders.
 
-| METRIC_NAME           | WEIGHT | INVERTED? |
-| --------------------- | ------ | --------- |
-| Tackles per 90        | 0.30   | false     |
-| Interceptions per 90  | 0.25   | false     |
-| Possession Won per 90 | 0.20   | false     |
-| Blocks per 90         | 0.15   | false     |
-| Pass Completion Ratio | 0.10   | false     |
+| METRIC_NAME              | WEIGHT | INVERTED? |
+| ------------------------ | ------ | --------- |
+| Tackles Completed per 90 | 0.30   | false     |
+| Interceptions per 90     | 0.25   | false     |
+| Possession Won per 90    | 0.20   | false     |
+| Blocks per 90            | 0.15   | false     |
+| Pass Completion Ratio    | 0.10   | false     |
 
 ### Wide Covering Defensive Midfielder
 
 tags: covers flanks
 As a Wide Cover, the defensive midfielder is asked to provide defensive support in wide areas, moving across from their typical position to help their team defend against wide threats.
 
-| METRIC_NAME             | WEIGHT | INVERTED? |
-| ----------------------- | ------ | --------- |
-| Distance Covered per 90 | 0.30   | false     |
-| Interceptions per 90    | 0.25   | false     |
-| Possession Won per 90   | 0.20   | false     |
-| Tackles per 90          | 0.15   | false     |
-| Blocks per 90           | 0.10   | false     |
+| METRIC_NAME              | WEIGHT | INVERTED? |
+| ------------------------ | ------ | --------- |
+| Distance Covered per 90  | 0.30   | false     |
+| Interceptions per 90     | 0.25   | false     |
+| Possession Won per 90    | 0.20   | false     |
+| Tackles Completed per 90 | 0.15   | false     |
+| Blocks per 90            | 0.10   | false     |

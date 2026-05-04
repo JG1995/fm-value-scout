@@ -80,20 +80,20 @@ The Winger primarily looks to defend the wide areas of the pitch, looking to fin
 | Distance Covered per 90    | 0.25   | false     |
 | Interceptions per 90       | 0.20   | false     |
 | Possession Won per 90      | 0.15   | false     |
-| Tackles per 90             | 0.10   | false     |
+| Tackles Completed per 90   | 0.10   | false     |
 
 ### Tracking Winger
 
 tags: tracks back, supports defence
 As a Tracker, the Winger is instructed to track back defensively as the opposition advance, in order to support the defenders behind them, at times even dropping into the backline as an additional defender.
 
-| METRIC_NAME             | WEIGHT | INVERTED? |
-| ----------------------- | ------ | --------- |
-| Distance Covered per 90 | 0.35   | false     |
-| Interceptions per 90    | 0.25   | false     |
-| Possession Won per 90   | 0.20   | false     |
-| Tackles per 90          | 0.10   | false     |
-| Headers Won Ratio       | 0.10   | false     |
+| METRIC_NAME              | WEIGHT | INVERTED? |
+| ------------------------ | ------ | --------- |
+| Distance Covered per 90  | 0.35   | false     |
+| Interceptions per 90     | 0.25   | false     |
+| Possession Won per 90    | 0.20   | false     |
+| Tackles Completed per 90 | 0.10   | false     |
+| Headers Won Ratio        | 0.10   | false     |
 
 ### Inside Outlet Winger
 

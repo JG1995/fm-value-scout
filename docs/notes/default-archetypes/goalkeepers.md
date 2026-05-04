@@ -53,7 +53,7 @@ The Goalkeeper role focuses on protecting their goal and making saves from shots
 | xGP per 90            | 0.30   | false     |
 | Save Ratio            | 0.25   | false     |
 | Saves Held per 90     | 0.15   | false     |
-| Clean Sheets Ratio    | 0.15   | false     |
+| Clean Sheets per 90   | 0.15   | false     |
 | Goals Conceded per 90 | 0.15   | true      |
 
 ### Sweeper Keeper

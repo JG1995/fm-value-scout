@@ -12,7 +12,7 @@ Responsible for providing an industrious and versatile link between the defence 
 | Pass Completion Ratio     | 0.25   | false     |
 | Progressive Passes per 90 | 0.20   | false     |
 | Distance Covered per 90   | 0.20   | false     |
-| Tackles per 90            | 0.20   | false     |
+| Tackles Completed per 90  | 0.20   | false     |
 | Interceptions per 90      | 0.15   | false     |
 
 ### Attacking Midfielder
@@ -51,7 +51,7 @@ Typically utilised at the side of a midfield duo or trio, the Wide Central Midfi
 | Pass Completion Ratio     | 0.25   | false     |
 | Progressive Passes per 90 | 0.20   | false     |
 | Distance Covered per 90   | 0.20   | false     |
-| Tackles per 90            | 0.20   | false     |
+| Tackles Completed per 90  | 0.20   | false     |
 | Interceptions per 90      | 0.15   | false     |
 
 ### Channel Midfielder
@@ -89,7 +89,7 @@ The Central Midfielder looks to provide protection in the middle of the pitch, o
 
 | METRIC_NAME                | WEIGHT | INVERTED? |
 | -------------------------- | ------ | --------- |
-| Tackles per 90             | 0.30   | false     |
+| Tackles Completed per 90   | 0.30   | false     |
 | Interceptions per 90       | 0.25   | false     |
 | Possession Won per 90      | 0.20   | false     |
 | Pressures Completed per 90 | 0.15   | false     |
@@ -105,7 +105,7 @@ As a Presser, the central midfielder is tasked with stepping forward from their 
 | Pressures Completed per 90    | 0.35   | false     |
 | High Intensity Sprints per 90 | 0.25   | false     |
 | Possession Won per 90         | 0.20   | false     |
-| Tackles per 90                | 0.15   | false     |
+| Tackles Completed per 90      | 0.15   | false     |
 | Interceptions per 90          | 0.05   | false     |
 
 ### Screening Central Midfielder
@@ -113,23 +113,23 @@ As a Presser, the central midfielder is tasked with stepping forward from their 
 tags: holds position, careful
 As a Screener, the central midfielder's main responsibility is to defend the space in front of their central defenders.
 
-| METRIC_NAME           | WEIGHT | INVERTED? |
-| --------------------- | ------ | --------- |
-| Tackles per 90        | 0.30   | false     |
-| Interceptions per 90  | 0.25   | false     |
-| Possession Won per 90 | 0.20   | false     |
-| Blocks per 90         | 0.15   | false     |
-| Pass Completion Ratio | 0.10   | false     |
+| METRIC_NAME              | WEIGHT | INVERTED? |
+| ------------------------ | ------ | --------- |
+| Tackles Completed per 90 | 0.30   | false     |
+| Interceptions per 90     | 0.25   | false     |
+| Possession Won per 90    | 0.20   | false     |
+| Blocks per 90            | 0.15   | false     |
+| Pass Completion Ratio    | 0.10   | false     |
 
 ### Wide Covering Central Midfielder
 
 tags: covers flanks
 As a Wide Cover, the central midfielder is asked to provide defensive support in wide areas, moving across from their typical position to help their team defend against wide threats.
 
-| METRIC_NAME             | WEIGHT | INVERTED? |
-| ----------------------- | ------ | --------- |
-| Distance Covered per 90 | 0.30   | false     |
-| Interceptions per 90    | 0.25   | false     |
-| Possession Won per 90   | 0.20   | false     |
-| Tackles per 90          | 0.15   | false     |
-| Blocks per 90           | 0.10   | false     |
+| METRIC_NAME              | WEIGHT | INVERTED? |
+| ------------------------ | ------ | --------- |
+| Distance Covered per 90  | 0.30   | false     |
+| Interceptions per 90     | 0.25   | false     |
+| Possession Won per 90    | 0.20   | false     |
+| Tackles Completed per 90 | 0.15   | false     |
+| Blocks per 90            | 0.10   | false     |

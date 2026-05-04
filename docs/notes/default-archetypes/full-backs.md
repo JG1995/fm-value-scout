@@ -92,7 +92,7 @@ As a Presser, the Full-Back is asked to actively engage opposition wide players 
 | Pressures Completed per 90    | 0.35   | false     |
 | High Intensity Sprints per 90 | 0.25   | false     |
 | Possession Won per 90         | 0.20   | false     |
-| Tackles per 90                | 0.15   | false     |
+| Tackles Completed per 90      | 0.15   | false     |
 | Interceptions per 90          | 0.05   | false     |
 
 ### Holding Full-Back

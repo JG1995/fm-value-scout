@@ -103,7 +103,7 @@ As a Stopper, the Centre-Back is asked to more willing to step out from their po
 | METRIC_NAME                   | WEIGHT | INVERTED? |
 | ----------------------------- | ------ | --------- |
 | Pressures Completed per 90    | 0.35   | false     |
-| Tackles per 90                | 0.25   | false     |
+| Tackles Completed per 90      | 0.25   | false     |
 | Possession Won per 90         | 0.20   | false     |
 | Interceptions per 90          | 0.15   | false     |
 | High Intensity Sprints per 90 | 0.05   | false     |
@@ -143,7 +143,7 @@ As a Stopper, the Wide Centre-Back is asked to more willing to step out from the
 | ----------------------------- | ------ | --------- |
 | High Intensity Sprints per 90 | 0.30   | false     |
 | Pressures Completed per 90    | 0.30   | false     |
-| Tackles per 90                | 0.20   | false     |
+| Tackles Completed per 90      | 0.20   | false     |
 | Headers Won Ratio             | 0.10   | false     |
 | Possession Won per 90         | 0.10   | false     |
 

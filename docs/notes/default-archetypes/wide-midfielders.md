@@ -74,13 +74,13 @@ The Wide Midfielder provides a balance between defensive protection against wide
 tags: tracks back, supports defence
 As a Tracker, the Wide Midfielder is instructed to track back defensively as the opposition advance, in order to support the defenders behind them, at times even dropping into the backline as an additional defender.
 
-| METRIC_NAME             | WEIGHT | INVERTED? |
-| ----------------------- | ------ | --------- |
-| Distance Covered per 90 | 0.30   | false     |
-| Interceptions per 90    | 0.25   | false     |
-| Possession Won per 90   | 0.20   | false     |
-| Tackles per 90          | 0.15   | false     |
-| Headers Won Ratio       | 0.10   | false     |
+| METRIC_NAME              | WEIGHT | INVERTED? |
+| ------------------------ | ------ | --------- |
+| Distance Covered per 90  | 0.30   | false     |
+| Interceptions per 90     | 0.25   | false     |
+| Possession Won per 90    | 0.20   | false     |
+| Tackles Completed per 90 | 0.15   | false     |
+| Headers Won Ratio        | 0.10   | false     |
 
 ### Wide Outlet Wide Midfielder
 
