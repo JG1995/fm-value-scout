@@ -1,3 +1,5 @@
+pub mod archetypes;
+
 use crate::models::csv_result::CsvResult;
 use crate::parser;
 
