@@ -23,6 +23,8 @@ pub fn run() {
             commands::archetypes::list_available_metrics,
             commands::archetypes::save_user_archetype,
             commands::archetypes::delete_user_archetype,
+            commands::archetypes::score_archetype_fit,
+            commands::get_percentiles,
         ])
         .setup(|app| {
             let app_data_dir = app
@@ -31,6 +33,7 @@ pub fn run() {
                 .expect("failed to resolve app data dir");
             let store = commands::archetypes::ArchetypeStore::new(app_data_dir);
             app.manage(store);
+            app.manage(commands::DataStore::new());
             Ok(())
         });
 

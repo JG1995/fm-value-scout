@@ -10,3 +10,5 @@ pub mod archetype;
 pub mod csv_result;
 pub mod player;
 pub mod types;
+
+pub mod percentile;

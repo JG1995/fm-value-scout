@@ -278,7 +278,10 @@ mod tests {
     fn all_metrics_have_display_names() {
         for variant in PlayerMetric::all_variants() {
             let name = variant.display_name();
-            assert!(!name.is_empty(), "display_name() returned empty for {variant:?}");
+            assert!(
+                !name.is_empty(),
+                "display_name() returned empty for {variant:?}"
+            );
         }
     }
 
@@ -431,7 +434,10 @@ mod tests {
         let player = sample_player();
         assert_eq!(PlayerMetric::GoalsPer90.extract(&player), Some(0.5));
         assert_eq!(PlayerMetric::AssistsPer90.extract(&player), Some(0.3));
-        assert_eq!(PlayerMetric::PassCompletionRatio.extract(&player), Some(0.84));
+        assert_eq!(
+            PlayerMetric::PassCompletionRatio.extract(&player),
+            Some(0.84)
+        );
     }
 
     #[test]
@@ -481,13 +487,15 @@ mod tests {
 
     #[test]
     fn generate_id_expected_format() {
-        let id = Archetype::generate_id("Goalkeeper", Phase::InPossession, "Ball-Playing Goalkeeper");
+        let id =
+            Archetype::generate_id("Goalkeeper", Phase::InPossession, "Ball-Playing Goalkeeper");
         assert_eq!(id, "goalkeeper/in-possession/ball-playing-goalkeeper");
     }
 
     #[test]
     fn generate_id_multiple_words() {
-        let id = Archetype::generate_id("Central Defender", Phase::OutOfPossession, "No-Nonsense CB");
+        let id =
+            Archetype::generate_id("Central Defender", Phase::OutOfPossession, "No-Nonsense CB");
         assert_eq!(id, "central-defender/out-of-possession/no-nonsense-cb");
     }
 
@@ -534,7 +542,10 @@ mod tests {
     #[test]
     fn extract_raw_u32_fields() {
         let player = sample_player();
-        assert_eq!(PlayerMetric::DistanceCovered.extract(&player), Some(11000.0));
+        assert_eq!(
+            PlayerMetric::DistanceCovered.extract(&player),
+            Some(11000.0)
+        );
     }
 
     #[test]
@@ -562,7 +573,10 @@ mod tests {
     fn total_variant_count() {
         // Verifies all metric fields from Player are covered in the macro.
         let count = PlayerMetric::all_variants().len();
-        assert!(count >= 130, "only {count} variants defined, expected at least 130");
+        assert!(
+            count >= 130,
+            "only {count} variants defined, expected at least 130"
+        );
     }
 
     #[test]
@@ -601,4 +615,3 @@ mod tests {
         }
     }
 }
-

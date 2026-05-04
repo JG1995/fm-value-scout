@@ -1,8 +1,19 @@
 <script lang="ts">
 	import type { Player } from "$lib/types/player";
-	import { formatValue, formatWage } from "$lib/utils/format";
+	import type { ArchetypeFitScore } from "$lib/types/archetypes";
+	import { formatValue, formatWage, formatPercent, formatDecimal } from "$lib/utils/format";
 
-	let { players, currency }: { players: Player[]; currency: string } = $props();
+	let {
+		players,
+		currency,
+		scores = null,
+	}: {
+		players: Player[];
+		currency: string;
+		scores: Map<number, ArchetypeFitScore> | null;
+	} = $props();
+
+	const showScores = $derived(scores !== null);
 </script>
 
 <div class="table-wrapper">
@@ -17,15 +28,20 @@
 				<th class="text-label-caps">Height</th>
 				<th class="text-label-caps">Transfer Value</th>
 				<th class="text-label-caps">Wage</th>
+				{#if showScores}
+					<th class="text-label-caps score-col">Quality</th>
+					<th class="text-label-caps score-col">Value</th>
+				{/if}
 			</tr>
 		</thead>
 		<tbody>
 			{#if players.length === 0}
 				<tr>
-					<td colspan="8" class="empty-msg text-body-md">No players loaded</td>
+					<td colspan={showScores ? 10 : 8} class="empty-msg text-body-md"> No players loaded </td>
 				</tr>
 			{:else}
 				{#each players as player}
+					{@const score = scores?.get(player.unique_id)}
 					<tr>
 						<td class="text-body-md">{player.name}</td>
 						<td class="text-body-md">{player.nation}</td>
@@ -35,6 +51,10 @@
 						<td class="text-body-md">{player.height_cm} cm</td>
 						<td class="text-body-md">{formatValue(player.transfer_value, currency)}</td>
 						<td class="text-body-md">{formatWage(player.weekly_wage, currency)}</td>
+						{#if showScores}
+							<td class="text-body-md score-val">{formatPercent(score?.quality ?? null)}</td>
+							<td class="text-body-md score-val">{formatDecimal(score?.value ?? null)}</td>
+						{/if}
 					</tr>
 				{/each}
 			{/if}
@@ -91,5 +111,14 @@
 		color: var(--color-on-surface-variant);
 		padding: var(--space-6) var(--space-4);
 		text-align: center;
+	}
+
+	.score-col {
+		text-align: right;
+	}
+
+	.score-val {
+		text-align: right;
+		font-variant-numeric: tabular-nums;
 	}
 </style>

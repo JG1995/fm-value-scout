@@ -1,5 +1,6 @@
 /** Mirrors backend Rust Player struct — fields the frontend consumes. */
 export interface Player {
+	unique_id: number;
 	name: string;
 	nation: string;
 	club: string;

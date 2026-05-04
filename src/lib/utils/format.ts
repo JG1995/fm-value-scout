@@ -19,3 +19,15 @@ export function formatFullNumber(n: number): string {
 export function formatWage(w: { weekly_amount: number; unit: string }, currency: string): string {
 	return `${currency}${formatFullNumber(w.weekly_amount)} p/w`;
 }
+
+/** Format a 0-1 score as a percentage string. Returns "—" for null. */
+export function formatPercent(n: number | null): string {
+	if (n == null) return "—";
+	return `${Math.round(n * 100)}%`;
+}
+
+/** Format a decimal score to 2 places. Returns "—" for null. */
+export function formatDecimal(n: number | null): string {
+	if (n == null) return "—";
+	return n.toFixed(2);
+}
