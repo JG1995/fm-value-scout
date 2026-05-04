@@ -106,6 +106,7 @@ _Preventing goals and handling opposition strikes._
 | METRIC_NAME                    | TOTAL_SOURCE | PER_90_SOURCE | INVERTED |
 | ------------------------------ | ------------ | ------------- | -------- |
 | Clean Sheets                   | CSV          | COMPUTED      | false    |
+| Clean Sheet Ratio              | COMPUTED     | n/a           | false    |
 | Goals Conceded                 | CSV          | COMPUTED      | true     |
 | Total Saves                    | COMPUTED     | CSV           | false    |
 | Save Ratio                     | COMPUTED     | n/a           | false    |
