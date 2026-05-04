@@ -12,6 +12,9 @@ services:
       - ~/.config/omp_container/.env:/root/.env
       - ~/.config/omp_container/.ssh:/root/.ssh
 
+      # Shadow Home Mount for Opencode
+      - ~/.config/opencode:/root/.config/opencode
+
     env_file:
       - ~/.config/omp_container/.env
     working_dir: /workspace

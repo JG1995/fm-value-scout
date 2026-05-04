@@ -37,6 +37,11 @@ RUN uv python install && uv tool install pre-commit
 RUN /root/.bun/bin/bun install -g @oh-my-pi/pi-coding-agent
 
 # ==============================================================================
+# Opencode coding agent
+# ==============================================================================
+RUN /root/.bun/bin/bun install -g opencode-ai@latest
+
+# ==============================================================================
 # Rust toolchain (required by Tauri v2)
 # ==============================================================================
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
