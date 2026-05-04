@@ -84,14 +84,14 @@ The parser writes to the local SQLite database:
 
 ### Computed Metrics
 
-- **IF** a metric's "per 90" variant is not directly in the CSV, **THEN** the parser computes it from the total value divided by (Minutes / 90), rounded to the field's specified decimal places.
+- **IF** a metric's "per 90" variant is not directly in the CSV (indicated by `COMPUTED` in the metrics specification), **THEN** the parser computes it from the total value divided by (Minutes / 90), rounded to the field's specified decimal places (2 decimal places if unspecified).
 - **IF** a metric's total variant is not directly in the CSV (indicated by `COMPUTED` in the metrics specification), **THEN** the parser computes it from the per-90 value multiplied by (Minutes / 90).
-- **IF** a ratio metric is not directly in the CSV, **THEN** the parser computes it from the component metrics (e.g., Pass Completion Ratio = Passes Completed / Passes Attempted).
-- **IF** the denominator for any computed ratio is zero, **THEN** the ratio is stored as `NULL` rather than causing a division-by-zero error.
+- **IF** a ratio metric is not directly in the CSV (indicated by `COMPUTED` in the metrics specification), **THEN** the parser computes it from the component metrics (e.g., Pass Completion Ratio = Passes Completed / Passes Attempted).
+- **IF** the denominator for any computed ratio is zero, **THEN** the ratio is stored as an integer `0` rather than causing a division-by-zero error.
 
 ### Validation
 
-- **IF** the Minutes field is 0, **THEN** per-90 metrics cannot be computed and are stored as `NULL`. The row is still imported — a player with 0 minutes is valid (unused substitute).
+- **IF** the Minutes field is 0, **THEN** per-90 metrics cannot be computed and are stored as an integer `0`. The row is still imported — a player with 0 minutes is valid (unused substitute).
 - **IF** the player Name field is empty, **THEN** the row is rejected with reason "Missing player name."
 - **IF** the Club field is empty, **THEN** the row is still imported; the player may be a free agent.
 
