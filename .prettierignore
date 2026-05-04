@@ -9,3 +9,6 @@ Cargo.lock
 static/*.png
 static/*.svg
 static/*.ico
+
+# opencode-swarm state (not formatted by prettier)
+.swarm/

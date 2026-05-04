@@ -1,0 +1,14 @@
+# Runtime state — not portable across machines
+swarm.db
+swarm.db-shm
+swarm.db-wal
+session/
+locks/
+telemetry.jsonl
+trajectories/
+replays/
+.first-run-complete
+SWARM_PLAN.json
+SWARM_PLAN.md
+plan-ledger.archived-*.jsonl
+curator-summary.json

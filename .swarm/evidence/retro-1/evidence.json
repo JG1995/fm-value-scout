@@ -1,0 +1,44 @@
+{
+	"schema_version": "1.0.0",
+	"task_id": "retro-1",
+	"entries": [
+		{
+			"task_id": "retro-1",
+			"type": "retrospective",
+			"timestamp": "2026-05-04T19:18:02.464Z",
+			"agent": "architect",
+			"verdict": "pass",
+			"summary": "Phase 1 established the database foundation: added 7 Rust crates + 1 npm dependency, created the full 9-table SQLite schema with 98 metric columns and 3 performance indexes, and wired database initialization into the Tauri app lifecycle with WAL mode, connection pooling via Arc<Mutex<Connection>>, and managed state. All tasks passed review with minor corrections (visibility, schema fixes).",
+			"metadata": { "plan_id": "FM ValueScout — CSV Parser & Scouting View" },
+			"phase_number": 1,
+			"total_tool_calls": 45,
+			"coder_revisions": 3,
+			"reviewer_rejections": 2,
+			"loop_detections": 1,
+			"circuit_breaker_trips": 1,
+			"test_failures": 0,
+			"security_findings": 0,
+			"integration_issues": 1,
+			"task_count": 3,
+			"task_complexity": "moderate",
+			"top_rejection_reasons": [
+				"Schema columns incomplete vs spec (missing raw footedness, starts/subs, second_nationality)",
+				"Nullable column in composite PK causing data integrity risk",
+				"Missing trait import (use tauri::Manager)",
+				"Struct visibility too restrictive (AppState not pub(crate))"
+			],
+			"lessons_learned": [
+				"Coder config-zone block requires self-edit fallback after 3 failures even with valid scope",
+				"Review Cargo.lock/resolved versions before claiming a crate version exists",
+				"SQLite composite PKs with nullable columns silently allow duplicate rows",
+				"Always review schema against spec FRs for missing columns (foot_rawn/start/subs caught by reviewer)",
+				"Add tauri::Manager import for app.path() and app.manage() — common Rust newcomer oversight"
+			],
+			"user_directives": [],
+			"approaches_tried": [],
+			"error_taxonomy": []
+		}
+	],
+	"created_at": "2026-05-04T19:18:02.466Z",
+	"updated_at": "2026-05-04T19:18:02.466Z"
+}

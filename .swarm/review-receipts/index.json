@@ -1,0 +1,77 @@
+{
+	"schema_version": 1,
+	"entries": [
+		{
+			"id": "2dc77f43-3b98-412a-a426-28645cf5cae7",
+			"verdict": "approved",
+			"reviewed_at": "2026-05-04T15:34:10.077Z",
+			"scope_hash": "d75c4add195deb260d03fe39908af07bb3d6d7710a15eef0356056a0b3a1b4d3",
+			"agent": "curator",
+			"filename": "2026-05-04-2dc77f43-3b98-412a-a426-28645cf5cae7.json"
+		},
+		{
+			"id": "be0f543f-dc70-4920-b69b-30f7c8617117",
+			"verdict": "approved",
+			"reviewed_at": "2026-05-04T15:42:44.217Z",
+			"scope_hash": "4fbd8cb57965b55c94beb1b265813fcd78160eb2c10e3cd35af949757f3477c9",
+			"agent": "curator",
+			"filename": "2026-05-04-be0f543f-dc70-4920-b69b-30f7c8617117.json"
+		},
+		{
+			"id": "31c62925-56b6-4dd6-bf12-a14b843a341d",
+			"verdict": "approved",
+			"reviewed_at": "2026-05-04T16:33:16.265Z",
+			"scope_hash": "5ebfafde0f137803dd32d7fc3b59f8f74b4b06f447d22193d2dc8a7e8145e9f1",
+			"agent": "curator",
+			"filename": "2026-05-04-31c62925-56b6-4dd6-bf12-a14b843a341d.json"
+		},
+		{
+			"id": "0794416c-2067-42af-846a-3f1ead95fd5d",
+			"verdict": "approved",
+			"reviewed_at": "2026-05-04T16:53:05.428Z",
+			"scope_hash": "5b66a9da351b44f1a0b744bfd2d506ec667ebfb3b1394cf2789f29594642f19d",
+			"agent": "curator",
+			"filename": "2026-05-04-0794416c-2067-42af-846a-3f1ead95fd5d.json"
+		},
+		{
+			"id": "28fd915a-1d12-43e2-9c60-815df9835613",
+			"verdict": "approved",
+			"reviewed_at": "2026-05-04T17:13:25.740Z",
+			"scope_hash": "19f4e95d445ae703ff7ca26a319344b9406049fc73bd64c6447438bd3c6fe90a",
+			"agent": "curator",
+			"filename": "2026-05-04-28fd915a-1d12-43e2-9c60-815df9835613.json"
+		},
+		{
+			"id": "cdcffcd1-5787-487a-8228-57a13c3f72f1",
+			"verdict": "approved",
+			"reviewed_at": "2026-05-04T17:45:29.547Z",
+			"scope_hash": "2cade1c99c3a087c6650e8be377a26991574afb1d283684808ce975da8821e6d",
+			"agent": "curator",
+			"filename": "2026-05-04-cdcffcd1-5787-487a-8228-57a13c3f72f1.json"
+		},
+		{
+			"id": "aac5e059-e896-4ee3-9698-e50906f299aa",
+			"verdict": "approved",
+			"reviewed_at": "2026-05-04T17:50:23.852Z",
+			"scope_hash": "047f0090d30fa5b05676eaaafb4a39a966c45abf7384015118e6965d7cdf5a3f",
+			"agent": "curator",
+			"filename": "2026-05-04-aac5e059-e896-4ee3-9698-e50906f299aa.json"
+		},
+		{
+			"id": "5513170b-4b0a-4085-91e7-c8b7875e2f42",
+			"verdict": "approved",
+			"reviewed_at": "2026-05-04T19:25:16.151Z",
+			"scope_hash": "fd62ad572bcccc9c4570692d37f6dc7fad4fcf23530d8814a11f5d89a9ce64ff",
+			"agent": "curator",
+			"filename": "2026-05-04-5513170b-4b0a-4085-91e7-c8b7875e2f42.json"
+		},
+		{
+			"id": "c3174903-a350-4a2e-b9e6-8716b7e3bf3b",
+			"verdict": "approved",
+			"reviewed_at": "2026-05-04T19:41:21.575Z",
+			"scope_hash": "64af2dfb275b2af404b9902607e25e8228763cfa0609669648920162d5d84526",
+			"agent": "curator",
+			"filename": "2026-05-04-c3174903-a350-4a2e-b9e6-8716b7e3bf3b.json"
+		}
+	]
+}

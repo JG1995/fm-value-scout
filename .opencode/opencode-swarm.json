@@ -2,59 +2,71 @@
 	"agents": {
 		"coder": {
 			"model": "opencode-go/deepseek-v4-flash",
-			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
+			"fallback_models": [
+				"minimax-coding-plan/MiniMax-M2.7",
+				"opencode/gpt-5-nano",
+				"opencode/big-pickle"
+			]
 		},
 		"reviewer": {
-			"model": "opencode-go/glm-5.1",
-			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
+			"model": "opencode-go/deepseek-v4-pro",
+			"fallback_models": ["opencode-go/glm-5.1", "opencode/gpt-5-nano", "opencode/big-pickle"]
 		},
 		"test_engineer": {
 			"model": "opencode-go/deepseek-v4-flash",
-			"fallback_models": ["opencode/big-pickle"]
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"explorer": {
-			"model": "opencode-go/qwen3.5-plus",
-			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": ["opencode-go/qwen3.5-plus", "opencode/gpt-5-nano", "opencode/big-pickle"]
 		},
 		"sme": {
-			"model": "opencode-go/deepseek-v4-pro",
-			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": [
+				"opencode-go/deepseek-v4-pro",
+				"opencode/gpt-5-nano",
+				"opencode/big-pickle"
+			]
 		},
 		"critic": {
-			"model": "opencode-go/glm-5.1",
-			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
+			"model": "opencode-go/deepseek-v4-pro",
+			"fallback_models": ["opencode-go/glm-5.1", "opencode/gpt-5-nano", "opencode/big-pickle"]
 		},
 		"docs": {
-			"model": "opencode-go/qwen3.5-plus",
-			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": ["opencode-go/qwen3.5-plus", "opencode/gpt-5-nano", "opencode/big-pickle"]
 		},
 		"designer": {
 			"model": "opencode-go/glm-5.1",
-			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
+			"fallback_models": [
+				"opencode-go/deepseek-v4-pro",
+				"opencode/gpt-5-nano",
+				"opencode/big-pickle"
+			]
 		},
 		"critic_sounding_board": {
 			"model": "opencode-go/deepseek-v4-pro",
-			"fallback_models": ["opencode/big-pickle"]
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"critic_drift_verifier": {
 			"model": "opencode-go/deepseek-v4-pro",
-			"fallback_models": ["opencode/big-pickle"]
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"critic_hallucination_verifier": {
 			"model": "opencode-go/deepseek-v4-pro",
-			"fallback_models": ["opencode/big-pickle"]
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"critic_oversight": {
 			"model": "opencode-go/deepseek-v4-pro",
-			"fallback_models": ["opencode/big-pickle"]
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"curator_init": {
 			"model": "opencode-go/deepseek-v4-pro",
-			"fallback_models": ["opencode/big-pickle"]
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"curator_phase": {
 			"model": "opencode-go/deepseek-v4-pro",
-			"fallback_models": ["opencode/big-pickle"]
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		}
 	},
 	"default_agent": "architect"
