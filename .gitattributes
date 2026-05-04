@@ -1,0 +1,11 @@
+* text=auto eol=lf
+
+# Binary files
+*.png binary
+*.ico binary
+*.icns binary
+*.jpg binary
+*.jpeg binary
+*.svg binary
+bun.lock binary
+Cargo.lock binary
