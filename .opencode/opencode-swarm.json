@@ -1,59 +1,59 @@
 {
 	"agents": {
 		"coder": {
-			"model": "opencode/minimax-m2.5-free",
+			"model": "opencode-go/deepseek-v4-flash",
 			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
 		},
 		"reviewer": {
-			"model": "opencode/big-pickle",
+			"model": "opencode-go/glm-5.1",
 			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
 		},
 		"test_engineer": {
-			"model": "opencode/gpt-5-nano",
+			"model": "opencode-go/deepseek-v4-flash",
 			"fallback_models": ["opencode/big-pickle"]
 		},
 		"explorer": {
-			"model": "opencode/big-pickle",
+			"model": "opencode-go/qwen3.5-plus",
 			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
 		},
 		"sme": {
-			"model": "opencode/big-pickle",
+			"model": "opencode-go/deepseek-v4-pro",
 			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
 		},
 		"critic": {
-			"model": "opencode/big-pickle",
+			"model": "opencode-go/glm-5.1",
 			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
 		},
 		"docs": {
-			"model": "opencode/big-pickle",
+			"model": "opencode-go/qwen3.5-plus",
 			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
 		},
 		"designer": {
-			"model": "opencode/big-pickle",
+			"model": "opencode-go/glm-5.1",
 			"fallback_models": ["opencode/gpt-5-nano", "opencode/big-pickle"]
 		},
 		"critic_sounding_board": {
-			"model": "opencode/gpt-5-nano",
+			"model": "opencode-go/deepseek-v4-pro",
 			"fallback_models": ["opencode/big-pickle"]
 		},
 		"critic_drift_verifier": {
-			"model": "opencode/gpt-5-nano",
+			"model": "opencode-go/deepseek-v4-pro",
 			"fallback_models": ["opencode/big-pickle"]
 		},
 		"critic_hallucination_verifier": {
-			"model": "opencode/gpt-5-nano",
+			"model": "opencode-go/deepseek-v4-pro",
 			"fallback_models": ["opencode/big-pickle"]
 		},
 		"critic_oversight": {
-			"model": "opencode/gpt-5-nano",
+			"model": "opencode-go/deepseek-v4-pro",
 			"fallback_models": ["opencode/big-pickle"]
 		},
 		"curator_init": {
-			"model": "opencode/gpt-5-nano",
+			"model": "opencode-go/deepseek-v4-pro",
 			"fallback_models": ["opencode/big-pickle"]
 		},
 		"curator_phase": {
-			"model": "opencode/gpt-5-nano",
+			"model": "opencode-go/deepseek-v4-pro",
 			"fallback_models": ["opencode/big-pickle"]
 		}
 	},
