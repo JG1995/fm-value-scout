@@ -1,4 +1,6 @@
-mod db;
+pub mod db;
+pub mod encoding;
+pub mod import;
 pub mod parsers;
 
 use std::sync::{Arc, Mutex};
@@ -37,16 +39,98 @@ fn greet(name: &str) -> String {
     format!("Hello, {}! You've been greeted from Rust!", name)
 }
 
+/// Set the user's managed club name. Persisted in the settings table.
+#[tauri::command]
+fn set_managed_club(state: tauri::State<'_, AppState>, club_name: String) -> Result<(), String> {
+    let conn = state
+        .db
+        .lock()
+        .map_err(|e| format!("Failed to acquire DB lock: {}", e))?;
+    db::set_setting(&conn, "managed_club", &club_name).map_err(|e| format!("DB error: {}", e))
+}
+
+/// Get the user's managed club name. Returns None if not yet set.
+#[tauri::command]
+fn get_managed_club(state: tauri::State<'_, AppState>) -> Result<Option<String>, String> {
+    let conn = state
+        .db
+        .lock()
+        .map_err(|e| format!("Failed to acquire DB lock: {}", e))?;
+    db::get_setting(&conn, "managed_club").map_err(|e| format!("DB error: {}", e))
+}
+
+/// Set a user preference by key/value pair. Persisted in the settings table.
+#[tauri::command]
+fn set_preference(
+    state: tauri::State<'_, AppState>,
+    key: String,
+    value: String,
+) -> Result<(), String> {
+    let conn = state
+        .db
+        .lock()
+        .map_err(|e| format!("Failed to acquire DB lock: {}", e))?;
+    db::set_setting(&conn, &key, &value).map_err(|e| format!("DB error: {}", e))
+}
+
+/// Get a user preference by key. Returns None if the key is not set.
+#[tauri::command]
+fn get_preference(
+    state: tauri::State<'_, AppState>,
+    key: String,
+) -> Result<Option<String>, String> {
+    let conn = state
+        .db
+        .lock()
+        .map_err(|e| format!("Failed to acquire DB lock: {}", e))?;
+    db::get_setting(&conn, &key).map_err(|e| format!("DB error: {}", e))
+}
+
+/// Get all imported seasons, most recent first.
+#[tauri::command]
+fn get_seasons(state: tauri::State<'_, AppState>) -> Result<Vec<db::SeasonInfo>, String> {
+    let conn = state
+        .db
+        .lock()
+        .map_err(|e| format!("Failed to acquire DB lock: {}", e))?;
+    db::get_seasons(&conn).map_err(|e| format!("DB error: {}", e))
+}
+
+/// Import a CSV file into the database.
+/// file_path: absolute path to the CSV file
+/// in_game_date: the in-game date (e.g. "15.6.2029")
+#[tauri::command]
+fn import_csv(
+    state: tauri::State<'_, AppState>,
+    file_path: String,
+    in_game_date: String,
+) -> Result<crate::import::ImportResult, String> {
+    let mut conn = state
+        .db
+        .lock()
+        .map_err(|e| format!("Failed to acquire DB lock: {}", e))?;
+    crate::import::run_import(&mut *conn, &file_path, &in_game_date)
+}
+
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
+        .plugin(tauri_plugin_dialog::init())
         .setup(|app| {
             let db = init_database(&app.handle())?;
             app.manage(AppState { db });
             Ok(())
         })
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![
+            greet,
+            set_managed_club,
+            get_managed_club,
+            set_preference,
+            get_preference,
+            get_seasons,
+            import_csv,
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
