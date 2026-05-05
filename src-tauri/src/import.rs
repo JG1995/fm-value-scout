@@ -108,7 +108,7 @@ pub fn run_import(
         "INSERT OR IGNORE INTO season_player_positions (season_id, uid, canonical_position) VALUES (?1, ?2, ?3)"
     ).map_err(|e| format!("Failed to prepare SPP insert: {}", e))?;
 
-        // 107-column season_players insert
+        // 108-column season_players insert
         let mut insert_season_player = tx.prepare(
         "INSERT OR IGNORE INTO season_players \
          (season_id, uid, club, position_raw, age, minutes, starts, subs, expires, \
@@ -127,7 +127,7 @@ pub fn run_import(
           headers_won, headers_lost, headers_won_pct, \
           saves, save_pct, goals_conceded, clean_sheets, penalties_saved, expected_saves, \
           fouls_made, fouls_against, yellow_cards, red_cards, offsides, \
-          distance_covered, average_rating, player_of_match) \
+          transfer_value, distance_covered, average_rating, player_of_match) \
          VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9, \
           ?10,?11,?12,?13,?14,?15,?16,?17,?18,?19,?20,?21,?22,?23, \
           ?24,?25,?26,?27,?28,?29,?30,?31,?32,?33,?34,?35,?36,?37,?38, \
@@ -144,7 +144,7 @@ pub fn run_import(
           ?91,?92,?93, \
           ?94,?95,?96,?97,?98,?99, \
           ?100,?101,?102,?103,?104, \
-          ?105,?106,?107)"
+          ?105,?106,?107,?108)"
     ).map_err(|e| format!("Failed to prepare season_player insert: {}", e))?;
 
         // ---- 5. Process each CSV record ----
@@ -218,7 +218,7 @@ pub fn run_import(
                         }
                     }
 
-                    // INSERT into season_players (107 params)
+                    // INSERT into season_players (108 params)
                     insert_season_player
                         .execute(rusqlite::params![
                             season_id,
@@ -325,6 +325,7 @@ pub fn run_import(
                             player.yellow_cards,
                             player.red_cards,
                             player.offsides,
+                            player.transfer_value,
                             player.distance_covered,
                             player.average_rating,
                             player.player_of_match,
