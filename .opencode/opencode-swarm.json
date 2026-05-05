@@ -2,15 +2,15 @@
 	"agents": {
 		"coder": {
 			"model": "opencode-go/deepseek-v4-flash",
-			"fallback_models": [
-				"minimax-coding-plan/MiniMax-M2.7",
-				"opencode/gpt-5-nano",
-				"opencode/big-pickle"
-			]
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"reviewer": {
-			"model": "opencode-go/deepseek-v4-pro",
-			"fallback_models": ["opencode-go/glm-5.1", "opencode/gpt-5-nano", "opencode/big-pickle"]
+			"model": "zai-coding-plan/glm-5.1",
+			"fallback_models": [
+				"opencode-go/deepseek-v4-pro",
+				"opencode-go/glm-5.1",
+				"opencode/big-pickle"
+			]
 		},
 		"test_engineer": {
 			"model": "opencode-go/deepseek-v4-flash",
@@ -22,25 +22,25 @@
 		},
 		"sme": {
 			"model": "minimax-coding-plan/MiniMax-M2.7",
-			"fallback_models": [
-				"opencode-go/deepseek-v4-pro",
-				"opencode/gpt-5-nano",
-				"opencode/big-pickle"
-			]
+			"fallback_models": ["opencode-go/deepseek-v4-pro", "opencode/big-pickle"]
 		},
 		"critic": {
-			"model": "opencode-go/deepseek-v4-pro",
-			"fallback_models": ["opencode-go/glm-5.1", "opencode/gpt-5-nano", "opencode/big-pickle"]
+			"model": "zai-coding-plan/glm-5.1",
+			"fallback_models": [
+				"opencode-go/deepseek-v4-pro",
+				"opencode-go/glm-5.1",
+				"opencode/big-pickle"
+			]
 		},
 		"docs": {
 			"model": "minimax-coding-plan/MiniMax-M2.7",
 			"fallback_models": ["opencode-go/qwen3.5-plus", "opencode/gpt-5-nano", "opencode/big-pickle"]
 		},
 		"designer": {
-			"model": "opencode-go/glm-5.1",
+			"model": "zai-coding-plan/glm-5.1",
 			"fallback_models": [
+				"opencode-go/glm-5.1",
 				"opencode-go/deepseek-v4-pro",
-				"opencode/gpt-5-nano",
 				"opencode/big-pickle"
 			]
 		},

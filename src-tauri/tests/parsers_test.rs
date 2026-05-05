@@ -1,0 +1,452 @@
+// Integration tests for the parsers module foundation (task 2.1)
+// Tests FieldValue enum, PlayerRecord default, and Schema::from_headers().
+
+use fm_valuescout_lib::parsers::*;
+
+// ── FieldValue construction & pattern matching ──────────────────────────
+
+#[test]
+fn test_field_value_int() {
+    for val in [0i64, 1, -1, 42, i64::MAX, i64::MIN] {
+        let fv = FieldValue::Int(val);
+        match fv {
+            FieldValue::Int(v) => assert_eq!(v, val, "Int variant round-trip failed for {val}"),
+            _ => panic!("Int({val}) matched wrong variant"),
+        }
+    }
+}
+
+#[test]
+fn test_field_value_float() {
+    for val in [0.0f64, 1.5, -3.14, 1e10, f64::MIN_POSITIVE, f64::MAX] {
+        let fv = FieldValue::Float(val);
+        match fv {
+            FieldValue::Float(v) => assert!(
+                (v - val).abs() <= f64::EPSILON.max(val.abs() * 1e-12),
+                "Float variant round-trip failed for {val}"
+            ),
+            _ => panic!("Float({val}) matched wrong variant"),
+        }
+    }
+}
+
+#[test]
+fn test_field_value_string() {
+    let cases = [
+        "",
+        "hello",
+        "with spaces",
+        "special_chars!@#$%^&*()",
+        "12345",
+        "\u{65E5}\u{672C}\u{8A9E}",
+        "emoji \u{1F60A}",
+    ];
+    for s in &cases {
+        let fv = FieldValue::String(s.to_string());
+        match fv {
+            FieldValue::String(v) => assert_eq!(&v, s, "String variant round-trip failed"),
+            _ => panic!("String({s:?}) matched wrong variant"),
+        }
+    }
+}
+
+#[test]
+fn test_field_value_currency() {
+    for val in [0.0f64, 0.01, 1.99, 1000000.0, -5.50] {
+        let fv = FieldValue::Currency(val);
+        match fv {
+            FieldValue::Currency(v) => assert!(
+                (v - val).abs() <= f64::EPSILON,
+                "Currency variant round-trip failed for {val}"
+            ),
+            _ => panic!("Currency({val}) matched wrong variant"),
+        }
+    }
+}
+
+#[test]
+fn test_field_value_wage() {
+    let cases = [
+        (1000.0f64, Some("p/w".to_string())),
+        (50000.0, Some("p/m".to_string())),
+        (1000000.0, Some("p/a".to_string())),
+        (0.0, None),
+        (123.45, Some("p/w".to_string())),
+    ];
+    for (value, denomination) in &cases {
+        let fv = FieldValue::Wage {
+            value: *value,
+            denomination: denomination.clone(),
+        };
+        match fv {
+            FieldValue::Wage {
+                value: v,
+                denomination: d,
+            } => {
+                assert!(
+                    (v - value).abs() <= f64::EPSILON,
+                    "Wage value round-trip failed for {value}"
+                );
+                assert_eq!(
+                    d, *denomination,
+                    "Wage denomination round-trip failed for {denomination:?}"
+                );
+            }
+            _ => panic!("Wage matched wrong variant"),
+        }
+    }
+}
+
+#[test]
+fn test_field_value_appearances() {
+    let cases = [(0i64, 0i64), (10, 5), (38, 0), (0, 38), (100, 50)];
+    for (starts, subs) in &cases {
+        let fv = FieldValue::Appearances {
+            starts: *starts,
+            subs: *subs,
+        };
+        match fv {
+            FieldValue::Appearances {
+                starts: s,
+                subs: u,
+            } => {
+                assert_eq!(s, *starts, "Appearances starts round-trip");
+                assert_eq!(u, *subs, "Appearances subs round-trip");
+            }
+            _ => panic!("Appearances matched wrong variant"),
+        }
+    }
+}
+
+#[test]
+fn test_field_value_position() {
+    let cases: [Vec<String>; 5] = [
+        vec!["ST".to_string()],
+        vec!["CM".to_string(), "CDM".to_string()],
+        vec!["GK".to_string()],
+        vec![],
+        vec![
+            "LB".to_string(),
+            "LWB".to_string(),
+            "LM".to_string(),
+        ],
+    ];
+    for positions in &cases {
+        let fv = FieldValue::Position(positions.clone());
+        match fv {
+            FieldValue::Position(p) => assert_eq!(&p, positions, "Position round-trip"),
+            _ => panic!("Position matched wrong variant"),
+        }
+    }
+}
+
+#[test]
+fn test_field_value_foot_score() {
+    let cases = [
+        (Some(5i64), "5/5".to_string()),
+        (Some(0), "0/5".to_string()),
+        (None, "-".to_string()),
+        (Some(20), "20".to_string()),
+    ];
+    for (score, raw) in &cases {
+        let fv = FieldValue::FootScore {
+            score: *score,
+            raw: raw.clone(),
+        };
+        match fv {
+            FieldValue::FootScore { score: s, raw: r } => {
+                assert_eq!(s, *score, "FootScore score round-trip");
+                assert_eq!(&r, raw, "FootScore raw round-trip");
+            }
+            _ => panic!("FootScore matched wrong variant"),
+        }
+    }
+}
+
+#[test]
+fn test_field_value_null() {
+    let fv = FieldValue::Null;
+    match fv {
+        FieldValue::Null => {} // expected
+        _ => panic!("Null matched wrong variant"),
+    }
+}
+
+#[test]
+fn test_field_value_debug_format() {
+    let cases: Vec<FieldValue> = vec![
+        FieldValue::Int(42),
+        FieldValue::Float(3.14),
+        FieldValue::String("test".into()),
+        FieldValue::Currency(99.99),
+        FieldValue::Wage {
+            value: 5000.0,
+            denomination: Some("p/w".into()),
+        },
+        FieldValue::Appearances {
+            starts: 20,
+            subs: 5,
+        },
+        FieldValue::Position(vec!["ST".into()]),
+        FieldValue::FootScore {
+            score: Some(4),
+            raw: "4/5".into(),
+        },
+        FieldValue::Null,
+    ];
+    for fv in cases {
+        let debug_str = format!("{:?}", fv);
+        assert!(!debug_str.is_empty(), "Debug format should not be empty");
+    }
+}
+
+#[test]
+fn test_field_value_clone() {
+    let original = FieldValue::Wage {
+        value: 10000.0,
+        denomination: Some("p/w".into()),
+    };
+    let cloned = original.clone();
+    match cloned {
+        FieldValue::Wage {
+            value,
+            denomination,
+        } => {
+            assert!((value - 10000.0).abs() <= f64::EPSILON);
+            assert_eq!(denomination, Some("p/w".to_string()));
+        }
+        _ => panic!("Clone produced wrong variant"),
+    }
+}
+
+// ── PlayerRecord::default() ─────────────────────────────────────────────
+
+#[test]
+fn test_player_record_default_all_none() {
+    let record = PlayerRecord::default();
+
+    // Identity fields
+    assert!(record.uid.is_none());
+    assert!(record.name.is_none());
+    assert!(record.nation.is_none());
+    assert!(record.height.is_none());
+    assert!(record.left_foot_raw.is_none());
+    assert!(record.left_foot_score.is_none());
+    assert!(record.right_foot_raw.is_none());
+    assert!(record.right_foot_score.is_none());
+
+    // Season fields
+    assert!(record.club.is_none());
+    assert!(record.position_raw.is_none());
+    assert!(record.age.is_none());
+    assert!(record.minutes.is_none());
+    assert!(record.starts.is_none());
+    assert!(record.subs.is_none());
+    assert!(record.expires.is_none());
+
+    // Technical
+    assert!(record.cor.is_none());
+    assert!(record.cro.is_none());
+    assert!(record.dri.is_none());
+    assert!(record.fin.is_none());
+    assert!(record.fir.is_none());
+    assert!(record.fre.is_none());
+    assert!(record.hea.is_none());
+    assert!(record.lon.is_none());
+    assert!(record.lon_thr.is_none());
+    assert!(record.mar.is_none());
+    assert!(record.pas.is_none());
+    assert!(record.pen.is_none());
+    assert!(record.tck.is_none());
+    assert!(record.tec.is_none());
+
+    // Mental
+    assert!(record.agg.is_none());
+    assert!(record.ant.is_none());
+    assert!(record.bra.is_none());
+    assert!(record.cmp.is_none());
+    assert!(record.cnt.is_none());
+    assert!(record.dec.is_none());
+    assert!(record.det.is_none());
+    assert!(record.fla.is_none());
+    assert!(record.inf.is_none());
+    assert!(record.lea.is_none());
+    assert!(record.otb.is_none());
+    assert!(record.pos.is_none());
+    assert!(record.tea.is_none());
+    assert!(record.vis.is_none());
+    assert!(record.wor.is_none());
+
+    // Physical
+    assert!(record.acc.is_none());
+    assert!(record.agi.is_none());
+    assert!(record.bal.is_none());
+    assert!(record.jum.is_none());
+    assert!(record.nat_fit.is_none());
+    assert!(record.pac.is_none());
+    assert!(record.sta.is_none());
+    assert!(record.str.is_none());
+
+    // Goalkeeper attributes
+    assert!(record.aer.is_none());
+    assert!(record.com_gk.is_none());
+    assert!(record.ecc.is_none());
+    assert!(record.han.is_none());
+    assert!(record.kic.is_none());
+    assert!(record.one_on_one.is_none());
+    assert!(record.pun.is_none());
+    assert!(record.ref_gk.is_none());
+    assert!(record.rus.is_none());
+    assert!(record.thr.is_none());
+    assert!(record.cmd.is_none());
+
+    // Attacking & Finishing
+    assert!(record.goals_xg.is_none());
+    assert!(record.npxg.is_none());
+    assert!(record.xg_op.is_none());
+    assert!(record.xg_per_shot.is_none());
+    assert!(record.shots.is_none());
+    assert!(record.shots_on_target.is_none());
+    assert!(record.sot_pct.is_none());
+    assert!(record.conv_pct.is_none());
+    assert!(record.pens_scored.is_none());
+    assert!(record.pens_taken.is_none());
+
+    // Creativity
+    assert!(record.assists.is_none());
+    assert!(record.xa.is_none());
+    assert!(record.key_passes.is_none());
+    assert!(record.chances_created.is_none());
+    assert!(record.op_key_passes.is_none());
+    assert!(record.through_balls.is_none());
+
+    // Transition & Ball Progression
+    assert!(record.dribbles_per_game.is_none());
+    assert!(record.progressive_passes.is_none());
+    assert!(record.progressive_runs.is_none());
+    assert!(record.passes_completed.is_none());
+    assert!(record.passes_attempted.is_none());
+    assert!(record.pass_completion_pct.is_none());
+    assert!(record.crosses_attempted.is_none());
+    assert!(record.crosses_completed.is_none());
+    assert!(record.cross_completion_pct.is_none());
+
+    // Defensive
+    assert!(record.tackles_per_game.is_none());
+    assert!(record.tackles_completed.is_none());
+    assert!(record.tackle_completion_pct.is_none());
+    assert!(record.interceptions_per_game.is_none());
+    assert!(record.clearances.is_none());
+    assert!(record.blocks.is_none());
+    assert!(record.possession_won.is_none());
+    assert!(record.possession_lost.is_none());
+
+    // Aerial
+    assert!(record.headers_won.is_none());
+    assert!(record.headers_lost.is_none());
+    assert!(record.headers_won_pct.is_none());
+
+    // Goalkeeping Stats
+    assert!(record.saves.is_none());
+    assert!(record.save_pct.is_none());
+    assert!(record.goals_conceded.is_none());
+    assert!(record.clean_sheets.is_none());
+    assert!(record.penalties_saved.is_none());
+    assert!(record.expected_saves.is_none());
+
+    // Discipline
+    assert!(record.fouls_made.is_none());
+    assert!(record.fouls_against.is_none());
+    assert!(record.yellow_cards.is_none());
+    assert!(record.red_cards.is_none());
+    assert!(record.offsides.is_none());
+
+    // Match Impact
+    assert!(record.distance_covered.is_none());
+    assert!(record.average_rating.is_none());
+    assert!(record.player_of_match.is_none());
+
+    // Extra columns
+    assert!(record.current_ability.is_none());
+    assert!(record.potential_ability.is_none());
+    assert!(record.transfer_value.is_none());
+    assert!(record.wage_value.is_none());
+    assert!(record.wage_denomination.is_none());
+    assert!(record.second_nationality.is_none());
+}
+
+// ── Schema::from_headers() ───────────────────────────────────────────
+
+#[test]
+fn test_schema_from_headers_normal() {
+    let headers = vec![
+        "uid".to_string(),
+        "name".to_string(),
+        "nation".to_string(),
+        "age".to_string(),
+        "club".to_string(),
+    ];
+    let schema = Schema::from_headers(&headers);
+
+    assert_eq!(schema.column_index.len(), 5);
+    assert_eq!(schema.column_index.get("uid"), Some(&0));
+    assert_eq!(schema.column_index.get("name"), Some(&1));
+    assert_eq!(schema.column_index.get("nation"), Some(&2));
+    assert_eq!(schema.column_index.get("age"), Some(&3));
+    assert_eq!(schema.column_index.get("club"), Some(&4));
+    assert!(schema.parsers.is_empty(), "parsers registry should start empty");
+}
+
+#[test]
+fn test_schema_from_headers_empty() {
+    let headers: Vec<String> = vec![];
+    let schema = Schema::from_headers(&headers);
+
+    assert_eq!(schema.column_index.len(), 0);
+    assert!(schema.column_index.is_empty());
+    assert!(schema.parsers.is_empty());
+}
+
+#[test]
+fn test_schema_from_headers_duplicate() {
+    // Duplicate headers — HashMap means last write wins (index 1)
+    let headers = vec!["name".to_string(), "name".to_string(), "age".to_string()];
+    let schema = Schema::from_headers(&headers);
+
+    assert_eq!(schema.column_index.len(), 2);
+    assert_eq!(schema.column_index.get("name"), Some(&1));
+    assert_eq!(schema.column_index.get("age"), Some(&2));
+}
+
+#[test]
+fn test_schema_from_headers_order() {
+    let headers = vec![
+        "col_a".to_string(),
+        "col_b".to_string(),
+        "col_c".to_string(),
+        "col_d".to_string(),
+    ];
+    let schema = Schema::from_headers(&headers);
+
+    assert_eq!(schema.column_index.get("col_a"), Some(&0));
+    assert_eq!(schema.column_index.get("col_b"), Some(&1));
+    assert_eq!(schema.column_index.get("col_c"), Some(&2));
+    assert_eq!(schema.column_index.get("col_d"), Some(&3));
+}
+
+#[test]
+fn test_schema_from_headers_special_chars() {
+    let headers = vec![
+        "player_name".to_string(),
+        "xG_per_shot".to_string(),
+        "pass_completion_%".to_string(),
+        "headers_won_%".to_string(),
+    ];
+    let schema = Schema::from_headers(&headers);
+
+    assert_eq!(schema.column_index.len(), 4);
+    assert_eq!(schema.column_index.get("player_name"), Some(&0));
+    assert_eq!(schema.column_index.get("xG_per_shot"), Some(&1));
+    assert_eq!(schema.column_index.get("pass_completion_%"), Some(&2));
+    assert_eq!(schema.column_index.get("headers_won_%"), Some(&3));
+}
