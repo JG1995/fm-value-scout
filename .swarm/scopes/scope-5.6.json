@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "taskId": "5.6",
+  "declaredAt": 1778002195491,
+  "expiresAt": 1778088595491,
+  "files": [
+    "src-tauri/tests/scouting_results_test.rs"
+  ]
+}

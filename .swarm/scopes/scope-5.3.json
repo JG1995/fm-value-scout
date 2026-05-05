@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "taskId": "5.3",
+  "declaredAt": 1777998395835,
+  "expiresAt": 1778084795835,
+  "files": [
+    "src-tauri/tests/value_score_test.rs"
+  ]
+}

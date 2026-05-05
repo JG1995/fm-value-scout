@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "taskId": "4.4",
+  "declaredAt": 1777988099518,
+  "expiresAt": 1778074499518,
+  "files": [
+    "src/lib/components/ManagedClubSettings.svelte",
+    "src/routes/+page.svelte"
+  ]
+}

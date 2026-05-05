@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "taskId": "4.2",
+  "declaredAt": 1777987872182,
+  "expiresAt": 1778074272182,
+  "files": [
+    "src/routes/+layout.svelte"
+  ]
+}

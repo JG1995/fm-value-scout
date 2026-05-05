@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "taskId": "5.0",
+  "declaredAt": 1777995013637,
+  "expiresAt": 1778081413637,
+  "files": [
+    "src-tauri/src/scoring.rs",
+    "src-tauri/src/db.rs",
+    "src-tauri/tests/scoring_db_test.rs"
+  ]
+}

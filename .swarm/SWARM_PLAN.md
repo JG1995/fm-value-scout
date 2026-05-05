@@ -1,7 +1,6 @@
-<!-- PLAN_HASH: 2s62fzytaqoae -->
 # FM ValueScout — CSV Parser & Scouting View
 Swarm: default
-Phase: 1 [COMPLETE] | Updated: 2026-05-05T17:52:59.239Z
+Phase: 1 [COMPLETE] | Updated: 2026-05-05T17:52:59.252Z
 
 ---
 ## Phase 1: Database Foundation (Rust) [COMPLETE]

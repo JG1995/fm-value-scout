@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "taskId": "5.5",
+  "declaredAt": 1778001409863,
+  "expiresAt": 1778087809863,
+  "files": [
+    "src-tauri/src/lib.rs"
+  ]
+}

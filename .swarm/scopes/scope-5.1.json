@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "taskId": "5.1",
+  "declaredAt": 1777996617526,
+  "expiresAt": 1778083017526,
+  "files": [
+    "src-tauri/tests/percentile_test.rs",
+    "src-tauri/src/scoring.rs"
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "schema_version": 1,
+  "session_id": "session-1777922716151",
+  "last_updated": "2026-05-05T17:59:53.894Z",
+  "last_phase_covered": 5,
+  "digest": "### Phase 1\nPhase 1 completed. 3/3 tasks completed. 0 compliance observations.\n\n### Phase 4\nPhase 4 completed. 0/4 tasks completed. 0 compliance observations.\n\n### Phase 5\nPhase 5 completed. 7/8 tasks completed. 0 compliance observations.",
+  "phase_digests": [
+    {
+      "phase": 1,
+      "timestamp": "2026-05-04T19:23:06.364Z",
+      "summary": "Phase 1 completed. 3/3 tasks completed. 0 compliance observations.",
+      "agents_used": [
+        "architect",
+        "build",
+        "coder",
+        "critic",
+        "critic_drift_verifier",
+        "critic_sounding_board",
+        "curator_init",
+        "explorer",
+        "reviewer",
+        "sme",
+        "test_engineer"
+      ],
+      "tasks_completed": 3,
+      "tasks_total": 3,
+      "key_decisions": [
+        "Managed club identification: user sets club name once in app settings, stored in SQLite settings table",
+        "75/25 in/out-of-possession split: fixed for MVP, adjustment slider deferred to Archetype Management",
+        "Season selection for scouting: always uses most recent imported season",
+        "Test coverage: handled by test_engineer QA gate per-task, no dedicated test tasks in plan",
+        "QA gates: reviewer, test_engineer, sme_enabled, critic_pre_plan, sast_enabled, drift_check all ON"
+      ],
+      "blockers_resolved": []
+    },
+    {
+      "phase": 4,
+      "timestamp": "2026-05-05T13:48:21.133Z",
+      "summary": "Phase 4 completed. 0/4 tasks completed. 0 compliance observations.",
+      "agents_used": [
+        "architect",
+        "build",
+        "coder",
+        "critic_drift_verifier",
+        "curator_init",
+        "curator_phase",
+        "docs",
+        "reviewer",
+        "test_engineer"
+      ],
+      "tasks_completed": 0,
+      "tasks_total": 4,
+      "key_decisions": [
+        "Managed club identification: user sets club name once in app settings, stored in SQLite settings table",
+        "75/25 in/out-of-possession split: fixed for MVP, adjustment slider deferred to Archetype Management",
+        "Season selection for scouting: always uses most recent imported season",
+        "Test coverage: handled by test_engineer QA gate per-task, no dedicated test tasks in plan",
+        "QA gates: reviewer, test_engineer, sme_enabled, critic_pre_plan, sast_enabled, drift_check all ON"
+      ],
+      "blockers_resolved": []
+    },
+    {
+      "phase": 5,
+      "timestamp": "2026-05-05T17:51:36.575Z",
+      "summary": "Phase 5 completed. 7/8 tasks completed. 0 compliance observations.",
+      "agents_used": [
+        "architect",
+        "coder",
+        "critic",
+        "reviewer",
+        "test_engineer"
+      ],
+      "tasks_completed": 7,
+      "tasks_total": 8,
+      "key_decisions": [
+        "Managed club identification: user sets club name once in app settings, stored in SQLite settings table",
+        "75/25 in/out-of-possession split: fixed for MVP, adjustment slider deferred to Archetype Management",
+        "Season selection for scouting: always uses most recent imported season",
+        "Test coverage: handled by test_engineer QA gate per-task, no dedicated test tasks in plan",
+        "QA gates: reviewer, test_engineer, sme_enabled, critic_pre_plan, sast_enabled, drift_check all ON"
+      ],
+      "blockers_resolved": []
+    }
+  ],
+  "compliance_observations": [],
+  "knowledge_recommendations": [
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:52:04.300Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:52:40.073Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:52:40.183Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:52:42.119Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:52:42.912Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:52:49.524Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:52:59.253Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:53:10.491Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:53:14.702Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:54:55.364Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:54:55.365Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:54:55.376Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:55:00.525Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:55:09.684Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:55:16.566Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:55:22.274Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:56:19.596Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:56:25.330Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:56:28.136Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:56:32.674Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:56:37.870Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:56:44.163Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:56:49.367Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:56:52.968Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:59:36.455Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:59:42.231Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:59:49.013Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    },
+    {
+      "action": "promote",
+      "lesson": "Hive promotion: 0 new, 0 encounters, 0 advancements, 0 total entries",
+      "reason": "{\"timestamp\":\"2026-05-05T17:59:53.894Z\",\"new_promotions\":0,\"encounters_incremented\":0,\"advancements\":0,\"total_hive_entries\":0}"
+    }
+  ]
+}

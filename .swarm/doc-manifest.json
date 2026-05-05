@@ -1,272 +1,272 @@
 {
   "schema_version": 1,
-  "scanned_at": "2026-05-05T09:57:58.229Z",
+  "scanned_at": "2026-05-05T17:59:36.760Z",
   "files": [
     {
       "path": "AGENTS.md",
       "title": "Global Instructions",
       "summary": "Applies across projects. More local instructions override these defaults when they conflict. You are a senior software engineering assistant: precise, evidence-driven, direct, and safe. If rules co...",
       "lines": 107,
-      "mtime": 1777874170009.2336
+      "mtime": 1777737638513.8687
     },
     {
       "path": "docs/deep-dives/Feature_DESIGN.md",
       "title": "Feature_DESIGN.md",
       "summary": "",
       "lines": 1,
-      "mtime": 1777874170009.2336
+      "mtime": 1777443769976.8877
     },
     {
       "path": "docs/deep-dives/Feature_IMPLEMENTATION.md",
       "title": "Feature_IMPLEMENTATION.md",
       "summary": "",
       "lines": 1,
-      "mtime": 1777874170009.2336
+      "mtime": 1777443786677.2917
     },
     {
       "path": "docs/design-docs/CONCEPT.MD",
       "title": "FM ValueScout — Project Concept",
       "summary": "FM ValueScout is a desktop companion application for Football Manager players who use moneyball-style scouting — identifying players who are statistically excellent yet undervalued by the transfer ...",
       "lines": 6,
-      "mtime": 1777958131148.6687
+      "mtime": 1777907884269.9343
     },
     {
       "path": "docs/design-docs/features/CSV_PARSER.md",
       "title": "Feature: CSV Parser",
       "summary": "**High-Level Goal:** The CSV Parser ingests player data exported from Football Manager, transforming semicolon-delimited CSV files into structured, validated player records persisted to the local S...",
       "lines": 182,
-      "mtime": 1777958131148.6687
+      "mtime": 1777908280973.7058
     },
     {
       "path": "docs/design-docs/features/SCOUTING_VIEW.md",
       "title": "Feature: Scouting View",
       "summary": "**High-Level Goal:** The Scouting View is the core moneyball workflow — it replaces the manual spreadsheet process FM players use to find statistically excellent, undervalued talent. It surfaces a ...",
       "lines": 202,
-      "mtime": 1777958131148.6687
+      "mtime": 1777908791257.6943
     },
     {
       "path": "docs/notes/concept.md",
       "title": "FM ValueScout",
       "summary": "FM ValueScout is a companion application for Football Manager players who want to apply moneyball-style scouting to their save. Moneyball scouting identifies players who are undervalued by the tran...",
       "lines": 131,
-      "mtime": 1777874170009.2336
+      "mtime": 1777739726889.969
     },
     {
       "path": "docs/notes/csv-parsing.md",
       "title": "CSV Parsing",
       "summary": "In order for this tool to function, the parsing of the CSV file needs to be flawless. Therefore, I will explain each column in the CSV so we can all understand what parsing needs to be done, and wh...",
       "lines": 87,
-      "mtime": 1777874170009.2336
+      "mtime": 1777739747341.19
     },
     {
       "path": "docs/notes/default-archetypes/attacking-midfielders.md",
       "title": "Attacking Midfielders",
       "summary": "tags: finds space, goal threat An offensive role which looks to operate between the opposition defensive and midfield line, the Attacking Midfielder looks to recieve passes in pockets of space as m...",
       "lines": 123,
-      "mtime": 1777885086029.9785
+      "mtime": 1777905502615.1187
     },
     {
       "path": "docs/notes/default-archetypes/central-defenders.md",
       "title": "Central Defender",
       "summary": "tags: holds position The main job of the Centre-Back is to provide protection to the team, being in a position where they can be ready to react to attacking threats when the ball is turned over. | ...",
       "lines": 162,
-      "mtime": 1777885137702.2756
+      "mtime": 1777905502615.1187
     },
     {
       "path": "docs/notes/default-archetypes/central-midfielders.md",
       "title": "Central Midfielder",
       "summary": "tags: none Responsible for providing an industrious and versatile link between the defence and the attack, the Central Midfielder is expected to perform a variety of tasks across the centre of the ...",
       "lines": 136,
-      "mtime": 1777885165959.8147
+      "mtime": 1777905502615.1187
     },
     {
       "path": "docs/notes/default-archetypes/defensive-mid.md",
       "title": "Defensive Midfielder",
       "summary": "tags: holds position, careful The Defensive Midfielder's main responsibility is to position themselves in front of the team's defence and help protect them from counter-attacking threats. | METRIC_...",
       "lines": 136,
-      "mtime": 1777885186496.4404
+      "mtime": 1777905502615.1187
     },
     {
       "path": "docs/notes/default-archetypes/full-backs.md",
       "title": "Full Back",
       "summary": "tags: holds position, stays wide The Full-Back is a key player in modern football, having to supplement their traditional defensive duties with overlapping runs down the wing to support forward pla...",
       "lines": 110,
-      "mtime": 1777885197911.4187
+      "mtime": 1777905502615.1187
     },
     {
       "path": "docs/notes/default-archetypes/goalkeepers.md",
       "title": "Goalkeeper",
       "summary": "tags: none The Goalkeeper can distribute the ball in different ways depending on the team's playing strategy. | METRIC_NAME               | WEIGHT | INVERTED? | | ------------------------- | ------...",
       "lines": 84,
-      "mtime": 1777885214958.1091
+      "mtime": 1777905502615.1187
     },
     {
       "path": "docs/notes/default-archetypes/strikers.md",
       "title": "Strikers",
       "summary": "tags: drops off, links play With the main function of the Deep-Lying Forward being to link the attack to the midfield, they seek to drop between the lines to recieve passes from deep before supplyi...",
       "lines": 136,
-      "mtime": 1777885230260.1594
+      "mtime": 1777905502615.1187
     },
     {
       "path": "docs/notes/default-archetypes/wide-midfielders.md",
       "title": "Wide Midfielders",
       "summary": "tags: holds position, stays wide A wide player who tends to support the attack from deeper than a typical attacking wide player, the Wide Midfielder prefers to play dangerous passes and crosses fro...",
       "lines": 97,
-      "mtime": 1777885241360.7522
+      "mtime": 1777905502615.1187
     },
     {
       "path": "docs/notes/default-archetypes/wing-backs.md",
       "title": "Wing Back",
       "summary": "tags: gets further forward, stays wide The Wing-Back combines the responsibilities of a Full-Back and a Winger, providing width to the team throughout the attack. | METRIC_NAME               | WEIG...",
       "lines": 97,
-      "mtime": 1777885252703.9387
+      "mtime": 1777905502615.1187
     },
     {
       "path": "docs/notes/default-archetypes/wingers.md",
       "title": "Wingers",
       "summary": "tags: stays wide, creative threat Providing width throughout the attack, the Winger stretches the opposition defence by attacking from close to the sidelines. The role aims to provide support to th...",
       "lines": 123,
-      "mtime": 1777885262290.074
+      "mtime": 1777905502615.1187
     },
     {
       "path": "docs/notes/images/placeholder.jpg",
       "title": "placeholder.jpg",
       "summary": "",
       "lines": 1,
-      "mtime": 1777874170013.2278
+      "mtime": 1777443756713.967
     },
     {
       "path": "docs/notes/metrics.md",
       "title": "metrics.md",
       "summary": "Metrics are the statistical data that we use to analyze players in ValueScout. In the tables below, the metrics are sorted into categories (albeit categories are mostly for UX, not for data). Most ...",
       "lines": 463,
-      "mtime": 1777899855334.9946
+      "mtime": 1777905502615.1187
     },
     {
       "path": "docs/notes/mvp.md",
       "title": "FM ValueScout — MVP Specification",
       "summary": "This document defines the Minimum Viable Product for FM ValueScout. It serves as the single source of truth for what is being built in the first release, intended to keep development aligned and re...",
       "lines": 112,
-      "mtime": 1777874170013.2278
+      "mtime": 1777743564575.0247
     },
     {
       "path": "docs/notes/player-profile.md",
       "title": "Player Profile",
       "summary": "The Player Profile is a dedicated page for deep-diving a single player's data. It is reached by clicking a player row in the Scouting table or Squad view. The page is not URL-addressable — navigati...",
       "lines": 137,
-      "mtime": 1777874170013.2278
+      "mtime": 1777742862007.19
     },
     {
       "path": "docs/notes/scouting.md",
       "title": "Scouting",
       "summary": "The Scouting module is the core Moneyball tool — the reason the app exists. It replaces the manual export-to-spreadsheet workflow that FM moneyball players have historically relied on, bringing dat...",
       "lines": 127,
-      "mtime": 1777874170013.2278
+      "mtime": 1777742862055.1565
     },
     {
       "path": "docs/notes/squad.md",
       "title": "Squad",
       "summary": "The Squad module ties the user's own team into the broader scouting ecosystem. It provides a visual tactics board for setting formation and archetypes per position, a lineup optimizer, and a table ...",
       "lines": 158,
-      "mtime": 1777874170013.2278
+      "mtime": 1777742861979.2292
     },
     {
       "path": "docs/notes/test-files/Test_CSV_2026_04_29.csv",
       "title": "Test_CSV_2026_04_29.csv",
       "summary": "Unique ID;Player;Nation;2nd Nat;Club;Position;Age;Height;Left Foot;Right Foot;CA;PA;Transfer Value;Wage;Expires;Appearances;Minutes;Goals;Goals From Outside The Box;xG;NP-xG;xG-OP;xG/shot;Shots;Sho...",
       "lines": 258,
-      "mtime": 1777874170013.2278
+      "mtime": 1777465192145.1038
     },
     {
       "path": "docs/specs/design/features/feature-1/first-pass/placeholder.md",
       "title": "placeholder.md",
       "summary": "This file is a placeholder to preserve folder structure in the repository.",
       "lines": 2,
-      "mtime": 1777874170013.2278
+      "mtime": 1777456208159.5037
     },
     {
       "path": "docs/specs/design/features/feature-1/refactor/placeholder.md",
       "title": "placeholder.md",
       "summary": "This file is a placeholder to preserve folder structure in the repository.",
       "lines": 2,
-      "mtime": 1777874170013.2278
+      "mtime": 1777456208163.516
     },
     {
       "path": "docs/specs/design/features/feature-2/first-pass/placeholder.md",
       "title": "placeholder.md",
       "summary": "This file is a placeholder to preserve folder structure in the repository.",
       "lines": 2,
-      "mtime": 1777874170013.2278
+      "mtime": 1777456208163.516
     },
     {
       "path": "docs/specs/design/features/feature-2/refactor/placeholder.md",
       "title": "placeholder.md",
       "summary": "This file is a placeholder to preserve folder structure in the repository.",
       "lines": 2,
-      "mtime": 1777874170013.2278
+      "mtime": 1777456208167.5288
     },
     {
       "path": "docs/specs/design/mvp/first-pass/placeholder.md",
       "title": "placeholder.md",
       "summary": "This file is a placeholder to preserve folder structure in the repository.",
       "lines": 2,
-      "mtime": 1777874170013.2278
+      "mtime": 1777456208159.5037
     },
     {
       "path": "docs/specs/design/mvp/refactor/placeholder.md",
       "title": "placeholder.md",
       "summary": "This file is a placeholder to preserve folder structure in the repository.",
       "lines": 2,
-      "mtime": 1777874170013.2278
+      "mtime": 1777456208167.5288
     },
     {
       "path": "docs/specs/implementation/features/feature-1/first-pass/placeholder.md",
       "title": "placeholder.md",
       "summary": "This file is a placeholder to preserve folder structure in the repository.",
       "lines": 2,
-      "mtime": 1777874170013.2278
+      "mtime": 1777456208163.516
     },
     {
       "path": "docs/specs/implementation/features/feature-1/refactor/placeholder.md",
       "title": "placeholder.md",
       "summary": "This file is a placeholder to preserve folder structure in the repository.",
       "lines": 2,
-      "mtime": 1777874170013.2278
+      "mtime": 1777456208163.516
     },
     {
       "path": "docs/specs/implementation/features/feature-2/first-pass/placeholder.md",
       "title": "placeholder.md",
       "summary": "This file is a placeholder to preserve folder structure in the repository.",
       "lines": 2,
-      "mtime": 1777874170017.222
+      "mtime": 1777456208167.5288
     },
     {
       "path": "docs/specs/implementation/features/feature-2/refactor/placeholder.md",
       "title": "placeholder.md",
       "summary": "This file is a placeholder to preserve folder structure in the repository.",
       "lines": 2,
-      "mtime": 1777874170017.222
+      "mtime": 1777456208167.5288
     },
     {
       "path": "docs/specs/implementation/mvp/first-pass/placeholder.md",
       "title": "placeholder.md",
       "summary": "This file is a placeholder to preserve folder structure in the repository.",
       "lines": 2,
-      "mtime": 1777874170017.222
+      "mtime": 1777456208167.5288
     },
     {
       "path": "docs/specs/implementation/mvp/refactor/placeholder.md",
       "title": "placeholder.md",
       "summary": "This file is a placeholder to preserve folder structure in the repository.",
       "lines": 2,
-      "mtime": 1777874170017.222
+      "mtime": 1777456208163.516
     },
     {
       "path": "README.md",
       "title": "FM ValueScout — CSV Parser & Scouting View",
       "summary": "Desktop companion for Football Manager moneyball-style scouting. Built with Tauri 2 + Rust + SvelteKit 5. - `src-tauri/src/` — Rust backend (Tauri commands, SQLite DB, CSV parser pipeline) - `src/`...",
       "lines": 70,
-      "mtime": 1777975077765.9985
+      "mtime": 1777985035239.4004
     }
   ]
 }

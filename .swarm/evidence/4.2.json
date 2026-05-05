@@ -1,0 +1,8 @@
+{
+  "taskId": "4.2",
+  "required_gates": [
+    "reviewer",
+    "test_engineer"
+  ],
+  "gates": {}
+}

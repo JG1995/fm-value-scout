@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "taskId": "4.3",
+  "declaredAt": 1777985497377,
+  "expiresAt": 1778071897377,
+  "files": [
+    "src/routes/+page.svelte"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "taskId": "5.2",
+  "declaredAt": 1777998193182,
+  "expiresAt": 1778084593182,
+  "files": [
+    "src-tauri/tests/quality_score_test.rs"
+  ]
+}
