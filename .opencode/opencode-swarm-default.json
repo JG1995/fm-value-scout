@@ -1,8 +1,8 @@
 {
 	"agents": {
 		"coder": {
-			"model": "minimax-coding-plan/MiniMax-M2.7",
-			"fallback_models": ["opencode/big-pickle"]
+			"model": "opencode-go/deepseek-v4-flash",
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"reviewer": {
 			"model": "zai-coding-plan/glm-5.1",
@@ -13,8 +13,8 @@
 			]
 		},
 		"test_engineer": {
-			"model": "minimax-coding-plan/MiniMax-M2.7",
-			"fallback_models": ["opencode/big-pickle"]
+			"model": "opencode-go/deepseek-v4-flash",
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"explorer": {
 			"model": "minimax-coding-plan/MiniMax-M2.7",
@@ -45,28 +45,28 @@
 			]
 		},
 		"critic_sounding_board": {
-			"model": "minimax-coding-plan/MiniMax-M2.7",
-			"fallback_models": ["opencode/big-pickle"]
+			"model": "opencode-go/deepseek-v4-pro",
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"critic_drift_verifier": {
-			"model": "minimax-coding-plan/MiniMax-M2.7",
-			"fallback_models": ["opencode/big-pickle"]
+			"model": "opencode-go/deepseek-v4-pro",
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"critic_hallucination_verifier": {
-			"model": "minimax-coding-plan/MiniMax-M2.7",
-			"fallback_models": ["opencode/big-pickle"]
+			"model": "opencode-go/deepseek-v4-pro",
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"critic_oversight": {
-			"model": "minimax-coding-plan/MiniMax-M2.7",
-			"fallback_models": ["opencode/big-pickle"]
+			"model": "opencode-go/deepseek-v4-pro",
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"curator_init": {
-			"model": "minimax-coding-plan/MiniMax-M2.7",
-			"fallback_models": ["opencode/big-pickle"]
+			"model": "opencode-go/deepseek-v4-pro",
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		},
 		"curator_phase": {
-			"model": "minimax-coding-plan/MiniMax-M2.7",
-			"fallback_models": ["opencode/big-pickle"]
+			"model": "opencode-go/deepseek-v4-pro",
+			"fallback_models": ["minimax-coding-plan/MiniMax-M2.7", "opencode/big-pickle"]
 		}
 	},
 	"default_agent": "architect"
