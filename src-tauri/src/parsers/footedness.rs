@@ -68,8 +68,14 @@ mod tests {
     fn assert_footscore(result: FieldValue, expected_score: Option<i64>, expected_raw: &str) {
         match result {
             FieldValue::FootScore { score, raw } => {
-                assert_eq!(score, expected_score, "expected score {expected_score:?}, got {score:?}");
-                assert_eq!(raw, expected_raw, "expected raw {expected_raw:?}, got {raw:?}");
+                assert_eq!(
+                    score, expected_score,
+                    "expected score {expected_score:?}, got {score:?}"
+                );
+                assert_eq!(
+                    raw, expected_raw,
+                    "expected raw {expected_raw:?}, got {raw:?}"
+                );
             }
             other => panic!(
                 "expected FieldValue::FootScore {{ score: {expected_score:?}, .. }}, got {other:?}"

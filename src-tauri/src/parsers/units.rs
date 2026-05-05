@@ -103,10 +103,7 @@ mod tests {
         match result {
             FieldValue::Float(v) => {
                 let diff = (v - expected).abs();
-                assert!(
-                    diff < 0.001,
-                    "expected Float({expected}), got Float({v})"
-                );
+                assert!(diff < 0.001, "expected Float({expected}), got Float({v})");
             }
             other => panic!("expected FieldValue::Float({expected}), got {other:?}"),
         }
@@ -202,7 +199,10 @@ mod tests {
 
     #[test]
     fn test_distance_with_whitespace() {
-        assert_float(parse_unit_field("  12.5km  ", UnitPrecision::Distance), 12.5);
+        assert_float(
+            parse_unit_field("  12.5km  ", UnitPrecision::Distance),
+            12.5,
+        );
     }
 
     #[test]
