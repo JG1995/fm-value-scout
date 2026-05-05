@@ -1,0 +1,73 @@
+{
+	"agents": {
+		"coder": {
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": ["opencode/big-pickle"]
+		},
+		"reviewer": {
+			"model": "zai-coding-plan/glm-5.1",
+			"fallback_models": [
+				"opencode-go/deepseek-v4-pro",
+				"opencode-go/glm-5.1",
+				"opencode/big-pickle"
+			]
+		},
+		"test_engineer": {
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": ["opencode/big-pickle"]
+		},
+		"explorer": {
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": ["opencode-go/qwen3.5-plus", "opencode/gpt-5-nano", "opencode/big-pickle"]
+		},
+		"sme": {
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": ["opencode-go/deepseek-v4-pro", "opencode/big-pickle"]
+		},
+		"critic": {
+			"model": "zai-coding-plan/glm-5.1",
+			"fallback_models": [
+				"opencode-go/deepseek-v4-pro",
+				"opencode-go/glm-5.1",
+				"opencode/big-pickle"
+			]
+		},
+		"docs": {
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": ["opencode-go/qwen3.5-plus", "opencode/gpt-5-nano", "opencode/big-pickle"]
+		},
+		"designer": {
+			"model": "zai-coding-plan/glm-5.1",
+			"fallback_models": [
+				"opencode-go/glm-5.1",
+				"opencode-go/deepseek-v4-pro",
+				"opencode/big-pickle"
+			]
+		},
+		"critic_sounding_board": {
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": ["opencode/big-pickle"]
+		},
+		"critic_drift_verifier": {
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": ["opencode/big-pickle"]
+		},
+		"critic_hallucination_verifier": {
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": ["opencode/big-pickle"]
+		},
+		"critic_oversight": {
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": ["opencode/big-pickle"]
+		},
+		"curator_init": {
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": ["opencode/big-pickle"]
+		},
+		"curator_phase": {
+			"model": "minimax-coding-plan/MiniMax-M2.7",
+			"fallback_models": ["opencode/big-pickle"]
+		}
+	},
+	"default_agent": "architect"
+}

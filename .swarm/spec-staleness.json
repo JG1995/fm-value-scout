@@ -1,9 +1,0 @@
-{
-  "type": "spec_stale_detected",
-  "timestamp": "2026-05-04T19:45:46.031Z",
-  "phase": 1,
-  "specHash_plan": "c5e45e12bb9077a9be841886fc4513d87e52f02653888f5eb0e4d0f2c29392e9",
-  "specHash_current": "51c2374dad848dcd89337e8a83408642ffb1730970350d8b64eda5c730117f84",
-  "reason": "spec.md has been modified since plan was saved",
-  "planTitle": "FM ValueScout — CSV Parser & Scouting View"
-}

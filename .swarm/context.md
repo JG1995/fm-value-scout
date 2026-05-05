@@ -44,8 +44,8 @@ Swarm: default
 | Tool | Calls | Success | Failed | Avg Duration |
 |------|-------|---------|--------|--------------|
 | read | 334 | 334 | 0 | 18ms |
-| bash | 168 | 168 | 0 | 1677ms |
-| glob | 108 | 108 | 0 | 19ms |
+| bash | 187 | 187 | 0 | 1514ms |
+| glob | 109 | 109 | 0 | 19ms |
 | search | 59 | 59 | 0 | 385ms |
 | grep | 53 | 53 | 0 | 17ms |
 | task | 50 | 50 | 0 | 122102ms |
