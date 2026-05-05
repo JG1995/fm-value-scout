@@ -1,11 +1,16 @@
 use std::collections::HashMap;
 
+pub mod appearances;
+pub mod computed;
 pub mod currency;
+pub mod expansion;
 pub mod footedness;
 pub mod nationality;
 pub mod positions;
-pub mod wage;
+pub mod row_parser;
 pub mod units;
+pub mod validator;
+pub mod wage;
 
 // ---------------------------------------------------------------------------
 // FieldValue — tagged union for parsed CSV cell values
