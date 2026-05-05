@@ -7,12 +7,12 @@
     {
       "id": 1,
       "name": "Database Foundation (Rust)",
-      "status": "complete",
+      "status": "pending",
       "tasks": [
         {
           "id": "1.1",
           "phase": 1,
-          "status": "completed",
+          "status": "pending",
           "size": "medium",
           "description": "Add rusqlite (bundled), csv, encoding_rs, regex, once_cell, phf (macros feature) to Cargo.toml; add tauri-plugin-dialog to Cargo.toml; add @tauri-apps/plugin-dialog to package.json npm dependencies",
           "depends": [],
@@ -21,7 +21,7 @@
         {
           "id": "1.2",
           "phase": 1,
-          "status": "completed",
+          "status": "pending",
           "size": "large",
           "description": "Create src-tauri/src/db.rs with full schema",
           "depends": [],
@@ -30,7 +30,7 @@
         {
           "id": "1.3",
           "phase": 1,
-          "status": "completed",
+          "status": "pending",
           "size": "medium",
           "description": "Implement database init: open SQLite connection with WAL mode",
           "depends": [],
@@ -41,12 +41,12 @@
     {
       "id": 2,
       "name": "CSV Parsing Engine (Rust)",
-      "status": "complete",
+      "status": "pending",
       "tasks": [
         {
           "id": "2.1",
           "phase": 2,
-          "status": "completed",
+          "status": "pending",
           "size": "medium",
           "description": "Create src-tauri/src/parsers/mod.rs with FieldValue enum, PlayerRecord struct, Schema struct",
           "depends": [],
@@ -55,7 +55,7 @@
         {
           "id": "2.2",
           "phase": 2,
-          "status": "completed",
+          "status": "pending",
           "size": "medium",
           "description": "Implement currency/magnitude parser",
           "depends": [],
@@ -64,7 +64,7 @@
         {
           "id": "2.3",
           "phase": 2,
-          "status": "completed",
+          "status": "pending",
           "size": "medium",
           "description": "Implement wage denomination parser",
           "depends": [],
@@ -73,7 +73,7 @@
         {
           "id": "2.4",
           "phase": 2,
-          "status": "completed",
+          "status": "pending",
           "size": "small",
           "description": "Implement unit-stripping parser for cm/km suffixes",
           "depends": [],
@@ -82,7 +82,7 @@
         {
           "id": "2.5",
           "phase": 2,
-          "status": "completed",
+          "status": "pending",
           "size": "small",
           "description": "Implement nationality code mapper using phf hash map",
           "depends": [],
@@ -91,7 +91,7 @@
         {
           "id": "2.6",
           "phase": 2,
-          "status": "completed",
+          "status": "pending",
           "size": "small",
           "description": "Implement position string splitter",
           "depends": [],
@@ -100,7 +100,7 @@
         {
           "id": "2.7",
           "phase": 2,
-          "status": "completed",
+          "status": "pending",
           "size": "small",
           "description": "Implement footedness parser",
           "depends": [],
@@ -109,7 +109,7 @@
         {
           "id": "2.8",
           "phase": 2,
-          "status": "completed",
+          "status": "pending",
           "size": "small",
           "description": "Implement appearances parser from '43 (3)' format",
           "depends": [],
@@ -118,7 +118,7 @@
         {
           "id": "2.9",
           "phase": 2,
-          "status": "completed",
+          "status": "pending",
           "size": "medium",
           "description": "Implement computed metrics: per-90, totals, ratios",
           "depends": [],
@@ -127,7 +127,7 @@
         {
           "id": "2.10",
           "phase": 2,
-          "status": "completed",
+          "status": "pending",
           "size": "medium",
           "description": "Implement CSV row validator",
           "depends": [],
@@ -136,7 +136,7 @@
         {
           "id": "2.11",
           "phase": 2,
-          "status": "completed",
+          "status": "pending",
           "size": "large",
           "description": "Implement full row parser orchestrator",
           "depends": [],
@@ -145,7 +145,7 @@
         {
           "id": "2.12",
           "phase": 2,
-          "status": "completed",
+          "status": "pending",
           "size": "medium",
           "description": "Implement position expansion for compound FM positions",
           "depends": [],
@@ -161,7 +161,7 @@
         {
           "id": "3.1",
           "phase": 3,
-          "status": "completed",
+          "status": "pending",
           "size": "small",
           "description": "Implement encoding detection utility: try UTF-8 decode first, fall back to Windows-1252/Latin-1; strip BOM prefix before CSV reading",
           "depends": [],
@@ -173,12 +173,7 @@
           "status": "pending",
           "size": "large",
           "description": "Implement import_csv Tauri command: read file via dialog, detect encoding, stream CSV, parse rows through pipeline, batch insert 1000 rows per transaction",
-          "depends": [
-            "1.3",
-            "2.11",
-            "2.12",
-            "3.1"
-          ],
+          "depends": [],
           "files_touched": []
         },
         {
@@ -187,9 +182,7 @@
           "status": "pending",
           "size": "small",
           "description": "Implement get_seasons Tauri command returning all past imports",
-          "depends": [
-            "1.3"
-          ],
+          "depends": [],
           "files_touched": []
         },
         {
@@ -198,12 +191,7 @@
           "status": "pending",
           "size": "small",
           "description": "Register all Phase 3 Tauri commands in lib.rs invoke_handler",
-          "depends": [
-            "3.2",
-            "3.3",
-            "3.6",
-            "3.7"
-          ],
+          "depends": [],
           "files_touched": []
         },
         {
@@ -218,12 +206,10 @@
         {
           "id": "3.6",
           "phase": 3,
-          "status": "completed",
+          "status": "pending",
           "size": "small",
           "description": "Implement set_managed_club and get_managed_club Tauri commands",
-          "depends": [
-            "1.3"
-          ],
+          "depends": [],
           "files_touched": []
         },
         {
@@ -232,9 +218,7 @@
           "status": "pending",
           "size": "small",
           "description": "Implement set_preference and get_preference Tauri commands",
-          "depends": [
-            "1.3"
-          ],
+          "depends": [],
           "files_touched": []
         }
       ]
@@ -249,11 +233,8 @@
           "phase": 4,
           "status": "pending",
           "size": "large",
-          "description": "Create src/routes/import/+page.svelte with glassmorphism-styled drop zone, file picker, in-game date input, import button, progress bar, summary card",
-          "depends": [
-            "3.4",
-            "3.5"
-          ],
+          "description": "Create src/routes/import/+page.svelte with drop zone, file picker, in-game date input, import button, progress bar, summary card",
+          "depends": [],
           "files_touched": []
         },
         {
@@ -261,7 +242,7 @@
           "phase": 4,
           "status": "pending",
           "size": "small",
-          "description": "Create src/routes/+layout.svelte with glassmorphism navigation shell",
+          "description": "Create src/routes/+layout.svelte with navigation shell",
           "depends": [],
           "files_touched": []
         },
@@ -271,313 +252,22 @@
           "status": "pending",
           "size": "small",
           "description": "Update src/routes/+page.svelte as landing page",
-          "depends": [
-            "4.2"
-          ],
+          "depends": [],
           "files_touched": []
         },
         {
           "id": "4.4",
           "phase": 4,
-          "status": "pending",
+          "status": "completed",
           "size": "small",
           "description": "Create managed club settings component",
-          "depends": [
-            "3.6",
-            "4.2"
-          ],
-          "files_touched": []
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "name": "Scouting Backend — Percentiles & Scoring (Rust)",
-      "status": "pending",
-      "tasks": [
-        {
-          "id": "5.0",
-          "phase": 5,
-          "status": "pending",
-          "size": "large",
-          "description": "Implement seed_archetypes() in db.rs",
-          "depends": [
-            "1.3"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "5.1",
-          "phase": 5,
-          "status": "pending",
-          "size": "large",
-          "description": "Implement percentile computation",
-          "depends": [
-            "1.3"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "5.2",
-          "phase": 5,
-          "status": "pending",
-          "size": "medium",
-          "description": "Implement quality score computation",
-          "depends": [
-            "5.1"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "5.3",
-          "phase": 5,
-          "status": "pending",
-          "size": "medium",
-          "description": "Implement value score computation",
-          "depends": [
-            "5.1"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "5.4",
-          "phase": 5,
-          "status": "pending",
-          "size": "large",
-          "description": "Implement archetype score pre-computation",
-          "depends": [
-            "5.0",
-            "5.2",
-            "5.3"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "5.5",
-          "phase": 5,
-          "status": "pending",
-          "size": "small",
-          "description": "Implement get_archetypes Tauri command",
-          "depends": [
-            "5.0"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "5.6",
-          "phase": 5,
-          "status": "pending",
-          "size": "large",
-          "description": "Implement get_scouting_results Tauri command",
-          "depends": [
-            "3.6",
-            "5.4"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "5.7",
-          "phase": 5,
-          "status": "pending",
-          "size": "small",
-          "description": "Register Phase 5 scouting commands in lib.rs invoke_handler",
-          "depends": [
-            "3.4",
-            "5.5",
-            "5.6"
-          ],
-          "files_touched": []
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "name": "Scouting View UI — Core & Database View (Svelte 5)",
-      "status": "pending",
-      "tasks": [
-        {
-          "id": "6.1",
-          "phase": 6,
-          "status": "pending",
-          "size": "medium",
-          "description": "Create src/routes/scouting/+page.svelte",
-          "depends": [
-            "4.2"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "6.2",
-          "phase": 6,
-          "status": "pending",
-          "size": "large",
-          "description": "Implement Database View table",
-          "depends": [
-            "5.6",
-            "6.1"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "6.3",
-          "phase": 6,
-          "status": "pending",
-          "size": "medium",
-          "description": "Implement comparison pool toggle",
-          "depends": [
-            "3.7",
-            "6.2"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "6.4",
-          "phase": 6,
-          "status": "pending",
-          "size": "small",
-          "description": "Implement player row click navigation",
-          "depends": [
-            "6.2"
-          ],
-          "files_touched": []
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "name": "Scouting View UI — Role Search (Svelte 5)",
-      "status": "pending",
-      "tasks": [
-        {
-          "id": "7.1",
-          "phase": 7,
-          "status": "pending",
-          "size": "medium",
-          "description": "Implement position-archetype dependency chain",
-          "depends": [
-            "5.5",
-            "6.1"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "7.2",
-          "phase": 7,
-          "status": "pending",
-          "size": "medium",
-          "description": "Implement Top 3 Podium",
-          "depends": [
-            "6.2",
-            "7.1"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "7.3",
-          "phase": 7,
-          "status": "pending",
-          "size": "large",
-          "description": "Implement results table below podium",
-          "depends": [
-            "7.2"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "7.4",
-          "phase": 7,
-          "status": "pending",
-          "size": "medium",
-          "description": "Implement score mode toggle with debounce and animation",
-          "depends": [
-            "3.7",
-            "7.3"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "7.5",
-          "phase": 7,
-          "status": "pending",
-          "size": "small",
-          "description": "Implement scouting state preservation via Svelte 5 $state rune",
-          "depends": [
-            "7.3"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "7.6",
-          "phase": 7,
-          "status": "pending",
-          "size": "small",
-          "description": "Implement user preference persistence",
-          "depends": [
-            "3.7",
-            "6.3",
-            "7.4"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "7.7",
-          "phase": 7,
-          "status": "pending",
-          "size": "small",
-          "description": "Implement all empty states",
-          "depends": [
-            "6.1",
-            "7.1"
-          ],
-          "files_touched": []
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "name": "Build Verification & Polish",
-      "status": "pending",
-      "tasks": [
-        {
-          "id": "8.1",
-          "phase": 8,
-          "status": "pending",
-          "size": "small",
-          "description": "Run cargo build to verify all Rust code compiles; fix any issues",
-          "depends": [
-            "3.4",
-            "5.7"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "8.2",
-          "phase": 8,
-          "status": "pending",
-          "size": "small",
-          "description": "Run bun run check for frontend type-checking; fix errors",
-          "depends": [
-            "4.4",
-            "7.7"
-          ],
-          "files_touched": []
-        },
-        {
-          "id": "8.3",
-          "phase": 8,
-          "status": "pending",
-          "size": "small",
-          "description": "Run pre-check batch on all changed source files",
-          "depends": [
-            "8.1",
-            "8.2"
-          ],
+          "depends": [],
           "files_touched": []
         }
       ]
     }
   ],
   "migration_status": "native",
-  "specMtime": "2026-05-05T05:15:31.144Z",
+  "specMtime": "2026-05-04T19:44:12.941Z",
   "specHash": "51c2374dad848dcd89337e8a83408642ffb1730970350d8b64eda5c730117f84"
 }
