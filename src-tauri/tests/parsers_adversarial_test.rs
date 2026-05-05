@@ -23,11 +23,7 @@ fn test_schema_headers_extremely_long_name() {
 fn test_schema_headers_long_name_mixed_with_short() {
     // One very long header followed by normal headers
     let long_name = "B".repeat(100_000);
-    let headers = vec![
-        "short".to_string(),
-        long_name.clone(),
-        "tiny".to_string(),
-    ];
+    let headers = vec!["short".to_string(), long_name.clone(), "tiny".to_string()];
     let schema = Schema::from_headers(&headers);
 
     assert_eq!(schema.column_index.len(), 3);
@@ -40,17 +36,17 @@ fn test_schema_headers_long_name_mixed_with_short() {
 fn test_schema_headers_unicode_injection() {
     // Unicode control / special characters that could trick parsing
     let headers = vec![
-        "\0".to_string(),                    // null byte
-        "\u{202E}".to_string(),              // RIGHT-TO-LEFT OVERRIDE
-        "\u{200B}".to_string(),              // zero-width space
-        "\u{FEFF}".to_string(),              // BOM
-        "col\u{0000}name".to_string(),       // embedded null
-        "col\u{202E}name".to_string(),       // embedded RTL override
-        "héllo wörld".to_string(),           // accented chars
-        "\u{1F600}".to_string(),             // emoji
+        "\0".to_string(),                        // null byte
+        "\u{202E}".to_string(),                  // RIGHT-TO-LEFT OVERRIDE
+        "\u{200B}".to_string(),                  // zero-width space
+        "\u{FEFF}".to_string(),                  // BOM
+        "col\u{0000}name".to_string(),           // embedded null
+        "col\u{202E}name".to_string(),           // embedded RTL override
+        "héllo wörld".to_string(),               // accented chars
+        "\u{1F600}".to_string(),                 // emoji
         "a\u{0300}\u{0301}\u{0302}".to_string(), // combining diacritics
-        "tab\tcol".to_string(),              // tab in name
-        "newline\ncol".to_string(),          // newline in name
+        "tab\tcol".to_string(),                  // tab in name
+        "newline\ncol".to_string(),              // newline in name
     ];
     let schema = Schema::from_headers(&headers);
 
@@ -63,7 +59,10 @@ fn test_schema_headers_unicode_injection() {
     assert_eq!(schema.column_index.get("col\u{202E}name"), Some(&5));
     assert_eq!(schema.column_index.get("héllo wörld"), Some(&6));
     assert_eq!(schema.column_index.get("\u{1F600}"), Some(&7));
-    assert_eq!(schema.column_index.get("a\u{0300}\u{0301}\u{0302}"), Some(&8));
+    assert_eq!(
+        schema.column_index.get("a\u{0300}\u{0301}\u{0302}"),
+        Some(&8)
+    );
     assert_eq!(schema.column_index.get("tab\tcol"), Some(&9));
     assert_eq!(schema.column_index.get("newline\ncol"), Some(&10));
 }
@@ -83,9 +82,7 @@ fn test_schema_headers_all_empty_strings() {
 #[test]
 fn test_schema_headers_thousand_columns() {
     // 1000 unique column names — stress HashMap capacity and rehashing
-    let headers: Vec<String> = (0..1000)
-        .map(|i| format!("col_{}", i))
-        .collect();
+    let headers: Vec<String> = (0..1000).map(|i| format!("col_{}", i)).collect();
     let schema = Schema::from_headers(&headers);
 
     assert_eq!(schema.column_index.len(), 1000);
@@ -133,8 +130,8 @@ fn test_schema_headers_whitespace_variants() {
         " ".to_string(),
         "  ".to_string(),
         "\t".to_string(),
-        "\u{00A0}".to_string(),  // non-breaking space
-        "\u{2003}".to_string(),  // em space
+        "\u{00A0}".to_string(), // non-breaking space
+        "\u{2003}".to_string(), // em space
         " leading".to_string(),
         "trailing ".to_string(),
     ];
@@ -370,7 +367,10 @@ fn test_field_value_clone_wage_deep() {
 
     // Verify original is unchanged
     match original {
-        FieldValue::Wage { value, denomination } => {
+        FieldValue::Wage {
+            value,
+            denomination,
+        } => {
             assert!((value - 50000.0).abs() < f64::EPSILON);
             assert_eq!(denomination, Some("p/w".to_string()));
         }
@@ -526,10 +526,7 @@ fn test_debug_empty_position() {
 #[test]
 fn test_debug_appearances_zero() {
     // Appearances with zero values
-    let fv = FieldValue::Appearances {
-        starts: 0,
-        subs: 0,
-    };
+    let fv = FieldValue::Appearances { starts: 0, subs: 0 };
     let debug_str = format!("{:?}", fv);
     assert!(!debug_str.is_empty());
     assert!(debug_str.contains("0"));
@@ -624,7 +621,9 @@ fn assert_currency(result: FieldValue, expected: f64) {
 fn test_adv_very_long_digit_string() {
     let mut long = String::with_capacity(55_000);
     long.push_str("€");
-    for _ in 0..50_000 { long.push('9'); }
+    for _ in 0..50_000 {
+        long.push('9');
+    }
     let result = parse_currency(&long);
     match result {
         FieldValue::Currency(v) => assert!(!v.is_nan(), "no NaN"),
@@ -637,7 +636,9 @@ fn test_adv_very_long_digit_string() {
 fn test_adv_very_long_with_valid_prefix() {
     let mut garbage = String::with_capacity(55_000);
     garbage.push_str("€55M");
-    for _ in 0..50_000 { garbage.push(' '); }
+    for _ in 0..50_000 {
+        garbage.push(' ');
+    }
     assert_currency(parse_currency(&garbage), 55_000_000.0);
 }
 
@@ -782,7 +783,9 @@ fn test_adv_scientific_negative_exponent() {
 // ── 6. Non-numeric after stripping ──────────────────────────────────────────
 
 #[test]
-fn test_adv_pure_alpha() { assert!(matches!(parse_currency("€abc"), FieldValue::Null)); }
+fn test_adv_pure_alpha() {
+    assert!(matches!(parse_currency("€abc"), FieldValue::Null));
+}
 
 #[test]
 fn test_adv_alpha_with_magnitude() {
@@ -806,7 +809,9 @@ fn test_adv_symbols_only() {
 }
 
 #[test]
-fn test_adv_hex_like() { assert!(matches!(parse_currency("€0x1A"), FieldValue::Null)); }
+fn test_adv_hex_like() {
+    assert!(matches!(parse_currency("€0x1A"), FieldValue::Null));
+}
 
 // ── 7. Only a dash ─────────────────────────────────────────────────────────
 
@@ -825,7 +830,10 @@ fn test_adv_only_dash_inputs() {
 fn test_adv_triple_range() {
     // Compact dashes without spaces are not recognized as range separator
     let result = parse_currency("€1M-€2M-€3M");
-    assert!(matches!(result, FieldValue::Null), "compact ranges without spaces should not be recognized: got {result:?}");
+    assert!(
+        matches!(result, FieldValue::Null),
+        "compact ranges without spaces should not be recognized: got {result:?}"
+    );
 }
 
 #[test]
@@ -837,13 +845,18 @@ fn test_adv_quadruple_range_with_spaces() {
 fn test_adv_compact_multiple_range() {
     // Compact dashes without spaces are not recognized as range separator
     let result = parse_currency("€5M-€10M-€15M");
-    assert!(matches!(result, FieldValue::Null), "compact ranges without spaces should not be recognized: got {result:?}");
+    assert!(
+        matches!(result, FieldValue::Null),
+        "compact ranges without spaces should not be recognized: got {result:?}"
+    );
 }
 
 // ── 9. Decimal without magnitude ───────────────────────────────────────────
 
 #[test]
-fn test_adv_decimal_plain() { assert_currency(parse_currency("€19.25"), 19.25); }
+fn test_adv_decimal_plain() {
+    assert_currency(parse_currency("€19.25"), 19.25);
+}
 
 #[test]
 fn test_adv_decimal_small() {
@@ -912,10 +925,22 @@ fn test_adv_nan_literal() {
 fn test_adv_whitespace_inside() {
     // Tab/NL/CR before number gets trimmed by trim() calls
     // Use whitespace truly inside the numeric part to break parsing
-    assert!(matches!(parse_currency("€55\t5M"), FieldValue::Null), "tab in middle should break");
-    assert!(matches!(parse_currency("€55\n5M"), FieldValue::Null), "newline in middle should break");
-    assert!(matches!(parse_currency("€55\r5M"), FieldValue::Null), "CR in middle should break");
-    assert!(matches!(parse_currency("€55\x0C5M"), FieldValue::Null), "form feed in middle should break");
+    assert!(
+        matches!(parse_currency("€55\t5M"), FieldValue::Null),
+        "tab in middle should break"
+    );
+    assert!(
+        matches!(parse_currency("€55\n5M"), FieldValue::Null),
+        "newline in middle should break"
+    );
+    assert!(
+        matches!(parse_currency("€55\r5M"), FieldValue::Null),
+        "CR in middle should break"
+    );
+    assert!(
+        matches!(parse_currency("€55\x0C5M"), FieldValue::Null),
+        "form feed in middle should break"
+    );
 }
 
 #[test]

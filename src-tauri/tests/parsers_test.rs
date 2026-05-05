@@ -106,10 +106,7 @@ fn test_field_value_appearances() {
             subs: *subs,
         };
         match fv {
-            FieldValue::Appearances {
-                starts: s,
-                subs: u,
-            } => {
+            FieldValue::Appearances { starts: s, subs: u } => {
                 assert_eq!(s, *starts, "Appearances starts round-trip");
                 assert_eq!(u, *subs, "Appearances subs round-trip");
             }
@@ -125,11 +122,7 @@ fn test_field_value_position() {
         vec!["CM".to_string(), "CDM".to_string()],
         vec!["GK".to_string()],
         vec![],
-        vec![
-            "LB".to_string(),
-            "LWB".to_string(),
-            "LM".to_string(),
-        ],
+        vec!["LB".to_string(), "LWB".to_string(), "LM".to_string()],
     ];
     for positions in &cases {
         let fv = FieldValue::Position(positions.clone());
@@ -394,7 +387,10 @@ fn test_schema_from_headers_normal() {
     assert_eq!(schema.column_index.get("nation"), Some(&2));
     assert_eq!(schema.column_index.get("age"), Some(&3));
     assert_eq!(schema.column_index.get("club"), Some(&4));
-    assert!(schema.parsers.is_empty(), "parsers registry should start empty");
+    assert!(
+        schema.parsers.is_empty(),
+        "parsers registry should start empty"
+    );
 }
 
 #[test]
