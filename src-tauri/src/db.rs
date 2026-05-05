@@ -1,4 +1,5 @@
-use rusqlite::Connection;
+use rusqlite::{params, Connection};
+use serde::Serialize;
 
 /// Create all application tables and indexes if they do not already exist.
 pub fn create_tables(conn: &Connection) -> rusqlite::Result<()> {
@@ -134,6 +135,59 @@ pub fn create_tables(conn: &Connection) -> rusqlite::Result<()> {
         CREATE INDEX IF NOT EXISTS idx_as_season_arch_score ON archetype_scores(season_id, archetype_id, quality_score DESC);
         ",
     )
+}
+
+/// Get a setting value by key. Returns Ok(None) when the key doesn't exist.
+pub fn get_setting(conn: &Connection, key: &str) -> rusqlite::Result<Option<String>> {
+    let mut stmt = conn.prepare("SELECT value FROM settings WHERE key = ?1")?;
+    let mut rows = stmt.query_map(params![key], |row| row.get::<_, String>(0))?;
+    match rows.next() {
+        Some(Ok(value)) => Ok(Some(value)),
+        _ => Ok(None),
+    }
+}
+
+/// Set a setting key-value pair (upsert). If the key already exists, it is updated.
+pub fn set_setting(conn: &Connection, key: &str, value: &str) -> rusqlite::Result<()> {
+    conn.execute(
+        "INSERT INTO settings (key, value) VALUES (?1, ?2) ON CONFLICT(key) DO UPDATE SET value = ?2",
+        params![key, value],
+    )?;
+    Ok(())
+}
+
+/// A summary of a past CSV import season, returned to the frontend.
+#[derive(Debug, Clone, Serialize)]
+pub struct SeasonInfo {
+    pub id: i64,
+    pub name: String,
+    pub in_game_date: String,
+    pub import_date: String,
+    pub filename: String,
+    pub player_count: i64,
+}
+
+/// Retrieve all seasons, most recent first.
+pub fn get_seasons(conn: &Connection) -> rusqlite::Result<Vec<SeasonInfo>> {
+    let mut stmt = conn.prepare(
+        "SELECT id, name, in_game_date, import_date, filename, player_count \
+         FROM seasons ORDER BY import_date DESC",
+    )?;
+    let rows = stmt.query_map([], |row| {
+        Ok(SeasonInfo {
+            id: row.get(0)?,
+            name: row.get(1)?,
+            in_game_date: row.get(2)?,
+            import_date: row.get(3)?,
+            filename: row.get(4)?,
+            player_count: row.get(5)?,
+        })
+    })?;
+    let mut seasons = Vec::new();
+    for row in rows {
+        seasons.push(row?);
+    }
+    Ok(seasons)
 }
 
 /// Seed default archetypes into the database.
