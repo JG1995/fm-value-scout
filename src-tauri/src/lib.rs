@@ -2,6 +2,7 @@ pub mod db;
 pub mod encoding;
 pub mod import;
 pub mod parsers;
+pub mod scoring;
 
 use std::sync::{Arc, Mutex};
 
@@ -29,6 +30,7 @@ fn init_database(
     conn.pragma_update(None, "busy_timeout", 5000)?; // 5s busy timeout
 
     db::create_tables(&conn)?;
+    db::migrate_db(&conn)?;
 
     Ok(Arc::new(Mutex::new(conn)))
 }
@@ -96,6 +98,52 @@ fn get_seasons(state: tauri::State<'_, AppState>) -> Result<Vec<db::SeasonInfo>,
     db::get_seasons(&conn).map_err(|e| format!("DB error: {}", e))
 }
 
+/// Get all archetypes, optionally filtered by base_position.
+/// If base_position is None, returns all archetypes.
+#[tauri::command]
+fn get_archetypes(
+    state: tauri::State<'_, AppState>,
+    base_position: Option<String>,
+) -> Result<Vec<db::ArchetypeInfo>, String> {
+    let conn = state
+        .db
+        .lock()
+        .map_err(|e| format!("Failed to acquire DB lock: {}", e))?;
+    db::get_archetypes(&conn, base_position.as_deref())
+        .map_err(|e| format!("DB error: {}", e))
+}
+
+/// Get scouting players for database view.
+#[tauri::command]
+fn get_scouting_players(
+    state: tauri::State<'_, AppState>,
+    pool_type: String,
+    managed_club: Option<String>,
+) -> Result<Vec<db::ScoutingPlayer>, String> {
+    let conn = state
+        .db
+        .lock()
+        .map_err(|e| format!("Failed to acquire DB lock: {}", e))?;
+    db::get_scouting_players(&conn, &pool_type, managed_club.as_deref())
+        .map_err(|e| format!("DB error: {}", e))
+}
+
+/// Get role search results for a specific archetype.
+#[tauri::command]
+fn get_role_search_results(
+    state: tauri::State<'_, AppState>,
+    archetype_id: i64,
+    score_mode: String,
+    managed_club: Option<String>,
+) -> Result<Vec<db::RoleSearchPlayer>, String> {
+    let conn = state
+        .db
+        .lock()
+        .map_err(|e| format!("Failed to acquire DB lock: {}", e))?;
+    db::get_role_search_results(&conn, archetype_id, &score_mode, managed_club.as_deref())
+        .map_err(|e| format!("DB error: {}", e))
+}
+
 /// Import a CSV file into the database.
 /// file_path: absolute path to the CSV file
 /// in_game_date: the in-game date (e.g. "15.6.2029")
@@ -119,6 +167,13 @@ pub fn run() {
         .plugin(tauri_plugin_dialog::init())
         .setup(|app| {
             let db = init_database(&app.handle())?;
+
+            // Seed default archetypes on first launch
+            {
+                let conn = db.lock().map_err(|e| e.to_string())?;
+                db::seed_archetypes(&conn).map_err(|e| e.to_string())?;
+            }
+
             app.manage(AppState { db });
             Ok(())
         })
@@ -129,7 +184,10 @@ pub fn run() {
             set_preference,
             get_preference,
             get_seasons,
+            get_archetypes,
             import_csv,
+            get_scouting_players,
+            get_role_search_results,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
