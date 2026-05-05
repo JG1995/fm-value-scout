@@ -43,27 +43,27 @@ Swarm: default
 
 | Tool | Calls | Success | Failed | Avg Duration |
 |------|-------|---------|--------|--------------|
-| read | 463 | 463 | 0 | 16ms |
-| bash | 276 | 276 | 0 | 3126ms |
-| glob | 124 | 124 | 0 | 19ms |
+| read | 466 | 466 | 0 | 40ms |
+| bash | 287 | 287 | 0 | 3089ms |
+| glob | 127 | 127 | 0 | 19ms |
 | task | 69 | 69 | 0 | 140640ms |
+| grep | 68 | 68 | 0 | 122ms |
 | search | 66 | 66 | 0 | 645ms |
-| grep | 65 | 65 | 0 | 17ms |
 | edit | 65 | 65 | 0 | 9ms |
-| update_task_status | 42 | 42 | 0 | 12ms |
+| update_task_status | 53 | 53 | 0 | 11ms |
+| test_runner | 25 | 25 | 0 | 4ms |
 | declare_scope | 24 | 24 | 0 | 5ms |
-| test_runner | 23 | 23 | 0 | 3ms |
-| todowrite | 21 | 21 | 0 | 5ms |
+| todowrite | 22 | 22 | 0 | 5ms |
 | syntax_check | 19 | 19 | 0 | 25ms |
 | placeholder_scan | 19 | 19 | 0 | 22ms |
 | write | 18 | 18 | 0 | 11ms |
+| check_gate_status | 16 | 16 | 0 | 4ms |
 | pre_check_batch | 11 | 11 | 0 | 16ms |
-| check_gate_status | 11 | 11 | 0 | 3ms |
 | imports | 9 | 9 | 0 | 3ms |
 | diff | 6 | 6 | 0 | 69ms |
 | build_check | 6 | 6 | 0 | 1483ms |
 | phase_complete | 6 | 6 | 0 | 81941ms |
-| save_plan | 4 | 4 | 0 | 21ms |
+| save_plan | 5 | 5 | 0 | 24ms |
 | lint | 4 | 4 | 0 | 6ms |
 | evidence_check | 3 | 3 | 0 | 11ms |
 | get_qa_gate_profile | 3 | 3 | 0 | 8ms |

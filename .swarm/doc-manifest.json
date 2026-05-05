@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scanned_at": "2026-05-05T05:22:32.806Z",
+  "scanned_at": "2026-05-05T09:57:58.229Z",
   "files": [
     {
       "path": "AGENTS.md",
@@ -263,10 +263,10 @@
     },
     {
       "path": "README.md",
-      "title": "Tauri + SvelteKit + TypeScript",
-      "summary": "This template should help get you started developing with Tauri, SvelteKit and TypeScript in Vite. [VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?it...",
-      "lines": 8,
-      "mtime": 1777874170009.2336
+      "title": "FM ValueScout — CSV Parser & Scouting View",
+      "summary": "Desktop companion for Football Manager moneyball-style scouting. Built with Tauri 2 + Rust + SvelteKit 5. - `src-tauri/src/` — Rust backend (Tauri commands, SQLite DB, CSV parser pipeline) - `src/`...",
+      "lines": 70,
+      "mtime": 1777975077765.9985
     }
   ]
 }
